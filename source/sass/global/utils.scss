@@ -1,0 +1,60 @@
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  clip: rect(0 0 0 0);
+}
+
+.wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  // используйте для страниц с min-height: 100vh для визуального скрытия скроллбара
+  &--no-scrollbar {
+    height: 100vh;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .header,
+  .footer {
+    flex-shrink: 0;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+.scroll-lock {
+  position: fixed;
+
+  overflow-y: auto;
+
+  // требует теста, должно улучшить поведение в ios ( скрол выше \ ниже контента body )
+  /* overflow: hidden;
+  -webkit-overflow-scrolling: none;
+
+  overscroll-behavior: none;
+  touch-action: none; */
+}
+
+.btn-reset {
+  padding: 0;
+
+  background: $color-transparent;
+  border: none;
+  cursor: pointer;
+}

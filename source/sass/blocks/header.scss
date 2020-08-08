@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 100px;
+  padding: 0 40px;
+
+  background-color: $color-blue;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  a,
+  p {
+    color: $color-white;
+  }
+
+  ul {
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    margin-left: 60px;
+    padding: 0;
+
+    list-style: none;
+
+    li {
+      margin-right: 20px;
+    }
+  }
+
+  .main-nav__toggle {
+    display: none;
+  }
+}

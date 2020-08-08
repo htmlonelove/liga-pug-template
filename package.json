@@ -1,0 +1,60 @@
+{
+  "private": true,
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "scripts": {
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
+    "test": "npm run editorconfig & npm run stylelint & eslint source/js/",
+    "build": "gulp build",
+    "start": "gulp start",
+    "webp": "gulp webp",
+    "imagemin": "gulp imagemin",
+    "concat-js": "gulp concat-js"
+  },
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/**/*.html",
+    "source/**/*.pug",
+    "source/js/**/*.js",
+    "source/img/**/*.svg",
+    "source/sass/**/*.{sass,scss}"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "7.8.7",
+    "@htmlacademy/editorconfig-cli": "1.x",
+    "autoprefixer": "9.5.x",
+    "babel-loader": "8.0.6",
+    "browser-sync": "2.26.12",
+    "clean-webpack-plugin": "3.0.0",
+    "del": "5.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-htmlacademy": "0.4.x",
+    "gulp": "4.0.x",
+    "gulp-cached": "1.1.1",
+    "gulp-concat": "2.6.1",
+    "gulp-csso": "3.0.1",
+    "gulp-file-include": "2.2.2",
+    "gulp-imagemin": "7.1.0",
+    "gulp-plumber": "1.2.x",
+    "gulp-postcss": "8.0.x",
+    "gulp-pug": "4.0.1",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.x",
+    "gulp-sourcemaps": "2.6.x",
+    "gulp-svgstore": "7.0.1",
+    "gulp-uglify": "3.0.2",
+    "gulp-webp": "4.0.1",
+    "stylelint": "9.10.x",
+    "stylelint-config-htmlacademy": "0.1.x",
+    "webpack": "4.42.0",
+    "webpack-stream": "5.2.1"
+  },
+  "engines": {
+    "node": "8.15"
+  }
+}

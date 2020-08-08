@@ -1,0 +1,66 @@
+extends ../base/layout
+
+block data
+
+block variables
+  - var title = "Компоненты"
+  - var wrapperMod = ""
+  - var hasHeader = true
+  - var headerMod = ""
+  - var hasFooter = true
+  - var footerMod = ""
+  - var currentPage = ""
+
+block main
+  style.
+    .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .components-backwards {
+      display: inline-block;
+      margin-bottom: 10px;
+      margin-left: 7px;
+    }
+
+    .components-backwards span:first-child {
+      position: relative;
+      top: -3px;
+
+      display: inline-block;
+      margin-right: 15px;
+
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: top;
+
+      transform: scale(2);
+    }
+
+    .components-backwards span:last-child {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .components-backwards + h1 {
+      margin-bottom: 0;
+    }
+
+    .container > section {
+      padding: 20px 0;
+    }
+
+  main
+    .container
+      a.components-backwards(href="index.html")
+        span &larr;
+        span вернуться на разводящую
+      h1 Компоненты, используемые в вёрстке
+
+      section
+        h2 Название компонента или группы компонентов
+
+        p Класс компонента \ модификаторы
+        p(style="color: red;") При необходимости, подсказки \ предупреждение \ важная информация
+        div Компонент

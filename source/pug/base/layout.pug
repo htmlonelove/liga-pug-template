@@ -1,0 +1,35 @@
+include ../base/mixins
+include ../base/header
+include ../base/footer
+include ../base/modal
+
+block data
+block variables
+
+doctype html
+html(lang="ru")
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    meta(name="description", content="Project Name - описание")
+    //- генерируйте favicon тут - https://realfavicongenerator.net/
+    //- link(rel="preload", href="fonts/placeholder.woff2", as="font", crossorigin="anonymous")
+    link(rel="stylesheet", href="css/style.min.css")
+
+  body
+    +sprite()
+    div(class=(wrapperMod) ? "wrapper wrapper--" + wrapperMod : "wrapper")
+      if (hasHeader)
+        +header(headerMod, currentPage)
+
+      block main
+
+      if (hasFooter)
+        +footer(footerMod)
+
+    block modals
+
+    script(src="js/vendor.min.js")
+    script(src="js/main.min.js")

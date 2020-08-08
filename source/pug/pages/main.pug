@@ -1,0 +1,35 @@
+extends ../base/layout
+
+block data
+  include ../data/placeholder
+
+block variables
+  - var title = "ProjectName — Главная"
+  - var wrapperMod = ""
+  - var hasHeader = true
+  - var headerMod = ""
+  - var hasFooter = true
+  - var footerMod = ""
+  - var currentPage = "main" //- для остальных страниц пишем либо пустую строку, либо индекс
+
+block main
+  main
+    .container
+      p(style="margin-top: 40px;") Пример вызова модалок
+      p
+        a(href="#", data-modal="feedback") modal--feedback link
+      p
+        a(href="#", data-modal="success") modal--success link
+
+      p(style="margin-top: 40px;") Пример импорта из `pug/data`
+      h3= heading.title
+      i= heading.description
+
+      p(style="margin-top: 40px;") Пример использования +img()
+      +img("content", "placeholder", "jpg", 250, 250, "Пример")
+
+block modals
+  +modal("modal--feedback")
+    +modal-feedback()
+  +modal("modal--success modal--no-scale modal--fit-content")
+    +modal-success()

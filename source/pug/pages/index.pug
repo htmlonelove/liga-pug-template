@@ -1,0 +1,34 @@
+extends ../base/layout
+
+block variables
+  - var title = "Оглавление"
+
+block main
+  style.
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    a {
+      color: blue;
+    }
+
+  -
+    var pages = [
+      {
+        name: "Компоненты",
+        src: "components.html"
+      },
+      {
+        name: "Главная страница --- main.html",
+        src: "main.html"
+      },
+    ]
+
+  main.container.main-index
+    h1 Список страниц
+    ol
+      each page in pages
+        li
+          a(href= page.src)= page.name
