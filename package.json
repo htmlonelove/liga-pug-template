@@ -49,6 +49,7 @@
     "gulp-svgstore": "7.0.1",
     "gulp-uglify": "3.0.2",
     "gulp-webp": "4.0.1",
+    "pug-lint": "2.6.0",
     "stylelint": "9.10.x",
     "stylelint-config-htmlacademy": "0.1.x",
     "webpack": "4.42.0",
