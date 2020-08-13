@@ -10,15 +10,15 @@
   flex-direction: column;
   overflow-y: auto;
 
-  background-color: rgba($color-default-black, 0.6);
+  background-color: rgba(0,0,0, 0.6);
   transform: scale(1.2);
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 
-  transition: opacity $modal-transition-settings,
-    transform $modal-transition-settings,
-    visibility $modal-transition-settings;
+  transition: opacity $transition,
+    transform $transition,
+    visibility $transition;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -60,7 +60,7 @@
     width: 600px;
     padding: 40px;
 
-    background-color: $color-default-white;
+    background-color: $white;
 
     @include viewport--sm {
       width: 100%;

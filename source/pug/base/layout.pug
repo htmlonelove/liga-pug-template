@@ -15,11 +15,10 @@ html(lang="ru")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     meta(name="description", content="Project Name - описание")
     //- генерируйте favicon тут - https://realfavicongenerator.net/
-    //- link(rel="preload", href="fonts/placeholder.woff2", as="font", crossorigin="anonymous")
+    //- добавляйте максимум 2-3 шрифта, которые есть на первом экране link(rel="preload", href="fonts/placeholder.woff2", as="font", crossorigin="anonymous")
     link(rel="stylesheet", href="css/style.min.css")
 
   body
-    +sprite()
     div(class=(wrapperMod) ? "wrapper wrapper--" + wrapperMod : "wrapper")
       if (hasHeader)
         +header(headerMod, currentPage)

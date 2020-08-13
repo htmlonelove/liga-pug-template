@@ -1,0 +1,60 @@
+.news {
+  @include reset-list;
+  display: flex;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+
+  &__item {
+    width: calc(33.333% - 20px);
+    margin-bottom: 30px;
+
+    &:not(:last-of-type) {
+      margin-right: 30px;
+    }
+
+    @media (max-width: $viewport--md) {
+      width: 100%;
+
+      &:not(:last-of-type) {
+        margin-right: 0
+      }
+    }
+  }
+}
+
+.news-card {
+  display: block;
+
+  &__icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+  }
+
+  &__picture {
+    position: relative;
+    width: 100%;
+    height: 171px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 1;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    color: $black;
+    transition: opacity $transition;
+  }
+
+  &__date {
+    opacity: 0.7;
+  }
+}
+

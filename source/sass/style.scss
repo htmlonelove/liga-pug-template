@@ -1,3 +1,8 @@
+
+@import "variables";
+@import "mixins";
+
+
 // Vendor
 //---------------------------------
 
@@ -7,19 +12,24 @@
 // Global
 //---------------------------------
 
-@import "variables";
-@import "mixins";
 @import "global/fonts";
 @import "global/reboot";
 @import "global/utils";
-@import "global/container";
 
-// Blocks
+// layout
 //---------------------------------
 
-@import "blocks/header";
-@import "blocks/footer";
-@import "blocks/modal";
+@import "layout/main";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/container";
+@import "layout/modal";
+
+// components
+//---------------------------------
+
+@import "components/icons";
+@import "components/news";
 
 
 // используйте это для отключения ховеров на тач устройствах

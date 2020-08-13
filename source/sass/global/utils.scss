@@ -1,11 +1,22 @@
-.visually-hidden {
+.visually-hidden,
+input[type="file"].visually-hidden,
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
   position: absolute;
 
   width: 1px;
   height: 1px;
+  min-height: 0;
   margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
 
   clip: rect(0 0 0 0);
+  clip-path: inset(100%);
 }
 
 .wrapper {
@@ -54,7 +65,14 @@
 .btn-reset {
   padding: 0;
 
-  background: $color-transparent;
+  background: transparent;
   border: none;
   cursor: pointer;
+}
+
+
+.rouble {
+  font-family: $font-family--rouble;
+  text-transform: lowercase;
+  font-weight: 400;
 }
