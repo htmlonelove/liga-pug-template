@@ -1,0 +1,5 @@
+mixin images(path, image, format, width, height, altText)
+  img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
+
+mixin svg(path, image, width, height, altText)
+  img(src="img/" + path + "/" + image + ".svg", width= width, height= height, alt= altText)

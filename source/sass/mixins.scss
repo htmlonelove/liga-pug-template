@@ -55,3 +55,37 @@
     @content;
   }
 } */
+
+// спрятать скролл
+@mixin hidden-scrollbar {
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+@mixin btn-reset {
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+@mixin reset-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin ie-only {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}

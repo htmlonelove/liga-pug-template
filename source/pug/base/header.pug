@@ -16,14 +16,15 @@ mixin header(headerMod, currentPage)
     ]
 
   header(class=(headerMod) ? "header header--" + headerMod : "header")
-    .header__wrapper
+    .header__wrapper.container
       if(currentPage === "main")
         a.header__logo Логотип
       else
         a.header__logo(href="main.html", aria-label="Переход на главную") Логотип
       nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
+        button.js-close-menu.close-menu
+        button.main-nav__toggle.js-menu(type="button", aria-label="Переключатель отображения меню", aria-pressed="false").icon-burger
+          span
         .main-nav__wrapper
           ul.main-nav__list
             each link, index in headerLinks

@@ -1,0 +1,13 @@
+include images
+
+mixin news(data)
+  ul.news
+    each item in data
+      li.news__item
+        a.news__card.news-card(href='#')
+          .news-card__picture
+            .news-card__icon
+              +svg('svg', 'icon', 20, 28, 'Текст для читалки')
+            +images(item.path, item.image, item.format, item.width, item.height, item.altText)
+          p.news-card__title !{item.title}
+          time.p(datetime=item.datetime).news-card__date !{item.date}
