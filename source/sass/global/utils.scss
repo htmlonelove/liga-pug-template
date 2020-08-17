@@ -42,13 +42,6 @@
   position: fixed;
 
   overflow-y: auto;
-
-  // требует теста, должно улучшить поведение в ios ( скрол выше \ ниже контента body )
-  /* overflow: hidden;
-  -webkit-overflow-scrolling: none;
-
-  overscroll-behavior: none;
-  touch-action: none; */
 }
 
 .btn-reset {
