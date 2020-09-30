@@ -6,7 +6,7 @@ const modalFeedbackBtns = document.querySelectorAll('[data-modal="feedback"]');
 const modalSuccess = document.querySelector('.modal--success');
 const modalSuccessBtns = document.querySelectorAll('[data-modal="success"]');
 
-// аргументы setupModal(modal, closeCallback, modalBtns, openCallback, noPrevDefault)
+// аргументы setupModal(modal, closeCallback, modalBtns, openCallback, noPrevDefault, preventScrollLock)
 // возможна инициализация только с первыми аргументом,
 // если вам нужно открывать модалку в другом месте под какими-нибудь условиями
 const initModals = () => {
