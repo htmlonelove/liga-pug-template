@@ -10,24 +10,62 @@ block main
       padding-bottom: 50px;
     }
 
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
     a {
-      color: blue;
+      color: rgb(10, 10, 175);
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 7px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      ol {
+        padding-left: 20px;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
     }
 
   -
     var pages = [
       {
-        name: "Компоненты",
+        name: "UI Kit — components.html",
         src: "components.html"
       },
       {
-        name: "Главная страница --- main.html",
+        name: "Главная — main.html",
         src: "main.html"
+      },
+      {
+        name: "Название страницы (состояние страницы, если отдельное) — ссылка на страницу",
+        src: "#"
       },
     ]
 
   main.container.main-index
-    h1 Список страниц
+    h1 Список страниц и компонентов
     ol
       each page in pages
         li
