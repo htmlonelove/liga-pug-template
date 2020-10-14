@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-// ! Не используйте scroll-behavior: smooth вместе с текущим utils/scroll-lock.js
 html {
   box-sizing: border-box;
 }
@@ -47,11 +46,6 @@ video {
 textarea {
   resize: none;
 }
-
-// если вы убираете outline - убедитесь, что для всех интерактивных элементов есть кастомный стиль фокуса
-/* :focus {
-  outline: none;
-} */
 
 // chrome autofill background removal
 // Если на проекте у инпутов используются разные цвета фонов\текста -

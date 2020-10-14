@@ -198,13 +198,3 @@
         .pipe(gulp.dest(`build/img`));
   });
 ```
-
-12. Склеивает js "для чтения" в build. Это иногда просят заказчики.
-
-```js
-  gulp.task(`concat-js`, function () {
-    return gulp.src([`source/js/main.js`, `source/js/utils/**/*.js`, `source/js/modules/**/*.js`])
-      .pipe(concat(`main.readonly.js`))
-      .pipe(gulp.dest(`build/js`));
-  });
-```
