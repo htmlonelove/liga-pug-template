@@ -1,5 +1,5 @@
 mixin modal(mods)
-  div(class="modal modal--preload " + mods)
+  .modal(class= mods && "modal--preload " + mods)
     .modal__wrapper
       .modal__overlay
       .modal__content

@@ -1,2 +1,2 @@
 mixin footer(footerMod)
-  footer(class= (footerMod) ? "footer footer--" + footerMod : "footer")
+  footer.footer(class= footerMod && "footer--" + footerMod)

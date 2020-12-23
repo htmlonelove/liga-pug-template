@@ -23,7 +23,7 @@ html(lang="ru")
 
   body
     +sprite()
-    div(class=(wrapperMod) ? "wrapper wrapper--" + wrapperMod : "wrapper")
+    .wrapper(class= wrapperMod && "wrapper--" + wrapperMod)
       if (hasHeader)
         +header(headerMod, currentPage)
 

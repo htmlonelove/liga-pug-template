@@ -15,7 +15,7 @@ mixin header(headerMod, currentPage)
       },
     ]
 
-  header(class=(headerMod) ? "header header--" + headerMod : "header")
+  header.header(class= headerMod && "header--" + headerMod)
     .header__wrapper
       if(currentPage === "main")
         a.header__logo Логотип
