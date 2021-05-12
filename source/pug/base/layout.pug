@@ -1,19 +1,20 @@
+doctype html
+
+include ../base/data
 include ../base/mixins
 include ../base/header
 include ../base/footer
 include ../base/modal
 
-block data
 block variables
 
-doctype html
 html(lang="ru")
   head
     title= title
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    meta(name="description", content="Project Name - описание")
+    meta(name="description", content="ProjectName — описание")
     //- генерируйте favicon тут - https://realfavicongenerator.net/
     //- в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"
 
@@ -23,14 +24,14 @@ html(lang="ru")
 
   body
     +sprite()
-    div(class=(wrapperMod) ? "wrapper wrapper--" + wrapperMod : "wrapper")
+    .wrapper(class=wrapperMods)
       if (hasHeader)
-        +header(headerMod, currentPage)
+        +header(headerMods, currentPage)
 
       block main
 
       if (hasFooter)
-        +footer(footerMod)
+        +footer(footerMods)
 
     block modals
 

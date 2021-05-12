@@ -4,20 +4,20 @@
   margin: 0 auto;
   padding: 0 40px;
 
-  @include viewport--lg {
+  @include vp--1439 {
     padding: 0 32px;
   }
 
-  @include viewport--md {
+  @include vp--1023 {
     padding: 0 24px;
   }
 
-  @include viewport--sm {
+  @include vp--767 {
     padding: 0 16px;
   }
 
   &--no-padding {
-    @include viewport--sm {
+    @include vp--767 {
       padding: 0;
     }
   }

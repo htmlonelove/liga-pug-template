@@ -15,6 +15,7 @@ const webpackStream = require('webpack-stream');
 const webpackConfig = require('./webpack.config.js');
 const pug = require('gulp-pug');
 const cached = require('gulp-cached');
+const gcmq = require('gulp-group-css-media-queries');
 
 const pugToHtml = () => {
   return gulp.src('source/pug/pages/*.pug')
@@ -32,6 +33,7 @@ const css = () => {
       .pipe(postcss([autoprefixer({
         grid: true,
       })]))
+      .pipe(gcmq()) // выключите, если в проект импортятся шрифты через ссылку на внешний источник
       .pipe(gulp.dest('build/css'))
       .pipe(csso())
       .pipe(rename('style.min.css'))
@@ -82,6 +84,11 @@ const syncserver = () => {
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
   gulp.watch('source/img/**/*.svg', gulp.series(copysvg, sprite, pugToHtml, refresh));
   gulp.watch('source/img/**/*.{png,jpg}', gulp.series(copypngjpg, pugToHtml, refresh));
+
+  gulp.watch('source/favicon/**', gulp.series(copy, refresh));
+  gulp.watch('source/video/**', gulp.series(copy, refresh));
+  gulp.watch('source/downloads/**', gulp.series(copy, refresh));
+  gulp.watch('source/*.php', gulp.series(copy, refresh));
 };
 
 const refresh = (done) => {
@@ -102,13 +109,12 @@ const copypngjpg = () => {
 const copy = () => {
   return gulp.src([
     'source/fonts/**',
-    'source/favicon/**',
     'source/img/**',
     'source/data/**',
-    'source/file/**',
-    'source/*.php',
-    'source/video/**', // учтите, что иногда git искажает видеофайлы, некоторые шрифты, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
+    'source/favicon/**',
+    'source/video/**', // git искажает видеофайлы, некоторые шрифты, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
     'source/downloads/**',
+    'source/*.php',
   ], {
     base: 'source',
   })
@@ -125,7 +131,6 @@ const start = gulp.series(build, syncserver);
 
 // Optional tasks
 //---------------------------------
-// Вызывайте через 'npm run taskName'
 
 const createWebp = () => {
   return gulp.src('source/img/**/*.{png,jpg}')

@@ -1,10 +1,19 @@
 import {setupModal} from '../utils/modal';
 
 const modals = document.querySelectorAll('.modal');
-const modalFeedback = document.querySelector('.modal--feedback');
-const modalFeedbackBtns = document.querySelectorAll('[data-modal="feedback"]');
-const modalSuccess = document.querySelector('.modal--success');
-const modalSuccessBtns = document.querySelectorAll('[data-modal="success"]');
+const modalBtns = document.querySelectorAll('[data-modal]');
+
+// настраиваем модалки тут, все колбеки импортим, а не создаем из этого модуля простыню
+const initModal = (modalId, modal, btn) => {
+  switch (modalId) {
+    case 'example':
+      setupModal(modal, false, btn, false, true, true);
+      break;
+    default:
+      setupModal(modal, false, btn, false, false, false);
+      break;
+  }
+};
 
 // аргументы setupModal(modal, closeCallback, modalBtns, openCallback, noPrevDefault, preventScrollLock)
 // возможна инициализация только с первыми аргументом,
@@ -21,11 +30,14 @@ const initModals = () => {
     }
   });
 
-  if (modalFeedback && modalFeedbackBtns.length) {
-    setupModal(modalFeedback, false, modalFeedbackBtns, false, false);
-  }
-  if (modalSuccess && modalSuccessBtns.length) {
-    setupModal(modalSuccess, false, modalSuccessBtns);
+  if (modalBtns.length) {
+    modalBtns.forEach((btn) => {
+      const modalId = btn.dataset.modal;
+      const modal = document.querySelector(`.modal--${modalId}`);
+      if (modal) {
+        initModal(modalId, modal, btn);
+      }
+    });
   }
 };
 

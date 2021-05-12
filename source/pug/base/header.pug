@@ -1,4 +1,4 @@
-mixin header(headerMod, currentPage)
+mixin header(headerMods, currentPage)
   -
     var headerLinks = [
       {
@@ -15,7 +15,7 @@ mixin header(headerMod, currentPage)
       },
     ]
 
-  header(class=(headerMod) ? "header header--" + headerMod : "header")
+  header.header(class=headerMods)
     .header__wrapper
       if(currentPage === "main")
         a.header__logo Логотип
@@ -27,9 +27,8 @@ mixin header(headerMod, currentPage)
         .main-nav__wrapper
           ul.main-nav__list
             each link, index in headerLinks
-              if(index === currentPage)
-                li
+              li.main-nav__item
+                if(index === currentPage)
                   a.main-nav__link.main-nav__link--active=link.text
-              else
-                li
+                else
                   a.main-nav__link(href=link.href)=link.text
