@@ -18,7 +18,7 @@ block main
       p
         a(href="#", data-modal="success") modal--success link
 
-      //- Данные каждого компонента должны
+      //- Все данные должны выноситься в pug/data
       p(style="margin-top: 40px;") Пример импорта из `pug/data`
       h3!= heading.title
       p= heading.description
@@ -27,9 +27,11 @@ block main
       //- != и !{} позволяют html отрабатывать в pug, используйте их по умолчанию
       //- варианты когда в тексте требуется отобразить <b>тест</b> тегами встречается редко
 
-      p(style="margin-top: 40px;") Пример использования +img()
+      p(style="margin-top: 40px;") Пример использования +img() и +picture()
       p(style="margin-bottom: 40px;")
         +img("content", "placeholder", "png", 120, 120, "Пример")
+        br
+        +picture("content", "placeholder", "png", 120, 120, "Пример")
 
 block modals
   +modal("modal--feedback")
