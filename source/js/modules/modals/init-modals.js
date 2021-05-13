@@ -1,7 +1,4 @@
-import {setupModal} from '../utils/modal';
-
-const modals = document.querySelectorAll('.modal');
-const modalBtns = document.querySelectorAll('[data-modal]');
+import {setupModal} from './modal';
 
 // настраиваем модалки тут, все колбеки импортим, а не создаем из этого модуля простыню
 const initModal = (modalId, modal, btn) => {
@@ -19,16 +16,18 @@ const initModal = (modalId, modal, btn) => {
 // возможна инициализация только с первыми аргументом,
 // если вам нужно открывать модалку в другом месте под какими-нибудь условиями
 const initModals = () => {
+  const modals = document.querySelectorAll('.modal:not(.is-initialized)');
+  const modalBtns = document.querySelectorAll('[data-modal]');
+
   // фикс для редких случаев, когда модалка появляется при загрузке страницы
-  window.addEventListener('load', () => {
-    if (modals.length) {
-      modals.forEach((el) => {
-        setTimeout(() => {
-          el.classList.remove('modal--preload');
-        }, 100);
-      });
-    }
-  });
+  if (modals.length) {
+    modals.forEach((el) => {
+      setTimeout(() => {
+        el.classList.remove('modal--preload');
+        el.classList.add('is-initialized');
+      }, 100);
+    });
+  }
 
   if (modalBtns.length) {
     modalBtns.forEach((btn) => {
@@ -40,5 +39,7 @@ const initModals = () => {
     });
   }
 };
+
+window.initModals = initModals;
 
 export {initModals};

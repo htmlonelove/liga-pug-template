@@ -41,6 +41,11 @@
   clip: rect(0 0 0 0);
 }
 
+.no-transition {
+  /* stylelint-disable-next-line */
+  transition: none !important;
+}
+
 .rouble {
   font-family: $font-family--rouble;
   /* stylelint-disable */
@@ -49,6 +54,7 @@
   /* stylelint-enable */
 }
 
+// используйте для скрытия нежелательных анимаций-скачков при поворотах экрана
 @keyframes disableBreakpointAnimation {
   0% {
     visibility: hidden;

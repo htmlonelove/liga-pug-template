@@ -4,7 +4,7 @@
   min-height: 100px;
   padding: 0 40px;
 
-  background-color: $color-blue;
+  background-color: $color-default-black;
 
   &__wrapper {
     display: flex;
@@ -13,7 +13,7 @@
 
   a,
   p {
-    color: $color-white;
+    color: $color-default-white;
   }
 
   ul {

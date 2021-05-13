@@ -12,13 +12,8 @@ block variables
 block main
   main
     .container
-      p(style="margin-top: 40px;") Пример вызова модалок
-      p
-        a(href="#", data-modal="feedback") modal--feedback link
-      p
-        a(href="#", data-modal="success") modal--success link
-
-      //- Все данные должны выноситься в pug/data
+      //- Все данные должны выноситься в pug/data, привязываясь к бэм, а не к странице
+      //- т.е у вас будет pug/data/features.pug || intro.pug, а не main.pug || catalog.pug
       p(style="margin-top: 40px;") Пример импорта из `pug/data`
       h3!= heading.title
       p= heading.description
@@ -27,14 +22,8 @@ block main
       //- != и !{} позволяют html отрабатывать в pug, используйте их по умолчанию
       //- варианты когда в тексте требуется отобразить <b>тест</b> тегами встречается редко
 
-      p(style="margin-top: 40px;") Пример использования +img() и +picture()
+      p(style="margin-top: 40px;") Пример использования +img()
       p(style="margin-bottom: 40px;")
         +img("content", "placeholder", "png", 120, 120, "Пример")
-        br
-        +picture("content", "placeholder", "png", 120, 120, "Пример")
 
 block modals
-  +modal("modal--feedback")
-    +modal-feedback()
-  +modal("modal--success modal--no-scale modal--fit-content")
-    +modal-success()

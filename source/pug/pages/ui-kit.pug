@@ -56,9 +56,23 @@ block main
         span вернуться на разводящую
       h1 Компоненты, используемые в вёрстке
 
+      //- все модалки проекта добавляем сюда, для удобства тестирования
+      section
+        h2 Модалки
+        p
+         a(href="#", data-modal="feedback") modal--feedback link
+        p
+          a(href="#", data-modal="success") modal--success link
+
       section
         h2 Название компонента или группы компонентов
 
         p Класс компонента \ модификаторы
         p(style="color: red;") При необходимости, подсказки \ предупреждение \ важная информация
         div Компонент
+
+block modals
+  +modal("modal--feedback")
+    +modal-feedback()
+  +modal("modal--success modal--no-scale modal--fit-content")
+    +modal-success()
