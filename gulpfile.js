@@ -135,8 +135,8 @@ const start = gulp.series(build, syncserver);
 // Используйте отличное от дефолтного значение root, если нужно обработать отдельную папку в img,
 // а не все изображения в img во всех папках.
 
-// root = `` - по дефолту webp добавляются и обналяются во всех папках в source/img/
-// root = `content/` - webp добавляются и обновляются только в source/img/content/
+// root = '' - по дефолту webp добавляются и обналяются во всех папках в source/img/
+// root = 'content/' - webp добавляются и обновляются только в source/img/content/
 
 const createWebp = () => {
   const root = '';

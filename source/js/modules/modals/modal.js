@@ -6,7 +6,9 @@ const openModal = (modal, callback, preventScrollLock) => {
   }
 
   if (!preventScrollLock) {
-    window.disableBodyScroll();
+    window.disableBodyScroll(modal, {
+      reserveScrollBarGap: true,
+    });
   }
 };
 
