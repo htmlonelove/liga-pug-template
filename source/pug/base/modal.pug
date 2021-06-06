@@ -1,9 +1,9 @@
 mixin modal(mods)
-  .modal(class= mods && "modal--preload " + mods)
+  .modal.modal--preload(class=mods)
     .modal__wrapper
       .modal__overlay
       .modal__content
         if block
           block
-        button.modal__close-btn.btn-reset(type="button", aria-label="Закрыть попап")
+        button.modal__close-btn(type="button", aria-label="Закрыть попап")
           +icon("icon-close", 15, 15)

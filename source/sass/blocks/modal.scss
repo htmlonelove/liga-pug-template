@@ -9,16 +9,18 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 
   background-color: rgba($color-default-black, 0.6);
   transform: scale(1.2);
   visibility: hidden;
   opacity: 0;
-  pointer-events: none;
 
-  transition: opacity $modal-transition-settings,
-    transform $modal-transition-settings,
-    visibility $modal-transition-settings;
+  transition: opacity $trans--600,
+    transform $trans--600,
+    visibility $trans--600;
+
+  pointer-events: none;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -38,7 +40,7 @@
     min-height: 100%;
     padding: 60px 40px;
 
-    @include viewport--sm {
+    @include vp--767 {
       padding: 60px 16px;
     }
   }
@@ -62,7 +64,7 @@
 
     background-color: $color-default-white;
 
-    @include viewport--sm {
+    @include vp--767 {
       width: 100%;
       padding: 20px;
     }
@@ -72,6 +74,12 @@
     position: absolute;
     top: 15px;
     right: 15px;
+
+    padding: 0;
+
+    background: $color-transparent;
+    border: none;
+    cursor: pointer;
   }
 
   &--responsive {
@@ -84,7 +92,7 @@
     .modal__content {
       width: auto;
 
-      @include viewport--sm {
+      @include vp--767 {
         width: 100%;
       }
     }
@@ -102,6 +110,7 @@
     transform: scale(1);
     visibility: visible;
     opacity: 1;
+
     pointer-events: auto;
   }
 }

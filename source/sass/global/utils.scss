@@ -1,24 +1,16 @@
-.visually-hidden {
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-
-  clip: rect(0 0 0 0);
-}
-
 .wrapper {
   position: relative;
 
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* stylelint-disable-next-line */
   min-height: calc(100 * var(--vh, 1vh));
-  overflow-x: hidden;
+  overflow: hidden;
 
   &--no-scrollbar {
     height: 100vh;
+    /* stylelint-disable-next-line */
     height: calc(100 * var(--vh, 1vh));
 
     -ms-overflow-style: none;
@@ -39,20 +31,30 @@
   }
 }
 
-.scroll-lock {
-  position: fixed;
+.visually-hidden {
+  position: absolute;
 
-  overflow-y: auto;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  clip: rect(0 0 0 0);
 }
 
-.btn-reset {
-  padding: 0;
-
-  background: $color-transparent;
-  border: none;
-  cursor: pointer;
+.no-transition {
+  /* stylelint-disable-next-line */
+  transition: none !important;
 }
 
+.rouble {
+  font-family: $font-family--rouble;
+  /* stylelint-disable */
+  text-transform: lowercase !important;
+  font-weight: 400 !important;
+  /* stylelint-enable */
+}
+
+// используйте для скрытия нежелательных анимаций-скачков при поворотах экрана
 @keyframes disableBreakpointAnimation {
   0% {
     visibility: hidden;

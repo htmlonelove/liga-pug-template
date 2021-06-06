@@ -1,7 +1,7 @@
 extends ../base/layout
 
 block variables
-  - var title = "Оглавление"
+  - var title = "Список страниц"
 
 block main
   style.
@@ -34,6 +34,11 @@ block main
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
       ol {
         padding-left: 20px;
       }
@@ -41,18 +46,13 @@ block main
       ol li {
         margin-bottom: 15px;
       }
-
-      .container {
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
     }
 
   -
     var pages = [
       {
-        name: "UI Kit — components.html",
-        src: "components.html"
+        name: "UI-kit — ui-kit.html",
+        src: "ui-kit.html"
       },
       {
         name: "Главная — main.html",
@@ -66,7 +66,7 @@ block main
 
   main.container.main-index
     img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
-    h1 Список страниц и компонентов
+    h1 Список страниц
     ol
       each page in pages
         li

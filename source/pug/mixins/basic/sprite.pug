@@ -1,4 +1,6 @@
 mixin sprite()
-
-  div(style="display:none")
+  .visually-hidden
       include ../../../../build/img/sprite_auto.svg
+      
+//- обязательно редактируйте id в svg с дефолтных на кастомные
+//- visually-hidden позволит маскам и градиентам работать из спрайта, но нужно задать уникальные имена
