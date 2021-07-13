@@ -1,0 +1,82 @@
+/* v 0.0.1 */
+
+.ts-panel {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 10px 0;
+  background-color: rgba(0, 160, 223, 0.5);
+  border-radius: 3px;
+  z-index: 999999999999;
+
+  max-width: 70%;
+
+  transition: all 0.3s ease;
+}
+
+.ts-btn {
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #ffffff;
+  background: rgb(231, 46, 139);
+  background: linear-gradient(4deg, rgba(231, 46, 139, 1) 0%, rgba(0,160,223,1) 100%);
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.ts-btn:hover {
+  background: rgb(231,46,139);
+  background: linear-gradient(256deg, rgba(231,46,139,1) 0%, rgba(0,160,223,1) 100%);
+}
+
+.ts-btn:last-child {
+  margin-right: 0;
+}
+
+.ts-console {
+  position: fixed;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: rgba(0, 160, 223, 0.8);
+  bottom: 80px;
+  left: 20px;
+  color: #fff;
+  width: 100%;
+  max-width: 900px;
+  min-width: 300px;
+  white-space: pre;
+  font-family: monospace;
+
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+@media (max-width: 1000px) {
+  .ts-console {
+    display: none;
+  }
+}
+
+.ts-panel--close {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(4deg, rgba(231, 46, 139, 1) 0%, rgba(0,160,223,1) 100%);
+}
+
+.ts-panel--close:hover {
+  background: linear-gradient(256deg, rgba(231,46,139,1) 0%, rgba(0,160,223,1) 100%);
+}
+
+.ts-panel--close .ts-btn {
+  display: none;
+}
+
+.ts-panel--close .ts-console {
+  display: none;
+}
+
