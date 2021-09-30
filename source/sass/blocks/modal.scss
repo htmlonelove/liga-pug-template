@@ -16,9 +16,7 @@
   visibility: hidden;
   opacity: 0;
 
-  transition: opacity $trans--600,
-    transform $trans--600,
-    visibility $trans--600;
+  transition: opacity $trans--600, transform $trans--600, visibility $trans--600;
 
   pointer-events: none;
 
