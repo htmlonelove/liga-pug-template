@@ -83,7 +83,7 @@ const syncserver = () => {
   gulp.watch('source/js/**/*.{js,json}', gulp.series(js, refresh));
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
   gulp.watch('source/img/**/*.svg', gulp.series(copysvg, sprite, pugToHtml, refresh));
-  gulp.watch('source/img/**/*.{png,jpg}', gulp.series(copypngjpg, pugToHtml, refresh));
+  gulp.watch('source/img/**/*.{png,jpg,webp}', gulp.series(copypngjpg, pugToHtml, refresh));
 
   gulp.watch('source/favicon/**', gulp.series(copy, refresh));
   gulp.watch('source/video/**', gulp.series(copy, refresh));
@@ -102,7 +102,7 @@ const copysvg = () => {
 };
 
 const copypngjpg = () => {
-  return gulp.src('source/img/**/*.{png,jpg}', {base: 'source'})
+  return gulp.src('source/img/**/*.{png,jpg,webp}', {base: 'source'})
       .pipe(gulp.dest('build'));
 };
 

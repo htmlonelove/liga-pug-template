@@ -46,4 +46,3 @@ window.addEventListener('DOMContentLoaded', () => {
 // привязывайте js не на бэм, а на data-cookie
 
 // выносим все в data-attr - url до пинов карты, настройки автопрокрутки, url к json и т.д.
-
