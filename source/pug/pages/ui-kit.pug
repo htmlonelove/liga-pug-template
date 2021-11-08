@@ -60,9 +60,9 @@ block main
       section
         h2 Модалки
         p
-          a(href="#", data-modal="feedback") modal--feedback link
+          a(href="#", data-open-modal="feedback") modal--feedback link
         p
-          a(href="#", data-modal="success") modal--success link
+          a(href="#", data-open-modal="success") modal--success link
 
       section
         h2 Название компонента или группы компонентов
@@ -72,7 +72,7 @@ block main
         div Компонент
 
 block modals
-  +modal("modal--feedback")
+  +modal("modal--feedback")(data-modal="feedback")
     +modal-feedback()
-  +modal("modal--success modal--no-scale modal--fit-content")
+  +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
     +modal-success()
