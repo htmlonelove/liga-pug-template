@@ -55,9 +55,12 @@ export class FocusLock {
     this.unlock();
     this._lockedSelector = lockedSelector;
     const lockedElement = document.querySelector(this._lockedSelector);
-    this._focusableElements = lockedElement .querySelectorAll(this._selectors);
+    if (!lockedElement) {
+      return;
+    }
+    this._focusableElements = lockedElement.querySelectorAll(this._selectors);
     this._endElement = document.activeElement;
-    const startElement = lockedElement .querySelector('[data-focus]') || this._focusableElements[0];
+    const startElement = lockedElement.querySelector('[data-focus]') || this._focusableElements[0];
     if (this._endElement) {
       this._endElement.blur();
     }
