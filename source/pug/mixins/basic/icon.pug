@@ -1,6 +1,5 @@
 mixin icon(name, width, height)
-  svg(class!=attributes.class, width=width, height=height, aria-hidden="true")
+  //- &attributes(attributes) позволяет вызывать миксин с дополнительным классами или атрибутами
+  //- +icon("icon-close", 15, 15).some-class
+  svg(width=width, height=height, aria-hidden="true")&attributes(attributes)
     use(xlink:href="#" + name)
-
-//- class!=attributes.class позволяет вызывать миксин с дополнительным классом
-//- +icon("icon-close", 15, 15).some-class
