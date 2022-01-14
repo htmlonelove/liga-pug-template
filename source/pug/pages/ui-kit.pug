@@ -101,7 +101,6 @@ block main
     }
 
     .header-ui__inner-link:hover,
-    .header-ui__inner-link:focus,
     .header-ui__inner-link.is-active {
       color: #ff1553;
     }
@@ -161,6 +160,14 @@ block main
             p Пример вызова
             code
               pre +custom-input({inputLabel: "Введите ваш email", inputError: "Не корректный email", inputName: "user-email"})(data-validate-type="email")
+            +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
+            p Пример вызова
+            code
+              pre +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
+            +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
+            p Пример вызова
+            code
+              pre +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
             +btn({text: "Сбросить форму", type: "reset"})
             +btn({text: "Отправить форму", type: "submit"})
 

@@ -257,7 +257,6 @@ const showErrors = (inputs, parents) => {
 
 const validateTextInput = (input) => {
   const parent = input.closest('[data-validate-type]');
-  parent.classList.remove('is-invalid');
   let flag = true;
   let minLength = +input.getAttribute('minlength');
   if (!minLength) {
@@ -265,6 +264,7 @@ const validateTextInput = (input) => {
   }
   if (input.value.length >= minLength) {
     parent.classList.add('is-valid');
+    parent.classList.remove('is-invalid');
     input.setAttribute('aria-invalid', 'false');
   } else {
     parent.classList.remove('is-valid');
@@ -276,9 +276,9 @@ const validateTextInput = (input) => {
 
 const validatePhoneInput = (input) => {
   const parent = input.closest('[data-validate-type]');
-  parent.classList.remove('is-invalid');
   let flag = true;
   if (input.value.length >= phoneLength) {
+    parent.classList.remove('is-invalid');
     parent.classList.add('is-valid');
     input.setAttribute('aria-invalid', 'false');
   } else {
@@ -291,11 +291,11 @@ const validatePhoneInput = (input) => {
 
 const validateEmailInput = (input) => {
   const parent = input.closest('[data-validate-type]');
-  parent.classList.remove('is-invalid');
   let flag = true;
   const emailString = /[a-zA-Zа-яёА-ЯЁ0-9]{1}([a-zA-Zа-яёА-ЯЁ0-9\-_\.]{1,})?@[a-zA-Zа-яёА-ЯЁ0-9\-]{1}([a-zA-Zа-яёА-ЯЁ0-9.\-]{1,})?[a-zA-Zа-яёА-ЯЁ0-9\-]{1}\.[a-zA-Zа-яёА-ЯЁ]{2,6}/;
   const regEmail = new RegExp(emailString, '');
   if (regEmail.test(input.value)) {
+    parent.classList.remove('is-invalid');
     parent.classList.add('is-valid');
     input.setAttribute('aria-invalid', 'false');
   } else {
@@ -308,10 +308,10 @@ const validateEmailInput = (input) => {
 
 const validateMatrixInput = (input) => {
   const parent = input.closest('[data-validate-type]');
-  parent.classList.remove('is-invalid');
   let flag = true;
   const matrix = input.closest('[data-matrix]').dataset.matrix;
   if (input.value.length === matrix.length) {
+    parent.classList.remove('is-invalid');
     parent.classList.add('is-valid');
     input.setAttribute('aria-invalid', 'false');
   } else {
@@ -336,10 +336,10 @@ const validateSelect = (input) => {
   const parent = input.closest('[data-validate-type]');
   const options = input.querySelectorAll('option');
   const customSelectText = parent.querySelector('.custom-select__text');
-  parent.classList.remove('is-invalid');
   input.setAttribute('aria-invalid', 'false');
   let flag = true;
   if (findSelectedOption(options)) {
+    parent.classList.remove('is-invalid');
     parent.classList.add('is-valid');
     input.setAttribute('aria-invalid', 'false');
   } else {
@@ -354,9 +354,9 @@ const validateSelect = (input) => {
 
 const validateCheckbox = (input) => {
   const parent = input.closest('[data-validate-type]');
-  parent.classList.remove('is-invalid');
   let flag = true;
   if (input.checked) {
+    parent.classList.remove('is-invalid');
     parent.classList.add('is-valid');
   } else {
     parent.classList.remove('is-valid');
@@ -415,10 +415,10 @@ const setGroupAria = (inputs) => {
 
 const validateToggleGroup = (parent) => {
   const formElements = parent.querySelectorAll('input');
-  parent.classList.remove('is-invalid');
   let flag = true;
   if (returnCheckedElements(formElements)) {
     removeGroupAria(formElements);
+    parent.classList.remove('is-invalid');
     parent.classList.add('is-valid');
   } else {
     setGroupAria(formElements);
@@ -548,11 +548,13 @@ const clearForm = (form) => {
   form.reset();
   const formValidateElements = form.querySelectorAll('[data-validate-type]');
   const notEmptyInputs = form.querySelectorAll('.not-empty');
-  if (notEmptyInputs.length) {
-    notEmptyInputs.forEach((notEmptyInput) => {
-      notEmptyInput.classList.remove('not-empty');
-    });
-  }
+  const invalidInputs = form.querySelectorAll('.is-invalid');
+  notEmptyInputs.forEach((notEmptyInput) => {
+    notEmptyInput.classList.remove('not-empty');
+  });
+  invalidInputs.forEach((invalidInput) => {
+    invalidInput.classList.remove('is-invalid');
+  });
   formValidateElements.forEach((formValidateElement) => {
     const dataValidateType = formValidateElement.dataset.validateType;
     if (dataValidateType !== 'toggle-group') {

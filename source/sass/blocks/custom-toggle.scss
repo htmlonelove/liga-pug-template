@@ -1,0 +1,130 @@
+.custom-toggle {
+  position: relative;
+
+  display: flex;
+  width: 500px;
+  padding: 20px 0;
+
+  &__error {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    color: $color-torch-red;
+
+    opacity: 0;
+
+    transition: opacity $trans--300;
+  }
+
+  input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+
+    clip: rect(0 0 0 0);
+  }
+
+  label {
+    position: relative;
+
+    padding-left: 26px;
+
+    cursor: pointer;
+
+    span {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+
+  &--checkbox {
+    .custom-toggle__icon {
+      position: absolute;
+      top: 2px;
+      left: 0;
+
+      width: 16px;
+      height: 16px;
+
+      border: 1px solid rgba($color-default-black, 0.2);
+
+      transition: border $trans--300;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 6px;
+        height: 6px;
+
+        background-color: $color-transparent;
+
+        transform: translate(-50%, -50%);
+
+        transition: background-color $trans--300;
+      }
+    }
+  }
+
+  &--radio {
+    .custom-toggle__icon {
+      position: absolute;
+      top: 2px;
+      left: 0;
+
+      width: 16px;
+      height: 16px;
+
+      border: 1px solid rgba($color-default-black, 0.2);
+      border-radius: 50%;
+
+      transition: border $trans--300;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 6px;
+        height: 6px;
+
+        color: $color-transparent;
+
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+
+        transition: color $trans--300;
+      }
+    }
+  }
+
+  input:checked + .custom-toggle__icon {
+    border: 1px solid rgba($color-default-black, 0.8);
+
+    &::before {
+      background-color: rgba($color-default-black, 0.8);
+    }
+  }
+
+  &.is-invalid {
+    .custom-toggle__icon {
+      border: 1px solid $color-torch-red;
+    }
+
+    .custom-toggle__error {
+      opacity: 1;
+    }
+  }
+
+  /*&.is-valid {
+    label span {
+      color: $color-eucalyptus;
+    }
+  }*/
+}
