@@ -3,6 +3,7 @@
 *.png binary
 *.jpg binary
 *.jpeg binary
+*.avif binary
 *.webp binary
 *.webm binary
 *.gif binary
@@ -11,3 +12,5 @@
 *.pdf binary
 *.mp3 binary
 *.mp4 binary
+*.avi binary
+*.mov binary
