@@ -5,6 +5,7 @@ import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
 import {initFormValidate} from './modules/form/init-form-validate';
 import {NavigationChanger} from './modules/navigation-changer';
+import {CustomSelect} from './modules/custom-select';
 
 // ---------------------------------
 
@@ -28,6 +29,8 @@ window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
     const navigationChanger = new NavigationChanger();
     navigationChanger.init();
+    const customSelect = new CustomSelect();
+    customSelect.init();
     initModals();
     initFormValidate();
   });
