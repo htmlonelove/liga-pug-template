@@ -172,8 +172,13 @@ block main
             +btn({text: "Сбросить форму", type: "reset"})
             +btn({text: "Отправить форму", type: "submit"})
 
+  script
+    include ../../js/inline-ui-kit.js
+
 block modals
   +modal("modal--feedback")(data-modal="feedback")
     +modal-feedback()
   +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
     +modal-success()
+
+
