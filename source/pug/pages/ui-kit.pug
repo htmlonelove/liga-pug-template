@@ -1,25 +1,22 @@
-extends ../base/layout
+extends ../components/base/layout
 
 block variables
   - const title = "UI-kit"
-  - const wrapperMods = ""
-  - const hasHeader = true
-  - const headerMods = ""
-  - const hasFooter = true
-  - const footerMods = ""
-  - const currentPage = ""
 
 block main
   style.
+    main {
+      margin-top: 100px;
+    }
+
     main > .container {
       padding-top: 30px;
       padding-bottom: 30px;
     }
 
     .components-backwards {
+      color: #ffffff;
       display: inline-block;
-      margin-bottom: 10px;
-      margin-left: 7px;
     }
 
     .components-backwards span:first-child {
@@ -46,33 +43,142 @@ block main
     }
 
     .container > section {
-      padding: 20px 0;
+      padding: 70px 0 0 0;
     }
+
+    section > h2 {
+      margin: 0 0 20px 0;
+      padding: 20px 0;
+      position: relative;
+      color: #ffffff;
+    }
+
+    section > h2::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background-color: #2c39f2;
+      z-index: -1;
+    }
+
+    .header-ui {
+      background-color: #2c39f2;
+      padding: 20px 0;
+      position: fixed;
+      width: 100vw;
+      z-index: 99;
+      box-shadow: 0 0 3px 1px #000000;
+    }
+
+    .header-ui__nav {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 20px 80px;
+    }
+
+    .header-ui__inner-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 30px;
+    }
+
+    .header-ui__inner-link {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .header-ui__inner-link:hover,
+    .header-ui__inner-link.is-active {
+      color: #ff1553;
+    }
+
+  header.header-ui
+    nav.header-ui__nav.container
+      a.components-backwards(href="sitemap.html")
+        span &larr;
+        span вернуться на разводящую
+      ul.header-ui__inner-list
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#modals", data-navigation-link) Modals
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#buttons", data-navigation-link) Buttons
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#form-elements", data-navigation-link) Form elements
 
   main
     .container
-      a.components-backwards(href="index.html")
-        span &larr;
-        span вернуться на разводящую
-      h1 Компоненты, используемые в вёрстке
-
+      h1 UI-kit
       //- все модалки проекта добавляем сюда, для удобства тестирования
-      section
-        h2 Модалки
+      section(id="modals")
+        h2 Modals
         p
-          a(href="#", data-open-modal="feedback") modal--feedback link
+          +btn({text: "modal-feedback"})(data-open-modal="feedback")
         p
-          a(href="#", data-open-modal="success") modal--success link
+          +btn({text: "modal-success"})(data-open-modal="success")
 
-      section
-        h2 Название компонента или группы компонентов
+      section(id="buttons")
+        h2 Buttons
+        +btn({text: "Текст", href: "#"})
+        p Пример вызова
+        code
+          pre +btn({text: "Текст", href: "#"})
+        +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+        p Пример вызова
+        code
+          pre +btn({text: "Я красная ссылка", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+        +btn({text: "Текст"})(disabled)
+        p Пример вызова
+        code
+          pre +btn({text: "Текст"})(disabled)
 
-        p Класс компонента \ модификаторы
-        p(style="color: red;") При необходимости, подсказки \ предупреждение \ важная информация
-        div Компонент
+      section(id="form-elements")
+        h2 Form elements
+        div(data-validate)
+          form(method="post")
+            +custom-input({inputLabel: "Введите ваше имя", inputError: "Не корректное имя", inputName: "user-name", inputMinLength: "2"})(data-validate-type="text", data-limitations="name")
+            p Пример вызова
+            code
+              pre +custom-input({inputLabel: "Введите ваше имя", inputError: "Не корректное имя", inputName: "user-name", inputMinLength: "2"})(data-validate-type="text", data-limitations="letters")
+            +custom-input({inputType: "tel",inputLabel: "Введите ваш телефон", inputError: "Не корректный телефон", inputName: "user-phone"})(data-validate-type="phone")
+            p Пример вызова
+            code
+              pre +custom-input({inputLabel: "Введите ваш телефон", inputError: "Не корректный телефон", inputName: "user-phone"})(data-validate-type="phone")
+            +custom-input({inputType: "email", inputLabel: "Введите ваш email", inputError: "Не корректный email", inputName: "user-email"})(data-validate-type="email")
+            p Пример вызова
+            code
+              pre +custom-input({inputLabel: "Введите ваш email", inputError: "Не корректный email", inputName: "user-email"})(data-validate-type="email")
+            +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
+            p Пример вызова
+            code
+              pre +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
+            +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1", isActive: true}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example").custom-select
+            code
+              pre
+              | +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text:
+              | "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5",
+              | value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name",
+              | data-id="id-example").custom-select
+            +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
+            p Пример вызова
+            code
+              pre +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
+            +btn({text: "Сбросить форму", type: "reset"})
+            +btn({text: "Отправить форму", type: "submit"})
+
+  script
+    include ../../js/inline-ui-kit.js
 
 block modals
   +modal("modal--feedback")(data-modal="feedback")
     +modal-feedback()
   +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
     +modal-success()
+
+
