@@ -1,0 +1,155 @@
+@function size($size-in-px) {
+  @return $size-in-px / $fz-default * 1rem;
+}
+
+@function size-desktop($size-in-px) {
+  @return $size-in-px / $vp--1920 * 100vw;
+}
+
+// ---------------------------------
+// ❗ использование скейлинга должно быть согласовано с командой и заказчиком
+
+// 1) ремы в плюс
+
+// functions.scss
+// @function size($size-in-px) {
+//   @return $size-in-px / $fz-default * 1rem;
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return $size-in-px / $vp--1920 * 100vw;
+// }
+
+// reboot.scss
+// html {
+//   font-size: size-desktop($fz-default);
+//   line-height: size-desktop(24px);
+
+//   @include vp-1919{
+//     font-size: $fz-default;
+//     line-height: 24px;
+//   }
+// }
+
+// ---------------------------------
+// 2) ремы в плюс от эталона и в минус, на планшете обычная верстка
+
+// functions.scss
+// @function size($size-in-px) {
+//   @return $size-in-px / $fz-default * 1rem;
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return $size-in-px / $vp--1920 * 100vw;
+// }
+
+// reboot.scss
+// html {
+//   font-size: size-desktop($fz-default);
+//   line-height: size-desktop(24px);
+
+//   @include vp-1023 {
+//     font-size: $fz-default;
+//     line-height: 24px;
+//   }
+// }
+
+// ---------------------------------
+// 3) ремы в плюс от эталона и в минус (с другим коэффициентом), на планшете обычная верстка
+// functions.scss
+// @function size($size-in-px) {
+//   @return $size-in-px / $fz-default * 1rem;
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return $size-in-px / $vp--1920 * 100vw;
+// }
+
+// @function size-tablet($size-in-px) {
+//   @return $size-in-px / $vp-1439 * 100vw;
+// }
+
+// reboot.scss
+// html {
+//   font-size: size-desktop($fz-default);
+//   line-height: size-desktop(24px);
+
+//   @include vp-1439 {
+//     font-size: size-tablet($fz-default);
+//     line-height: size-tablet(24px);
+//   }
+
+//   @include vp-1023 {
+//     font-size: $fz-default;
+//     line-height: 24px;
+//   }
+// }
+
+// ---------------------------------
+// 4) ремы в коэффициентах
+// functions.scss
+// @function size($size-in-px) {
+//   @return $size-in-px / $fz-default * 1rem;
+// }
+
+// @function size-coefficient($size-in-px) {
+//   @return $size-in-px * 0.9;
+// }
+
+// @function size-coefficient-large($size-in-px) {
+//   @return $size-in-px * 1.3;
+// }
+
+// reboot.scss
+// html {
+//   font-size: $fz-default;
+
+//   @media (min-width: 1921px) {
+//     font-size: size-coefficient-large($fz-default);
+//     line-height: size-coefficient-large(24px);
+//   }
+
+//   @include vp-1439 {
+//     font-size: size-coefficient($fz-default);
+//     line-height: size-coefficient(24px);
+//   }
+
+//   @include vp-1023 {
+//     font-size: $fz-default;
+//     line-height: 24px;
+//   }
+// }
+
+// ---------------------------------
+// 5) скейлинг отдельных элементов
+// functions.scss
+// @function size($size-in-px) {
+//   @return $size-in-px / $fz-default * 1rem;
+// }
+
+// @function size-desktop($size-in-px) {
+//   @return $size-in-px / $vp--1920 * 100vw;
+// }
+
+// @function no-scale($size-in-px) {
+//   @return $size-in-px * (1921px / 1440px);
+// }
+
+// reboot.scss
+// html {
+//   font-size: size-desktop($fz-default);
+//   line-height: size-desktop(24px);
+
+//   @include vp-1439 {
+//     font-size: $fz-default;
+//     line-height: 24px;
+//   }
+// }
+
+// .block {
+//   margin-bottom: size(40px);
+
+//   @media (min-width: 1921px) {
+//   margin-bottom: no-scale(40px);
+//   }
+// }
