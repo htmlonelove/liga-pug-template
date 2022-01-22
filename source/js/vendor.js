@@ -1,2 +1,2 @@
-import './vendor/body-scroll-lock';
+// import './vendor/body-scroll-lock';
 // import './vendor/swiper';

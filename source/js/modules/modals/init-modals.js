@@ -1,45 +1,44 @@
-import {setupModal} from './modal';
+import {Modals} from './modals';
 
-// настраиваем модалки тут, все колбеки импортим, а не создаем из этого модуля простыню
-const initModal = (modalId, modal, btn) => {
-  switch (modalId) {
-    case 'example':
-      setupModal(modal, false, btn, false, true, true);
-      break;
-    default:
-      setupModal(modal, false, btn, false, false, false);
-      break;
-  }
+let modals;
+
+// Здесь реализован пример открытия модалки через колбэк закрытия
+// const openModalInCloseCallback = (name, context = this) => {
+//   context._enableScrolling = false;
+//   context._setSettings('default');
+//   modals.open(name);
+// };
+
+// closeCallback() {
+//   openModalInCloseCallback('modal-5');
+// },
+
+const settings = {
+  'default': {
+    preventDefault: true,
+    stopPlay: true,
+    lockFocus: true,
+    startFocus: true,
+    focusBack: true,
+    eventTimeout: 400,
+    openCallback: false,
+    closeCallback: false,
+  },
 };
 
-// аргументы setupModal(modal, closeCallback, modalBtns, openCallback, noPrevDefault, preventScrollLock)
-// возможна инициализация только с первыми аргументом,
-// если вам нужно открывать модалку в другом месте под какими-нибудь условиями
 const initModals = () => {
-  const modals = document.querySelectorAll('.modal:not(.is-initialized)');
-  const modalBtns = document.querySelectorAll('[data-modal]');
-
-  // фикс для редких случаев, когда модалка появляется при загрузке страницы
-  if (modals.length) {
-    modals.forEach((el) => {
+  const modalElements = document.querySelectorAll('.modal');
+  if (modalElements.length) {
+    modalElements.forEach((el) => {
       setTimeout(() => {
         el.classList.remove('modal--preload');
-        el.classList.add('is-initialized');
       }, 100);
     });
   }
 
-  if (modalBtns.length) {
-    modalBtns.forEach((btn) => {
-      const modalId = btn.dataset.modal;
-      const modal = document.querySelector(`.modal--${modalId}`);
-      if (modal) {
-        initModal(modalId, modal, btn);
-      }
-    });
-  }
+  modals = new Modals(settings);
+  // Используйте в разработке экспортируемую переменную modals, window сделан для бэкэнда
+  window.modals = modals;
 };
 
-window.initModals = initModals;
-
-export {initModals};
+export {modals, initModals};
