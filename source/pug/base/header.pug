@@ -16,9 +16,10 @@ mixin header(headerMods, currentPage)
     ]
 
   header.header(class=headerMods)
-    .header__wrapper
+    .container
       if(currentPage === "main")
-        a.header__logo Логотип
+        //- lighthoust снимает 10 баллов SEO за <a> без href
+        span.header__logo Логотип
       else
         a.header__logo(href="main.html", aria-label="Переход на главную") Логотип
       nav.main-nav

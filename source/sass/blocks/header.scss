@@ -1,32 +1,13 @@
 .header {
-  display: flex;
-  align-items: center;
-  min-height: 100px;
-  padding: 0 40px;
+  padding: 28px 0;
 
-  background-color: $color-default-black;
+  background-color: $color-neon-blue;
 
-  &__wrapper {
+  .container {
     display: flex;
-    align-items: center;
   }
 
-  a,
-  p {
+  &__logo {
     color: $color-default-white;
-  }
-
-  ul {
-    display: flex;
-    margin: 0;
-    margin-right: 20px;
-    margin-left: 60px;
-    padding: 0;
-
-    list-style: none;
-
-    li {
-      margin-right: 20px;
-    }
   }
 }
