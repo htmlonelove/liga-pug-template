@@ -1,11 +1,7 @@
-// import {ieFix} from './utils/ie-fix';
-// import {polyfillObjectFit} from './utils/polyfill-object-fit';
-
 import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
+import {initCustomSelect} from './modules/form/init-custom-select';
 import {initFormValidate} from './modules/form/init-form-validate';
-import {NavigationChanger} from './modules/navigation-changer';
-import {CustomSelect} from './modules/custom-select';
 
 // ---------------------------------
 
@@ -13,11 +9,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Utils
   // ---------------------------------
-
-  // только если ie11
-  // ieFix();
-  // https://github.com/fregante/object-fit-images
-  // polyfillObjectFit();
 
   iosVhFix();
 
@@ -27,11 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
-    const navigationChanger = new NavigationChanger();
-    navigationChanger.init();
-    const customSelect = new CustomSelect();
-    customSelect.init();
     initModals();
+    initCustomSelect();
     initFormValidate();
   });
 });
