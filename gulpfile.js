@@ -69,68 +69,24 @@ const sprite = () => {
       .pipe(gulp.dest('build/img'));
 };
 
-const syncserver = () => {
-  server.init({
-    server: 'build/',
-    notify: false,
-    open: true,
-    cors: true,
-    ui: false,
-  });
-
-  gulp.watch('source/pug/**/*.pug', gulp.series(pugToHtml, refresh));
-  gulp.watch('source/sass/**/*.{scss,sass}', gulp.series(css));
-  gulp.watch('source/js/**/*.{js,json}', gulp.series(js, refresh));
-  gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
-  gulp.watch('source/img/**/*.svg', gulp.series(copysvg, sprite, pugToHtml, refresh));
-  gulp.watch('source/img/**/*.{png,jpg}', gulp.series(copypngjpg, pugToHtml, refresh));
-
-  gulp.watch('source/favicon/**', gulp.series(copy, refresh));
-  gulp.watch('source/video/**', gulp.series(copy, refresh));
-  gulp.watch('source/downloads/**', gulp.series(copy, refresh));
-  gulp.watch('source/*.php', gulp.series(copy, refresh));
-};
-
-const refresh = (done) => {
-  server.reload();
-  done();
-};
-
-const copysvg = () => {
+const copySvg = () => {
   return gulp.src('source/img/**/*.svg', {base: 'source'})
       .pipe(gulp.dest('build'));
 };
 
-const copypngjpg = () => {
-  return gulp.src('source/img/**/*.{png,jpg}', {base: 'source'})
+const copyImages = () => {
+  return gulp.src('source/img/**/*.{png,jpg,webp}', {base: 'source'})
       .pipe(gulp.dest('build'));
 };
 
-const copy = () => {
-  return gulp.src([
-    'source/fonts/**',
-    'source/img/**',
-    'source/data/**',
-    'source/favicon/**',
-    'source/video/**', // git искажает видеофайлы, некоторые шрифты, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
-    'source/downloads/**',
-    'source/*.php',
-  ], {
-    base: 'source',
-  })
-      .pipe(gulp.dest('build'));
+const optimizeImages = () => {
+  return gulp.src('build/img/**/*.{png,jpg}')
+      .pipe(imagemin([
+        imagemin.optipng({optimizationLevel: 3}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+      ]))
+      .pipe(gulp.dest('build/img'));
 };
-
-const clean = () => {
-  return del('build');
-};
-
-const build = gulp.series(clean, svgo, copy, css, sprite, js, pugToHtml);
-
-const start = gulp.series(build, syncserver);
-
-// Optional tasks
-//---------------------------------
 
 // Используйте отличное от дефолтного значение root, если нужно обработать отдельную папку в img,
 // а не все изображения в img во всех папках.
@@ -145,16 +101,57 @@ const createWebp = () => {
     .pipe(gulp.dest(`source/img/${root}`));
 };
 
-const optimizeImages = () => {
-  return gulp.src('build/img/**/*.{png,jpg}')
-      .pipe(imagemin([
-        imagemin.optipng({optimizationLevel: 3}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-      ]))
-      .pipe(gulp.dest('build/img'));
+const copy = () => {
+  return gulp.src([
+    'source/fonts/**',
+    'source/img/**',
+    'source/data/**',
+    'source/favicon/**',
+    'source/video/**',
+    'source/downloads/**',
+    'source/*.php',
+  ], {
+    base: 'source',
+  })
+      .pipe(gulp.dest('build'));
 };
 
-exports.build = build;
-exports.start = start;
-exports.webp = createWebp;
+const clean = () => {
+  return del('build');
+};
+
+const syncServer = () => {
+  server.init({
+    server: 'build/',
+    notify: false,
+    open: true,
+    cors: true,
+    ui: false,
+  });
+
+  gulp.watch('source/pug/**/*.pug', gulp.series(pugToHtml, refresh));
+  gulp.watch('source/sass/**/*.{scss,sass}', gulp.series(css));
+  gulp.watch('source/js/**/*.{js,json}', gulp.series(js, refresh));
+  gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
+  gulp.watch('source/img/**/*.svg', gulp.series(copySvg, sprite, pugToHtml, refresh));
+  gulp.watch('source/img/**/*.{png,jpg,webp}', gulp.series(copyImages, pugToHtml, refresh));
+
+  gulp.watch('source/favicon/**', gulp.series(copy, refresh));
+  gulp.watch('source/video/**', gulp.series(copy, refresh));
+  gulp.watch('source/downloads/**', gulp.series(copy, refresh));
+  gulp.watch('source/*.php', gulp.series(copy, refresh));
+};
+
+const refresh = (done) => {
+  server.reload();
+  done();
+};
+
+const start = gulp.series(clean, svgo, copy, css, sprite, js, pugToHtml, syncServer);
+
+const build = gulp.series(clean, svgo, copy, css, sprite, js, pugToHtml, optimizeImages);
+
 exports.imagemin = optimizeImages;
+exports.webp = createWebp;
+exports.start = start;
+exports.build = build;
