@@ -22,7 +22,7 @@
       border-radius: 5px;
       outline: none;
 
-      transition: border $trans--300;
+      transition: border $trans-default;
 
       &:hover {
         border: 2px solid rgba($color-default-black, 0.5);
@@ -43,7 +43,7 @@
 
     opacity: 0;
 
-    transition: opacity $trans--300;
+    transition: opacity $trans-default;
   }
 
   &.is-invalid {

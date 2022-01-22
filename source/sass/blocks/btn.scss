@@ -9,7 +9,7 @@
   border: none;
   cursor: pointer;
 
-  transition: opacity $trans--300;
+  transition: opacity $trans-default;
 
   &--red {
     background-color: $color-torch-red;

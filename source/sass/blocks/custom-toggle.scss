@@ -14,7 +14,7 @@
 
     opacity: 0;
 
-    transition: opacity $trans--300;
+    transition: opacity $trans-default;
   }
 
   input {
@@ -51,7 +51,7 @@
 
       border: 1px solid rgba($color-default-black, 0.2);
 
-      transition: border $trans--300;
+      transition: border $trans-default;
 
       &::before {
         content: "";
@@ -66,7 +66,7 @@
 
         transform: translate(-50%, -50%);
 
-        transition: background-color $trans--300;
+        transition: background-color $trans-default;
       }
     }
   }
@@ -83,7 +83,7 @@
       border: 1px solid rgba($color-default-black, 0.2);
       border-radius: 50%;
 
-      transition: border $trans--300;
+      transition: border $trans-default;
 
       &::before {
         content: "";
@@ -99,7 +99,7 @@
         border-radius: 50%;
         transform: translate(-50%, -50%);
 
-        transition: color $trans--300;
+        transition: color $trans-default;
       }
     }
   }
