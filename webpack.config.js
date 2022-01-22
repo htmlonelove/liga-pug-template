@@ -1,6 +1,6 @@
 const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin')
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
