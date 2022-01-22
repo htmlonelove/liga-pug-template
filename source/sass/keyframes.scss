@@ -1,0 +1,12 @@
+// используйте для скрытия нежелательных анимаций-скачков при поворотах экрана
+@keyframes disableBreakpointAnimation {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
