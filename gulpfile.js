@@ -69,6 +69,57 @@ const sprite = () => {
       .pipe(gulp.dest('build/img'));
 };
 
+const copySvg = () => {
+  return gulp.src('source/img/**/*.svg', {base: 'source'})
+      .pipe(gulp.dest('build'));
+};
+
+const copyImages = () => {
+  return gulp.src('source/img/**/*.{png,jpg,webp}', {base: 'source'})
+      .pipe(gulp.dest('build'));
+};
+
+const optimizeImages = () => {
+  return gulp.src('build/img/**/*.{png,jpg}')
+      .pipe(imagemin([
+        imagemin.optipng({optimizationLevel: 3}),
+        imagemin.mozjpeg({quality: 75, progressive: true}),
+      ]))
+      .pipe(gulp.dest('build/img'));
+};
+
+// Используйте отличное от дефолтного значение root, если нужно обработать отдельную папку в img,
+// а не все изображения в img во всех папках.
+
+// root = '' - по дефолту webp добавляются и обналяются во всех папках в source/img/
+// root = 'content/' - webp добавляются и обновляются только в source/img/content/
+
+const createWebp = () => {
+  const root = '';
+  return gulp.src(`source/img/${root}**/*.{png,jpg}`)
+    .pipe(webp({quality: 90}))
+    .pipe(gulp.dest(`source/img/${root}`));
+};
+
+const copy = () => {
+  return gulp.src([
+    'source/fonts/**',
+    'source/img/**',
+    'source/data/**',
+    'source/favicon/**',
+    'source/video/**',
+    'source/downloads/**',
+    'source/*.php',
+  ], {
+    base: 'source',
+  })
+      .pipe(gulp.dest('build'));
+};
+
+const clean = () => {
+  return del('build');
+};
+
 const syncServer = () => {
   server.init({
     server: 'build/',
@@ -96,65 +147,11 @@ const refresh = (done) => {
   done();
 };
 
-const copySvg = () => {
-  return gulp.src('source/img/**/*.svg', {base: 'source'})
-      .pipe(gulp.dest('build'));
-};
-
-const copyImages = () => {
-  return gulp.src('source/img/**/*.{png,jpg,webp}', {base: 'source'})
-      .pipe(gulp.dest('build'));
-};
-
-const copy = () => {
-  return gulp.src([
-    'source/fonts/**',
-    'source/img/**',
-    'source/data/**',
-    'source/favicon/**',
-    'source/video/**', // git искажает видеофайлы, некоторые шрифты, pdf и gif - проверяйте и если обнаруживаете баги - скидывайте тестировщику такие файлы напрямую
-    'source/downloads/**',
-    'source/*.php',
-  ], {
-    base: 'source',
-  })
-      .pipe(gulp.dest('build'));
-};
-
-const clean = () => {
-  return del('build');
-};
-
-// Optional tasks
-//---------------------------------
-
-// Используйте отличное от дефолтного значение root, если нужно обработать отдельную папку в img,
-// а не все изображения в img во всех папках.
-
-// root = '' - по дефолту webp добавляются и обналяются во всех папках в source/img/
-// root = 'content/' - webp добавляются и обновляются только в source/img/content/
-
-const createWebp = () => {
-  const root = '';
-  return gulp.src(`source/img/${root}**/*.{png,jpg}`)
-    .pipe(webp({quality: 90}))
-    .pipe(gulp.dest(`source/img/${root}`));
-};
-
-const optimizeImages = () => {
-  return gulp.src('build/img/**/*.{png,jpg}')
-      .pipe(imagemin([
-        imagemin.optipng({optimizationLevel: 3}),
-        imagemin.mozjpeg({quality: 75, progressive: true}),
-      ]))
-      .pipe(gulp.dest('build/img'));
-};
-
 const start = gulp.series(clean, svgo, copy, css, sprite, js, pugToHtml, syncServer);
 
 const build = gulp.series(clean, svgo, copy, css, sprite, js, pugToHtml, optimizeImages);
 
-exports.build = build;
-exports.start = start;
-exports.webp = createWebp;
 exports.imagemin = optimizeImages;
+exports.webp = createWebp;
+exports.start = start;
+exports.build = build;

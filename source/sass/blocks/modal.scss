@@ -16,9 +16,9 @@
   visibility: hidden;
   opacity: 0;
 
-  transition: opacity $trans--600,
-    transform $trans--600,
-    visibility $trans--600;
+  transition: opacity $trans-modal,
+    transform $trans-modal,
+    visibility $trans-modal;
 
   pointer-events: none;
 
@@ -40,7 +40,7 @@
     min-height: 100%;
     padding: 60px 40px;
 
-    @include vp--767 {
+    @include vp-767 {
       padding: 60px 16px;
     }
   }
@@ -64,7 +64,7 @@
 
     background-color: $color-default-white;
 
-    @include vp--767 {
+    @include vp-767 {
       width: 100%;
       padding: 20px;
     }
@@ -95,7 +95,7 @@
     .modal__content {
       width: auto;
 
-      @include vp--767 {
+      @include vp-767 {
         width: 100%;
       }
     }

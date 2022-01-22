@@ -1,6 +1,5 @@
 // Colors
-//---------------------------------
-// https://www.htmlcsscolor.com/hex/334482
+// ---------------------------------
 
 // Default
 
@@ -8,41 +7,52 @@ $color-default-black:             #000000;
 $color-default-white:             #ffffff;
 $color-transparent:               rgba(255, 255, 255, 0);
 
-// Base
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
 
-$color-blue:                      #2c39f2;
+$color-neon-blue:                 #2c39f2;
+$color-torch-red:                 #ff1553;
 
 // Gradient
 
 $black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
 
 // Typography
-//---------------------------------
+// ---------------------------------
 
-$font-family--placeholder:          "", "Arial", sans-serif;
+// переменная используемая в html для подключения скейлинга
+$fz-default:                        16px;
 
-// https://www.artlebedev.ru/kovodstvo/sections/159/
-$font-family--rouble:               "Rouble", "Arial", sans-serif;
+// у некоторых шрифтов в ios возникают проблемы с символом рубля
+// https://www.artlebedev.ru/kovodstvo/sections/159/#13
+$ff-rouble:                         "Rouble", "Arial", sans-serif;
+
+$ff-placeholder:                    "Placeholder", "Arial", sans-serif;
 
 // Animation
-//---------------------------------
+// ---------------------------------
 
-$trans--300:                        0.3s ease;
-$trans--600:                        0.6s cubic-bezier(0.55, 0, 0.1, 1);
+$tf-default:                        ease;
+$trans-default:                     0.3s $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal:                       0.6s cubic-bezier(0.55, 0, 0.1, 1);
+
+$trans-600:                         0.6s $tf-default;
 
 // Viewports
-//---------------------------------
+// ---------------------------------
 
-$vp--320:                           320px;
-$vp--375:                           375px;
-$vp--768:                           768px;
-$vp--1024:                          1024px;
-$vp--1280:                          1280px;
-$vp--1440:                          1440px;
-$vp--1920:                          1920px;
+$vp-320:                            320px;
+$vp-375:                            375px;
+$vp-768:                            768px;
+$vp-1024:                           1024px;
+$vp-1280:                           1280px;
+$vp-1440:                           1440px;
+$vp-1920:                           1920px;
 
 // Retina
-//---------------------------------
+// ---------------------------------
 
 $retina-dpi:                        144dpi;
 $retina-dppx:                       1.5dppx;

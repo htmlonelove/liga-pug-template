@@ -1,21 +1,22 @@
 // Vendor
-//---------------------------------
+// ---------------------------------
 
 @import "vendor/normalize";
 // @import "vendor/swiper";
 
 // Global
-//---------------------------------
+// ---------------------------------
 
 @import "variables";
 @import "mixins";
+@import "functions";
 @import "global/fonts";
 @import "global/reboot";
 @import "global/utils";
 @import "global/container";
 
 // Blocks
-//---------------------------------
+// ---------------------------------
 
 @import "blocks/header";
 @import "blocks/main-nav";
@@ -23,14 +24,23 @@
 @import "blocks/modal";
 
 
-// используйте это для отключения ховеров на тач устройствах
-// ! но не используйте это для текстовых полей ( input, textarea )
-// также для любых transition обязательно указывайте transition-property
-// transition: color $default-transition-settings, а не transition: $default-transition-settings
+// ---------------------------------
 
+// ❗❗❗ запрещено использовать изображения в css, касается как jpg \ png, так и svg
+
+// ❗ обязательно используйте @media для отключения ховеров на тач устройствах
+// но не используем для текстовых полей ( input, textarea )
 /* @media (hover: hover), screen and (min-width: 0\0) {
   &:hover,
   &:focus {
-    color: red;
+    color: $color-default-white;
   }
 } */
+
+// адаптив пишем внутри каждого класса (смотрим container.scss)
+
+// для фикса проблем с vh на iOS в сборке подключен скрипт
+// используя vh на проекте задавайте их также как в примере в utils.scss
+
+// для любых transition обязательно указывайте transition-property
+// transition: $trans-default ❌ ---> transition: color $trans-default ✔️

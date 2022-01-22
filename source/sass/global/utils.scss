@@ -8,19 +8,6 @@
   min-height: calc(100 * var(--vh, 1vh));
   overflow: hidden;
 
-  &--no-scrollbar {
-    height: 100vh;
-    /* stylelint-disable-next-line */
-    height: calc(100 * var(--vh, 1vh));
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
   .header,
   .footer {
     flex-shrink: 0;
@@ -31,27 +18,29 @@
   }
 }
 
+.rouble {
+  font-family: $ff-rouble;
+  /* stylelint-disable */
+  text-transform: lowercase !important;
+  font-weight: 400 !important;
+  /* stylelint-enable */
+}
+
 .visually-hidden {
   position: absolute;
 
   width: 1px;
   height: 1px;
   margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  border: 0;
 
   clip: rect(0 0 0 0);
-}
-
-.no-transition {
-  /* stylelint-disable-next-line */
-  transition: none !important;
-}
-
-.rouble {
-  font-family: $font-family--rouble;
-  /* stylelint-disable */
-  text-transform: lowercase !important;
-  font-weight: 400 !important;
-  /* stylelint-enable */
+  clip-path: inset(100%);
 }
 
 .scroll-lock-ios {
@@ -64,15 +53,16 @@
   overflow: hidden;
 }
 
-// используйте для скрытия нежелательных анимаций-скачков при поворотах экрана
-@keyframes disableBreakpointAnimation {
-  0% {
-    visibility: hidden;
-    opacity: 0;
-  }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
-  100% {
-    visibility: hidden;
-    opacity: 0;
+  &::-webkit-scrollbar {
+    display: none;
   }
+}
+
+.no-transition {
+  /* stylelint-disable-next-line */
+  transition: none !important;
 }
