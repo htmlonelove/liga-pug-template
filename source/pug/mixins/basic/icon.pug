@@ -1,5 +1,0 @@
-mixin icon(name, width, height)
-  //- &attributes(attributes) позволяет вызывать миксин с дополнительным классами или атрибутами
-  //- +icon("icon-close", 15, 15).some-class
-  svg(width=width, height=height, aria-hidden="true")&attributes(attributes)
-    use(xlink:href="#" + name)
