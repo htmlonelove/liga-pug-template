@@ -158,7 +158,7 @@ block main
             p Пример вызова
             code
               pre +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
-            +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example").custom-select
+            +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1", isActive: true}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example").custom-select
             code
               pre
               | +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text:

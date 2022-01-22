@@ -97,10 +97,14 @@ const setSelectActiveState = (multiple, insert, item) => {
   const str = createMultiString(activeItems);
 
   buttonTextBlock.style.transition = '0s';
-  label.style.transition = '0s';
+  if (label) {
+    label.style.transition = '0s';
+  }
 
   setTimeout(() => {
-    label.style.transition = null;
+    if (label) {
+      label.style.transition = null;
+    }
     buttonTextBlock.style.transition = null;
   }, 300);
 
