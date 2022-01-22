@@ -327,7 +327,7 @@ const setSelectAction = (item) => {
 
 // Класс CustomSelect
 
-export class CustomSelect {
+export default class CustomSelect {
   constructor() {
     window.selectInit = this.init.bind(this);
   }

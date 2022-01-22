@@ -15,9 +15,8 @@ block main
     }
 
     .components-backwards {
+      color: #ffffff;
       display: inline-block;
-      margin-bottom: 10px;
-      margin-left: 7px;
     }
 
     .components-backwards span:first-child {
@@ -81,11 +80,6 @@ block main
       gap: 20px 80px;
     }
 
-    .header-ui__back-link {
-      color: #ffffff;
-      margin: 0;
-    }
-
     .header-ui__inner-list {
       margin: 0;
       padding: 0;
@@ -107,7 +101,7 @@ block main
 
   header.header-ui
     nav.header-ui__nav.container
-      a.header-ui__back-link.components-backwards(href="site-map.html")
+      a.components-backwards(href="sitemap.html")
         span &larr;
         span вернуться на разводящую
       ul.header-ui__inner-list
@@ -125,24 +119,24 @@ block main
       section(id="modals")
         h2 Modals
         p
-          +btn({text: "modal-feedback link"})(data-open-modal="feedback")
+          +btn({text: "modal-feedback"})(data-open-modal="feedback")
         p
-          +btn({text: "modal-success link"})(data-open-modal="success")
+          +btn({text: "modal-success"})(data-open-modal="success")
 
       section(id="buttons")
         h2 Buttons
-        +btn({text: "Я просто ссылка", href: "#"})
+        +btn({text: "Текст", href: "#"})
         p Пример вызова
         code
-          pre +btn({text: "Я просто ссылка", href: "#"})
-        +btn({text: "Я красная ссылка", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+          pre +btn({text: "Текст", href: "#"})
+        +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
         p Пример вызова
         code
           pre +btn({text: "Я красная ссылка", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
-        +btn({text: "Я просто кнопка"})(disabled)
+        +btn({text: "Текст"})(disabled)
         p Пример вызова
         code
-          pre +btn({text: "Я просто кнопка"})(disabled)
+          pre +btn({text: "Текст"})(disabled)
 
       section(id="form-elements")
         h2 Form elements
@@ -160,17 +154,17 @@ block main
             p Пример вызова
             code
               pre +custom-input({inputLabel: "Введите ваш email", inputError: "Не корректный email", inputName: "user-email"})(data-validate-type="email")
-            +custom-select({label: "Тема обращения", error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example").custom-select.slide-up
-            code
-              pre
-              | +custom-select({label: "label-2", error: "some-error", optionsList: [{text: "example-1", value: "id-1"}, {text:
-              | "example-2", value: "id-2"}, {text: "example-3", value: "id-3"}, {text: "example-4", value: "id-4"}, {text: "example-5",
-              | value: "id-5"}, {text: "example-6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name",
-              | data-id="id-example").custom-select.slide-up
             +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
             p Пример вызова
             code
               pre +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
+            +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example").custom-select
+            code
+              pre
+              | +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text:
+              | "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5",
+              | value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name",
+              | data-id="id-example").custom-select
             +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
             p Пример вызова
             code
