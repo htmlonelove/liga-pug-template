@@ -1,11 +1,3 @@
-@function size($size-in-px) {
-  @return $size-in-px / $fz-default * 1rem;
-}
-
-@function size-desktop($size-in-px) {
-  @return $size-in-px / $vp--1920 * 100vw;
-}
-
 // ---------------------------------
 // ❗ использование скейлинга должно быть согласовано с командой и заказчиком
 

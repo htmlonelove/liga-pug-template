@@ -8,7 +8,7 @@ const MoveTo = (() => {
     duration: 800,
     easing: 'easeOutQuart',
     container: window,
-    callback: function() {},
+    callback() {},
   };
 
   /**
@@ -42,7 +42,7 @@ const MoveTo = (() => {
       obj3[propertyName] = obj2[propertyName];
     });
     return obj3;
-  };
+  }
 
   /**
   * Converts camel case to kebab case
@@ -50,10 +50,10 @@ const MoveTo = (() => {
   * @return {string} the converted value
   */
   function kebabCase(val) {
-    return val.replace(/([A-Z])/g, function($1) {
+    return val.replace(/([A-Z])/g, function ($1) {
       return '-' + $1.toLowerCase();
     });
-  };
+  }
 
   /**
   * Count a number of item scrolled top
@@ -65,13 +65,14 @@ const MoveTo = (() => {
       return container.scrollTop;
     }
     return container.pageYOffset;
-  };
+  }
 
   /**
   * MoveTo Constructor
   * @param {object} options Options
   * @param {object} easeFunctions Custom ease functions
   */
+  // eslint-disable-next-line no-shadow
   function MoveTo(options = {}, easeFunctions = {}) {
     this.options = mergeObject(defaults, options);
     this.easeFunctions = mergeObject({easeOutQuart}, easeFunctions);
@@ -83,7 +84,7 @@ const MoveTo = (() => {
   * @param  {function} callback Callback function
   * @return {function|void} unregister function
   */
-  MoveTo.prototype.registerTrigger = function(dom, callback) {
+  MoveTo.prototype.registerTrigger = function (dom, callback) {
     if (!dom) {
       return;
     }
@@ -106,6 +107,7 @@ const MoveTo = (() => {
 
     dom.addEventListener('click', listener, false);
 
+    // eslint-disable-next-line consistent-return
     return () => dom.removeEventListener('click', listener, false);
   };
 
@@ -115,7 +117,7 @@ const MoveTo = (() => {
   * @param  {HTMLElement|number} target Target element to be scrolled or target position
   * @param  {object} options Custom options
   */
-  MoveTo.prototype.move = function(target, options = {}) {
+  MoveTo.prototype.move = function (target, options = {}) {
     if (target !== 0 && !target) {
       return;
     }
@@ -129,6 +131,7 @@ const MoveTo = (() => {
     distance -= options.tolerance;
 
     // rAF loop
+    /* eslint-disable-next-line */
     const loop = (currentTime) => {
       const currentYOffset = countScrollTop(this.options.container);
 
@@ -171,7 +174,7 @@ const MoveTo = (() => {
   * @param {string}   name Ease function name
   * @param {function} fn   Ease function
   */
-  MoveTo.prototype.addEaseFunction = function(name, fn) {
+  MoveTo.prototype.addEaseFunction = function (name, fn) {
     this.easeFunctions[name] = fn;
   };
 
