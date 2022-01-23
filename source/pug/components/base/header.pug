@@ -17,11 +17,11 @@ mixin header(headerMods, currentPage)
 
   header.header(class=headerMods)
     .container
-      if(currentPage === "main")
+      if(currentPage === "index")
         //- lighthouse снимает 10 баллов SEO за <a> без href
         span.header__logo Логотип
       else
-        a.header__logo(href="main.html", aria-label="Переход на главную") Логотип
+        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
       nav.main-nav
         button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
           +icon("icon-burger", 20, 20)
