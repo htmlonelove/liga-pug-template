@@ -9,15 +9,14 @@
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp--1920 * 100vw;
+//   @return $size-in-px / $vp-1920 * 100vw;
 // }
 
 // reboot.scss
 // html {
 //   font-size: size-desktop($fz-default);
-//   line-height: size-desktop(24px);
 
-//   @include vp-1919{
+//   @include vp-1919 {
 //     font-size: $fz-default;
 //   }
 // }
@@ -31,13 +30,12 @@
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp--1920 * 100vw;
+//   @return $size-in-px / $vp-1920 * 100vw;
 // }
 
 // reboot.scss
 // html {
 //   font-size: size-desktop($fz-default);
-//   line-height: size-desktop(24px);
 
 //   @include vp-1023 {
 //     font-size: $fz-default;
@@ -52,21 +50,19 @@
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp--1920 * 100vw;
+//   @return $size-in-px / $vp-1920 * 100vw;
 // }
 
 // @function size-tablet($size-in-px) {
-//   @return $size-in-px / $vp-1439 * 100vw;
+//   @return $size-in-px / $vp-1440 * 100vw;
 // }
 
 // reboot.scss
 // html {
 //   font-size: size-desktop($fz-default);
-//   line-height: size-desktop(24px);
 
 //   @include vp-1439 {
 //     font-size: size-tablet($fz-default);
-//     line-height: size-tablet(24px);
 //   }
 
 //   @include vp-1023 {
@@ -95,12 +91,10 @@
 
 //   @media (min-width: 1921px) {
 //     font-size: size-coefficient-large($fz-default);
-//     line-height: size-coefficient-large(24px);
 //   }
 
 //   @include vp-1439 {
 //     font-size: size-coefficient($fz-default);
-//     line-height: size-coefficient(24px);
 //   }
 
 //   @include vp-1023 {
@@ -116,17 +110,16 @@
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp--1920 * 100vw;
+//   @return $size-in-px / $vp-1920 * 100vw;
 // }
 
 // @function no-scale($size-in-px) {
-//   @return $size-in-px * (1921px / 1440px);
+//   @return $size-in-px * (1921px / 1920px);
 // }
 
 // reboot.scss
 // html {
 //   font-size: size-desktop($fz-default);
-//   line-height: size-desktop(24px);
 
 //   @include vp-1439 {
 //     font-size: $fz-default;
@@ -137,6 +130,6 @@
 //   margin-bottom: size(40px);
 
 //   @media (min-width: 1921px) {
-//   margin-bottom: no-scale(40px);
+//    margin-bottom: no-scale(40px);
 //   }
 // }
