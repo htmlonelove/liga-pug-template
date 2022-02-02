@@ -1,7 +1,7 @@
 extends ../components/base/layout
 
 block variables
-  - var title = "Список страниц"
+  - const title = "Список страниц"
 
 block main
   style.
@@ -49,7 +49,7 @@ block main
     }
 
   -
-    var pages = [
+    const pages = [
       {
         name: "UI-kit — ui-kit.html",
         src: "ui-kit.html"
@@ -60,10 +60,11 @@ block main
       },
     ]
 
-  main.container.main-index
-    img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
-    h1 Список страниц
-    ol
-      each page in pages
-        li
-          a(href= page.src)= page.name
+  main
+    .container
+      img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+      h1 Список страниц
+      ol
+        each page in pages
+          li
+            a(href= page.src)= page.name
