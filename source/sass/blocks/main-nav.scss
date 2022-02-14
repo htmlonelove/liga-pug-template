@@ -15,6 +15,10 @@
 
   &__link {
     color: $color-default-white;
+
+    &.is-active {
+      opacity: 0.6;
+    }
   }
 
   &__toggle {

@@ -1,9 +1,9 @@
-mixin header(headerMods, currentPage)
+mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "#",
-        text: "Страница 1"
+        href: "index.html",
+        text: "Главная"
       },
       {
         href: "#",
@@ -17,7 +17,7 @@ mixin header(headerMods, currentPage)
 
   header.header(class=headerMods)
     .container
-      if(currentPage === "index")
+      if(currentUrl === "index.html")
         //- lighthouse снимает 10 баллов SEO за <a> без href
         span.header__logo Логотип
       else
@@ -27,9 +27,10 @@ mixin header(headerMods, currentPage)
           +icon("icon-burger", 20, 20)
         .main-nav__wrapper
           ul.main-nav__list
-            each link, index in headerLinks
+            each link in headerLinks
+              - const activeState = currentUrl === link.href
               li.main-nav__item
-                if(index === currentPage)
-                  a.main-nav__link.main-nav__link--active=link.text
+                if(activeState)
+                  span.main-nav__link.is-active=link.text
                 else
                   a.main-nav__link(href=link.href)=link.text
