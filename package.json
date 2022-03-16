@@ -30,7 +30,7 @@
     "eslint": "7.32.0",
     "stylelint": "13.13.1",
     "autoprefixer": "9.5.x",
-    "browser-sync": "2.26.12",
+    "browser-sync": "2.27.9",
     "cross-env": "7.0.2",
     "del": "5.1.0",
     "gulp": "4.0.x",
