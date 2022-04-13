@@ -1,2 +1,5 @@
 mixin img(path, image, format, width, height, altText)
-  img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
+  if format === 'svg'
+    img(src="img/" + path + "/" + image + "." + format, width= width, height= height, alt= altText)
+  else
+    img(src="img/" + path + "/" + image + "." + format, srcset= "img/" + path + "/" + image + "@2x." + format + " 2x", width= width, height= height, alt= altText)
