@@ -1,5 +1,10 @@
 module.exports = {
-  rules: {
+  'extends': 'stylelint-config-rational-order',
+  'plugins': [
+    'stylelint-order',
+    'stylelint-config-rational-order/plugin'
+  ],
+  'rules': {
     'font-family-no-duplicate-names': true,
     'font-family-no-missing-generic-family-keyword': true,
     'no-descending-specificity': null,
@@ -159,5 +164,14 @@ module.exports = {
     'color-no-hex': null,
     'color-named': 'never',
     'number-max-precision': 2,
+
+    'order/properties-order': [],
+    'plugin/rational-order': [
+      true,
+      {
+        'border-in-box-model': true,
+        'empty-line-between-groups': true,
+      }
+    ],
   },
 };

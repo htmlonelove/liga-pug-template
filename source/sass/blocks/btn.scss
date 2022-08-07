@@ -2,11 +2,11 @@
   display: inline-flex;
   margin: 10px 0;
   padding: 10px 20px;
+  border: none;
 
   color: $color-default-white;
 
   background-color: $color-neon-blue;
-  border: none;
   cursor: pointer;
 
   transition: opacity $trans-default;

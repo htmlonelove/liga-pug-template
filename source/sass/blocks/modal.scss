@@ -34,8 +34,8 @@
 
     display: flex;
     flex-shrink: 0;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 100%;
     min-height: 100%;
     padding: 60px 40px;
@@ -79,9 +79,9 @@
     width: 40px;
     height: 40px;
     padding: 0;
+    border: none;
 
     background: $color-transparent;
-    border: none;
     cursor: pointer;
   }
 

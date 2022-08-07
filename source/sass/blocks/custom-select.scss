@@ -35,11 +35,11 @@
     height: 1px;
     margin: -1px;
     padding: 0;
+
+    border: 0;
     overflow: hidden;
 
     white-space: nowrap;
-
-    border: 0;
 
     clip: rect(0 0 0 0);
     clip-path: inset(100%);
@@ -51,10 +51,10 @@
     width: 100%;
     height: 40px;
     padding: 5px 10px;
-
-    background-color: $color-transparent;
     border: 2px solid rgba($color-default-black, 0.2);
     border-radius: 5px;
+
+    background-color: $color-transparent;
     outline: none;
     cursor: pointer;
 
@@ -78,12 +78,12 @@
     max-height: 100px;
     margin: 0;
     padding: 0;
+    border: 2px solid $color-default-black;
     overflow-y: auto;
 
     list-style: none;
 
     background-color: $color-default-white;
-    border: 2px solid $color-default-black;
     transform: translateY(100%);
     visibility: hidden;
     opacity: 0;
@@ -135,8 +135,9 @@
     width: 80%;
     overflow: hidden;
 
-    text-align: left;
     white-space: nowrap;
+
+    text-align: left;
     text-overflow: ellipsis;
 
     opacity: 0;
@@ -163,8 +164,9 @@
 
   &.open-up {
     .custom-select__list {
-      bottom: auto;
       top: 0;
+      bottom: auto;
+
       transform: translateY(calc(-100% + 30px));
     }
   }
