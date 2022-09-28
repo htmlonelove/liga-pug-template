@@ -32,15 +32,39 @@
 
 // ❗❗❗ запрещено использовать изображения в css, касается как jpg \ png, так и svg
 
-// ❗ обязательно используйте @media для отключения ховеров на тач устройствах
-// но не используем для текстовых полей ( input, textarea )
-/* @media (hover: hover), screen and (min-width: 0\0) {
-  &:hover,
-  &:focus {
-    color: $color-default-white;
+// ❗ обязательно используйте mixin hover-focus для отключения ховеров на тач устройствах
+/* @mixin hover-focus {
+    @media (hover: hover) {
+      &:hover:not(.focus-visible),
+      &.focus-visible:focus {
+        @content;
+      }
+    }
   }
-} */
-
+*/
+/*  @include hover-focus {
+      opacity: 0.8;
+    }
+*/
+// но не используем для текстовых полей ( input, textarea )
+// так же в сборке есть отдельный миксин для hover
+/*@mixin hover {
+    @media (hover: hover) {
+      &:hover:not(.focus-visible) {
+        @content;
+      }
+    }
+  }
+*/
+// и для focus
+/*@mixin focus {
+    @media (hover: hover) {
+      &.focus-visible:focus {
+        @content;
+      }
+    }
+  }
+*/
 // адаптив пишем внутри каждого класса (смотрим container.scss)
 
 // для фикса проблем с vh на iOS в сборке подключен скрипт

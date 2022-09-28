@@ -4,6 +4,31 @@
   }
 }
 
+@mixin hover {
+  @media (hover: hover) {
+    &:hover:not(.focus-visible) {
+      @content;
+    }
+  }
+}
+
+@mixin focus {
+  @media (hover: hover) {
+    &.focus-visible:focus {
+      @content;
+    }
+  }
+}
+
+@mixin hover-focus {
+  @media (hover: hover) {
+    &:hover:not(.focus-visible),
+    &.focus-visible:focus {
+      @content;
+    }
+  }
+}
+
 // Desktop first
 
 @mixin vp-1919 {

@@ -102,19 +102,13 @@
     &[aria-selected="true"] {
       background-color: rgba($color-default-white, 0.2);
 
-      @media (hover: hover), screen and (min-width: 0\0) {
-        &:hover,
-        &:focus {
-          background-color: rgba($color-default-white, 0.2);
-        }
+      @include hover-focus {
+        background-color: rgba($color-default-white, 0.2);
       }
     }
 
-    @media (hover: hover), screen and (min-width: 0\0) {
-      &:hover,
-      &:focus {
-        background-color: rgba($color-default-white, 0.4);
-      }
+    @include hover-focus {
+      background-color: rgba($color-default-white, 0.4);
     }
   }
 

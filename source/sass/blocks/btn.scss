@@ -20,10 +20,7 @@
     pointer-events: none;
   }
 
-  @media (hover: hover), screen and (min-width: 0\0) {
-    &:hover,
-    &:focus {
-      opacity: 0.8;
-    }
+  @include hover-focus {
+    opacity: 0.8;
   }
 }
