@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "browserslist": [
     "last 3 versions",
     "IE 11",
@@ -9,7 +10,7 @@
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
     "test": "npm run editorconfig & npm run stylelint & eslint source/js/",
-    "build": "cross-env NODE_ENV=production gulp build",
+    "build": "cross-env NODE_ENV=production gulp build & gulp imagemin",
     "start": "cross-env NODE_ENV=development gulp start",
     "imagemin": "gulp imagemin",
     "webp": "gulp webp"
@@ -24,32 +25,36 @@
     "source/sass/**/*.{sass,scss}"
   ],
   "devDependencies": {
-    "@babel/preset-env": "7.10.4",
-    "babel-loader": "8.0.6",
+    "@babel/preset-env": "7.18.6",
+    "babel-loader": "8.2.5",
     "@htmlacademy/editorconfig-cli": "1.x",
     "eslint": "7.32.0",
     "stylelint": "13.13.1",
-    "autoprefixer": "9.5.1",
+    "autoprefixer": "10.4.7",
     "browser-sync": "2.27.10",
-    "cross-env": "7.0.2",
-    "del": "5.1.0",
+    "cross-env": "7.0.3",
+    "del": "6.1.1",
     "gulp": "4.0.2",
-    "gulp-csso": "3.0.1",
+    "gulp-csso": "4.0.1",
     "gulp-group-css-media-queries": "1.2.2",
     "gulp-imagemin": "7.1.0",
     "gulp-plumber": "1.2.1",
-    "gulp-postcss": "8.0.0",
-    "gulp-pug": "4.0.1",
+    "gulp-postcss": "9.0.1",
+    "gulp-pug": "5.0.0",
     "gulp-cached": "1.1.1",
-    "gulp-rename": "1.4.0",
-    "gulp-sass": "4.0.2",
-    "gulp-sourcemaps": "2.6.5",
-    "gulp-svgstore": "7.0.1",
+    "gulp-rename": "2.0.0",
+    "gulp-sass": "5.1.0",
+    "gulp-svgstore": "9.0.0",
     "gulp-webp": "4.0.1",
+    "postcss": "8.4.14",
+    "sass": "1.53.0",
     "webpack": "4.42.0",
     "webpack-stream": "5.2.1",
-    "circular-dependency-plugin": "5.2.0",
-    "clean-webpack-plugin": "3.0.0",
+    "circular-dependency-plugin": "5.2.2",
+    "clean-webpack-plugin": "4.0.0",
     "duplicate-package-checker-webpack-plugin": "3.0.0"
+  },
+  "engines": {
+    "node": ">=16.15.1"
   }
 }

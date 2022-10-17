@@ -5,11 +5,11 @@
 
 // functions.scss
 // @function size($size-in-px) {
-//   @return $size-in-px / $fz-default * 1rem;
+//   @return calc($size-in-px / $fz-default * 1rem);
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp-1920 * 100vw;
+//   @return calc($size-in-px / $vp-1920 * 100vw);
 // }
 
 // reboot.scss
@@ -26,11 +26,11 @@
 
 // functions.scss
 // @function size($size-in-px) {
-//   @return $size-in-px / $fz-default * 1rem;
+//   @return calc($size-in-px / $fz-default * 1rem;
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp-1920 * 100vw;
+//   @return calc($size-in-px / $vp-1920 * 100vw;
 // }
 
 // reboot.scss
@@ -46,15 +46,15 @@
 // 3) ремы в плюс от эталона и в минус (с другим коэффициентом), на планшете обычная верстка
 // functions.scss
 // @function size($size-in-px) {
-//   @return $size-in-px / $fz-default * 1rem;
+//   @return calc($size-in-px / $fz-default * 1rem);
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp-1920 * 100vw;
+//   @return calc($size-in-px / $vp-1920 * 100vw);
 // }
 
 // @function size-tablet($size-in-px) {
-//   @return $size-in-px / $vp-1440 * 100vw;
+//   @return calc($size-in-px / $vp-1440 * 100vw);
 // }
 
 // reboot.scss
@@ -74,15 +74,15 @@
 // 4) ремы в коэффициентах
 // functions.scss
 // @function size($size-in-px) {
-//   @return $size-in-px / $fz-default * 1rem;
+//   @return calc($size-in-px / $fz-default * 1rem);
 // }
 
 // @function size-coefficient($size-in-px) {
-//   @return $size-in-px * 0.9;
+//   @return calc($size-in-px * 0.9);
 // }
 
 // @function size-coefficient-large($size-in-px) {
-//   @return $size-in-px * 1.3;
+//   @return calc($size-in-px * 1.3);
 // }
 
 // reboot.scss
@@ -106,15 +106,15 @@
 // 5) скейлинг отдельных элементов
 // functions.scss
 // @function size($size-in-px) {
-//   @return $size-in-px / $fz-default * 1rem;
+//   @return calc($size-in-px / $fz-default * 1rem);
 // }
 
 // @function size-desktop($size-in-px) {
-//   @return $size-in-px / $vp-1920 * 100vw;
+//   @return calc($size-in-px / $vp-1920 * 100vw);
 // }
 
 // @function no-scale($size-in-px) {
-//   @return $size-in-px * (1921px / 1920px);
+//   @return calc($size-in-px * (1921px / 1920px));
 // }
 
 // reboot.scss

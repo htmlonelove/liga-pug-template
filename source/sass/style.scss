@@ -35,10 +35,13 @@
 // ❗ обязательно используйте mixin hover-focus для отключения ховеров на тач устройствах
 /* @mixin hover-focus {
     @media (hover: hover) {
-      &:hover:not(.focus-visible),
-      &.focus-visible:focus {
+      &:hover:not(.focus-visible) {
         @content;
       }
+    }
+
+    &.focus-visible:focus {
+      @content;
     }
   }
 */
@@ -56,12 +59,17 @@
     }
   }
 */
-// и для focus
+// для focus
 /*@mixin focus {
-    @media (hover: hover) {
-      &.focus-visible:focus {
-        @content;
-      }
+    &.focus-visible:focus {
+      @content;
+    }
+  }
+*/
+// и для active
+/*@mixin active {
+    &.focus-visible:active {
+      @content;
     }
   }
 */
