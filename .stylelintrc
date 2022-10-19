@@ -1,3 +1,3 @@
 {
-  "extends": "./stylelintconfig.js"
+  "extends": "./stylelintconfig.cjs"
 }

@@ -9,4 +9,4 @@ env:
   browser: true
   commonjs: true
 
-extends: "./eslintconfig.js"
+extends: "./eslintconfig.cjs"
