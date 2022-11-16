@@ -108,6 +108,10 @@ block main
       margin: 10px 0;
     }
 
+    .wrapper {
+      overflow: hidden;
+    }
+
   header.header-ui
     nav.header-ui__nav.container
       a.components-backwards(href="sitemap.html")
@@ -149,35 +153,78 @@ block main
 
       section(id="form-elements")
         h2 Form elements
-        div(data-validate)
+        div(data-form-validate, data-callback="base")
           form(method="post")
-            +custom-input({inputLabel: "Введите ваше имя", inputError: "Не корректное имя", inputName: "user-name", inputMinLength: "2"})(data-validate-type="text", data-limitations="name")
-            p Пример вызова
-            code
-              pre +custom-input({inputLabel: "Введите ваше имя", inputError: "Не корректное имя", inputName: "user-name", inputMinLength: "2"})(data-validate-type="text", data-limitations="letters")
-            +custom-input({inputType: "tel",inputLabel: "Введите ваш телефон", inputError: "Не корректный телефон", inputName: "user-phone"})(data-validate-type="phone")
-            p Пример вызова
-            code
-              pre +custom-input({inputLabel: "Введите ваш телефон", inputError: "Не корректный телефон", inputName: "user-phone"})(data-validate-type="phone")
-            +custom-input({inputType: "email", inputLabel: "Введите ваш email", inputError: "Не корректный email", inputName: "user-email"})(data-validate-type="email")
-            p Пример вызова
-            code
-              pre +custom-input({inputLabel: "Введите ваш email", inputError: "Не корректный email", inputName: "user-email"})(data-validate-type="email")
-            +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
-            p Пример вызова
-            code
-              pre +custom-textarea({inputLabel: "Расскажите о себе", inputName: "user-info"})
-            +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1", isActive: true}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example").custom-select
-            code
-              pre
-              | +custom-select({error: "Выберите тему обращения", optionsList: [{text: "Тема 1", value: "id-1"}, {text:
-              | "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5",
-              | value: "id-5"}, {text: "Тема 6", value: "id-6"}]})(data-select, data-validate-type="select", data-name="some-name",
-              | data-id="id-example").custom-select
-            +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
-            p Пример вызова
-            code
-              pre +custom-toggle({inputLabel: "Подтвердите своё согласие", inputError: "Согласие является обязательным", inputName: "user-agreement", inputChecked: true})(data-validate-type="checkbox").custom-toggle--checkbox
+            h2.subtitle Инпуты
+            p Input #[b data-validate-type="text", data-limitation="name", data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-required].
+            +custom-input({
+              inputLabel: "Введите ваше имя",
+              inputName: "user-name-1",
+            })(data-validate-type="text", data-limitation="name", data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-required)
+            hr
+            p Input #[b data-validate-type="matrix", data-matrix-limitation="digit", data-matrix="____ ______", data-message-base="Поле обязательно к заполнению", data-required].
+            +custom-input({
+              inputType: "text",
+              inputLabel: "Введите номер паспорта",
+              inputName: "user-passport",
+            })(data-validate-type="matrix", data-matrix-limitation="digit", data-matrix="____ ______", data-message-base="Поле обязательно к заполнению", data-required)
+            hr
+            p Input #[b data-validate-type="email", data-message-base="Поле обязательно к заполнению", data-required].
+            +custom-input({
+              inputType: "email",
+              inputLabel: "Введите ваш email",
+              inputName: "user-phone",
+            })(data-validate-type="email", data-message-base="Поле обязательно к заполнению", data-required)
+            hr
+            p Input #[b data-validate-type="phone", data-on-input-validate, data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-message-success="Поле заполнено верно", data-required].
+            +custom-input({
+              inputType: "tel",
+              inputLabel: "Введите ваш телефон",
+              inputName: "user-phone"
+              })(data-validate-type="phone", data-on-input-validate, data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-message-success="Поле заполнено верно", data-required)
+            p Input #[b data-validate-type="custom-example", data-message-base="Поле обязательно к заполнению", data-message-success="Поле заполнено верно", data-required].
+            +custom-input({inputLabel: "Введите 10 символов", inputName: "user-field", inputMinLength: "10"})(data-validate-type="custom-example", data-on-input-validate, data-required)
+            hr
+            p Textarea #[b data-validate-type="text"].
+            +custom-textarea({
+              inputLabel: "Расскажите о себе",
+              inputName: "user-info"
+            })(data-validate-type="text")
+            hr
+            h2.subtitle Чекбоксы
+            p Чекбокс #[b data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению"].
+            div
+              +custom-toggle({
+                inputLabel: "Чекбокс",
+                inputName: "user-agreement",
+                inputValue: "user-agreement-1",
+                inputChecked: false
+              })(data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению").custom-toggle--checkbox
+            hr
+            p Селект простой с выбранной опцией.
+            +custom-select({
+              optionsList: [
+                {text: "Тема 1", value: "id-1", isActive: true},
+                {text: "Тема 2", value: "id-2"},
+                {text: "Тема 3", value: "id-3"},
+                {text: "Тема 4", value: "id-4"},
+                {text: "Тема 5", value: "id-5"},
+                {text: "Тема 6", value: "id-6"}
+              ]
+            })("data-select", data-validate-type="select", data-name="some-name", data-id="id-example-1", data-message-base="Поле обязательно к заполнению").custom-select
+            p Селект простой без выбранной опции.
+            +custom-select({
+              optionsList: [
+                {text: "Тема 1", value: "id-1"},
+                {text: "Тема 2", value: "id-2"},
+                {text: "Тема 3", value: "id-3"},
+                {text: "Тема 4", value: "id-4"},
+                {text: "Тема 5", value: "id-5"},
+                {text: "Тема 6", value: "id-6"}
+              ]
+            })("data-select", data-validate-type="select", data-name="some-name", data-id="id-example-2", data-message-base="Поле обязательно к заполнению").custom-select
+            hr
+
             +btn({text: "Сбросить форму", type: "reset"})
             +btn({text: "Отправить форму", type: "submit"})
 

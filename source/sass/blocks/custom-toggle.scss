@@ -1,20 +1,24 @@
 .custom-toggle {
   position: relative;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 300;
 
   display: flex;
   width: 500px;
-  padding: 20px 0;
+  padding: 14px 0 10px 36px;
 
-  &__error {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  @media screen and (max-width: 767px) {
+    padding: 14px 0 10px 0;
+    width: 100%;
+  }
 
-    color: $color-torch-red;
+  &:last-of-type {
+    padding: 14px 0 58px 36px;
 
-    opacity: 0;
-
-    transition: opacity $trans-default;
+    @media screen and (max-width: 767px) {
+      padding: 14px 0 58px 0;
+    }
   }
 
   input {
@@ -30,7 +34,7 @@
   label {
     position: relative;
 
-    padding-left: 26px;
+    padding-left: 52px;
 
     cursor: pointer;
 
@@ -43,15 +47,15 @@
   &--checkbox {
     .custom-toggle__icon {
       position: absolute;
-      top: 2px;
+      top: 0;
       left: 0;
 
-      width: 16px;
-      height: 16px;
+      width: 28px;
+      height: 28px;
 
-      border: 1px solid rgba($color-default-black, 0.2);
+      border: 1.5px solid #2c39f2;
 
-      transition: border $trans-default;
+      transition: border 0.3s ease;
 
       &::before {
         content: "";
@@ -59,14 +63,14 @@
         top: 50%;
         left: 50%;
 
-        width: 6px;
-        height: 6px;
+        width: 20px;
+        height: 20px;
 
-        background-color: $color-transparent;
+        background-color: rgba(#2c39f2, 0);
 
         transform: translate(-50%, -50%);
 
-        transition: background-color $trans-default;
+        transition: background-color 0.3s ease;
       }
     }
   }
@@ -74,16 +78,16 @@
   &--radio {
     .custom-toggle__icon {
       position: absolute;
-      top: 2px;
+      top: 0;
       left: 0;
 
-      width: 16px;
-      height: 16px;
+      width: 28px;
+      height: 28px;
 
-      border: 1px solid rgba($color-default-black, 0.2);
+      border: 1px solid #2c39f2;
       border-radius: 50%;
 
-      transition: border $trans-default;
+      transition: border 0.3s ease;
 
       &::before {
         content: "";
@@ -91,40 +95,44 @@
         top: 50%;
         left: 50%;
 
-        width: 6px;
-        height: 6px;
+        width: 20px;
+        height: 20px;
 
-        color: $color-transparent;
+        color: rgba(255, 255, 255, 0);
 
         border-radius: 50%;
         transform: translate(-50%, -50%);
 
-        transition: color $trans-default;
+        transition: color 0.3s ease;
       }
     }
   }
 
   input:checked + .custom-toggle__icon {
-    border: 1px solid rgba($color-default-black, 0.8);
+    border: 1.5px solid #2c39f2;
 
     &::before {
-      background-color: rgba($color-default-black, 0.8);
+      background-color: #2c39f2;
     }
   }
 
   &.is-invalid {
-    .custom-toggle__icon {
-      border: 1px solid $color-torch-red;
-    }
-
-    .custom-toggle__error {
-      opacity: 1;
+    label span {
+      color: #ff1553;
     }
   }
 
-  /*&.is-valid {
-    label span {
-      color: $color-eucalyptus;
+  .input-message {
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+
+    &--invalid {
+      color: #ff0000;
     }
-  }*/
+
+    &--valid {
+      color: #15ab07;
+    }
+  }
 }

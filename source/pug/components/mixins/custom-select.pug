@@ -1,14 +1,11 @@
 mixin custom-select(options = {})
   - const selectLabel = options.label ? options.label : false
-  - const selectError = options.error ? options.error : false
   - const selectPlaceholder = options.placeholder ? options.placeholder : false
   - const buttonAriaLabel = options.buttonAriaLabel ? options.buttonAriaLabel : "Выберите одну из опций"
 
   div&attributes(attributes)
     if selectLabel
       span.custom-select__label=selectLabel
-    if selectError
-      span.custom-select__error=selectError
     if selectPlaceholder
       span.custom-select__placeholder=selectPlaceholder
     button.custom-select__button(type="button", aria-label=buttonAriaLabel)

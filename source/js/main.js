@@ -1,7 +1,7 @@
 import {iosVhFix} from './utils/ios-vh-fix';
 import {initModals} from './modules/modals/init-modals';
-import {initCustomSelect} from './modules/form/init-custom-select';
-import {initFormValidate} from './modules/form/init-form-validate';
+import {Form} from './modules/form-validate/form';
+import {CustomSelect} from './modules/select/custom-select';
 
 // ---------------------------------
 
@@ -19,8 +19,11 @@ window.addEventListener('DOMContentLoaded', () => {
   // в load следует добавить скрипты, не участвующие в работе первого экрана
   window.addEventListener('load', () => {
     initModals();
-    initCustomSelect();
-    initFormValidate();
+    const select = new CustomSelect();
+    select.init();
+    const form = new Form();
+    window.form = form;
+    form.init();
   });
 });
 
