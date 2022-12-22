@@ -39,6 +39,7 @@ export class Form {
   reset(form) {
     form.reset();
     form.querySelectorAll('.is-invalid').forEach((item) => item.classList.remove('is-invalid'));
+    form.querySelectorAll('.is-valid').forEach((item) => item.classList.remove('is-valid'));
     form.querySelectorAll('.input-message').forEach((item) => item.remove());
     setTimeout(() => {
       this._resetSelects(form);

@@ -11,14 +11,17 @@ export class Validator {
     this._message = new Message();
   }
 
-  _renderMessage(trigger, parent, item) {
+  _renderMessage(trigger, parent, input) {
+    if (!parent.hasAttribute('data-required') && !input.value) {
+      return;
+    }
     if (!trigger) {
       parent.classList.add('is-invalid');
-      if (parent.hasAttribute('data-message-base') && !item.value) {
+      if (parent.hasAttribute('data-message-base') && !input.value) {
         this._message.renderMessage(parent, parent.dataset.messageBase, 'invalid');
-      } else if (parent.hasAttribute('data-message-extra') && item.value) {
+      } else if (parent.hasAttribute('data-message-extra') && input.value) {
         this._message.renderMessage(parent, parent.dataset.messageExtra, 'invalid');
-      } else if (!parent.hasAttribute('data-message-extra') && parent.hasAttribute('data-message-base') && item.value) {
+      } else if (!parent.hasAttribute('data-message-extra') && parent.hasAttribute('data-message-base') && input.value) {
         this._message.renderMessage(parent, parent.dataset.messageBase, 'invalid');
       } else {
         this._message.removeMessage(parent);
@@ -33,6 +36,9 @@ export class Validator {
   }
 
   _setItemValidState(parent, input) {
+    if (!parent.hasAttribute('data-required') && !input.value) {
+      return;
+    }
     parent.classList.add('is-valid');
     parent.classList.remove('is-invalid');
     input.setAttribute('aria-invalid', 'false');
@@ -40,6 +46,9 @@ export class Validator {
   }
 
   _setItemInvalidState(parent, input) {
+    if (!parent.hasAttribute('data-required') && !input.value) {
+      return;
+    }
     parent.classList.remove('is-valid');
     input.setAttribute('aria-invalid', 'true');
   }
@@ -54,7 +63,7 @@ export class Validator {
 
   _validateTextInput(parent, input) {
     let flag = true;
-    if (input.value.length >= (+input.getAttribute('minlength') || 1)) {
+    if (input.value.length >= (+input.getAttribute('minlength') || 2)) {
       this._setItemValidState(parent, input);
     } else {
       this._setItemInvalidState(parent, input);
@@ -200,6 +209,18 @@ export class Validator {
     return flag;
   }
 
+  _validateFile(parent, input) {
+    let flag = true;
+    const sizeTest = parent.dataset.maxSize && input.files[0] ? input.files[0].size < +parent.dataset.maxSize : true;
+    if (input.value && sizeTest) {
+      this._setItemValidState(parent, input);
+    } else {
+      this._setItemInvalidState(parent, input);
+      flag = false;
+    }
+    return flag;
+  }
+
   _validateInput(type, parent, input) {
     switch (type) {
       case 'text':
@@ -216,6 +237,8 @@ export class Validator {
         return this._validateSelect(parent, input);
       case 'toggle-group':
         return this._validateToggleGroup(parent, input);
+      case 'file':
+        return this._validateFile(parent, input);
       case 'custom-example':
         return this._customExample(parent, input);
       default:
@@ -227,6 +250,15 @@ export class Validator {
     const parent = formElement.closest('[data-validate-type]');
     if (!parent) {
       return;
+    }
+
+    if (!parent.hasAttribute('data-required')) {
+      const removeElement = parent.querySelector('input') || parent.querySelector('select') || parent.querySelector('textarea');
+
+      if (!removeElement.value) {
+        parent.classList.remove('is-valid');
+        parent.classList.remove('is-invalid');
+      }
     }
 
     const onInputValidate = parent.hasAttribute('data-on-input-validate');
@@ -251,7 +283,7 @@ export class Validator {
     items.forEach((item) => {
       const formElement = item.querySelector('input') || item.querySelector('select') || item.querySelector('textarea');
       this.validateFormElement(formElement, true);
-      if (item.classList.contains('is-invalid') && item.hasAttribute('data-required')) {
+      if (item.classList.contains('is-invalid')) {
         result = false;
       }
     });

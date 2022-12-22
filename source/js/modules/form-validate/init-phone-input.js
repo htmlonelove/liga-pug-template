@@ -44,6 +44,14 @@ const onBlurPhoneInput = ({target}) => {
   if (target.value === BASE_COUNTRY_CODE) {
     const parent = target.closest('[data-validate-type="phone"]');
     target.value = '';
+    if (!parent.hasAttribute('data-required')) {
+      parent.classList.remove('is-valid');
+      parent.classList.remove('is-invalid');
+      const parentMessage = parent.querySelector('.input-message');
+      if (parentMessage) {
+        parentMessage.remove();
+      }
+    }
     parent.classList.remove('not-empty');
     target.removeEventListener('input', onInputPhoneInput);
     target.removeEventListener('blur', onBlurPhoneInput);

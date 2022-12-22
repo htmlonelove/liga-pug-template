@@ -1,6 +1,7 @@
 .DS_Store
 .idea
 .vscode
+.nvmrc
 package-lock.json
 *.ai
 *.log
