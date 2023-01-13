@@ -13,9 +13,22 @@ html(lang="ru")
     meta(name="description", content="ProjectName — описание")
     //- генерируйте favicon тут - https://realfavicongenerator.net/
     //- в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"
-
     //- используйте только для шрифта находящегося на первом экране
     //- link(rel="preload", href="fonts/placeholder.woff2", as="font", crossorigin="anonymous")
+    //- При необходимости вы можете добавить разметку Open graf. - const Open graf = true
+    if (openGraf)
+      //- Обязательно измените содержание контента на тот что необходим!
+      //- Введите заголовок
+      meta(property="og:title", content="Лига решений")
+      //- Введите заголовок путь к картинке
+      meta(property="og:image", content="https://24fortest.ru/img/content/sharing.png")
+      //- Введите необходимый тип
+      meta(property="og:type", content="article")
+      //- Введите адрес сайта
+      meta(property="og:url", content="https://24fortest.ru/")
+      //- Введите описание
+      meta(property="og:description", content="Простые и понятные решения в помощь разработчикам от команды Лига А")
+
     link(rel="stylesheet", href="css/style.min.css")
 
   body

@@ -41,5 +41,6 @@ const syncServer = () => {
 const build = gulp.series(clean, copy, sprite, gulp.parallel(styles, js, pug, optimizePng, optimizeJpg, optimizeSvg));
 const dev = gulp.series(clean, copy, sprite, gulp.parallel(styles, js, pug, optimizePng, optimizeJpg, optimizeSvg), syncServer);
 const start = gulp.series(clean, copy, sprite, gulp.parallel(styles, js, pug), syncServer);
+const nomin = gulp.series(clean, copy, sprite, gulp.parallel(styles, js, pug, optimizePng, optimizeJpg, optimizeSvg));
 
-export {createWebp as webp, build, start, dev};
+export {createWebp as webp, build, start, dev, nomin};

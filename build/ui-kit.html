@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>UI-kit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="visually-hidden"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-close" viewBox="0 0 20 20"><g fill="none"><path d="M.293 18.291a1 1 0 101.414 1.414L10 11.413l8.292 8.292a1 1 0 101.414-1.414l-8.292-8.292 8.292-8.292A1 1 0 1018.291.293L9.999 8.585 1.707.293A1 1 0 10.293 1.707L8.585 10 .293 18.291z"/></g></symbol></svg></div>
+    <div class="wrapper">
+      <style>
+        main {
+          margin-top: 100px;
+        }
+        
+        main > .container {
+          padding-top: 30px;
+          padding-bottom: 30px;
+        }
+        
+        .components-backwards {
+          color: #ffffff;
+          display: inline-block;
+        }
+        
+        .components-backwards span:first-child {
+          position: relative;
+          top: -3px;
+        
+          display: inline-block;
+          margin-right: 15px;
+        
+          font-size: 16px;
+          line-height: 24px;
+          vertical-align: top;
+        
+          transform: scale(2);
+        }
+        
+        .components-backwards span:last-child {
+          font-size: 16px;
+          line-height: 24px;
+        }
+        
+        .components-backwards + h1 {
+          margin-bottom: 0;
+        }
+        
+        .container > section {
+          padding: 70px 0 0 0;
+        }
+        
+        section > h2 {
+          margin: 0 0 20px 0;
+          padding: 20px 0;
+          position: relative;
+          color: #ffffff;
+        }
+        
+        section > h2::before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 100vw;
+          left: 50%;
+          top: 0;
+          transform: translateX(-50%);
+          background-color: #2c39f2;
+          z-index: -1;
+        }
+        
+        .header-ui {
+          background-color: #2c39f2;
+          padding: 20px 0;
+          position: fixed;
+          width: 100vw;
+          z-index: 99;
+          box-shadow: 0 0 3px 1px #000000;
+        }
+        
+        .header-ui__nav {
+          display: grid;
+          grid-template-columns: max-content 1fr;
+          gap: 20px 80px;
+        }
+        
+        .header-ui__inner-list {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px 30px;
+        }
+        
+        .header-ui__inner-link {
+          color: #ffffff;
+          transition: color 0.3s ease;
+        }
+        
+        .header-ui__inner-link:hover,
+        .header-ui__inner-link.is-active {
+          color: #ff1553;
+        }
+        
+        .header-ui__inner-link.is-inactive {
+          color: #ffffff;
+          pointer-events: none;
+        }
+        
+        .btn {
+          margin: 10px 0;
+        }
+        
+        .wrapper {
+          overflow: hidden;
+        }
+        
+      </style>
+      <header class="header-ui">
+        <nav class="header-ui__nav container"><a class="components-backwards" href="sitemap.html"><span>&larr;</span><span>вернуться на разводящую</span></a>
+          <ul class="header-ui__inner-list">
+            <li class="header-ui__inner-item"><a class="header-ui__inner-link" href="#modals" data-navigation-link>Modals</a></li>
+            <li class="header-ui__inner-item"><a class="header-ui__inner-link" href="#buttons" data-navigation-link>Buttons</a></li>
+            <li class="header-ui__inner-item"><a class="header-ui__inner-link" href="#form-elements" data-navigation-link>Form elements</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="container">
+          <h1>UI-kit</h1>
+          <section id="modals">
+            <h2>Modals</h2>
+            <p>
+              <button class="btn" type="button" data-open-modal="feedback">modal-feedback</button>
+            </p>
+            <p>
+              <button class="btn" type="button" data-open-modal="success">modal-success</button>
+            </p>
+          </section>
+          <section id="buttons">
+            <h2>Buttons</h2>
+            <a class="btn" href="#">Текст</a>
+            <p>Пример вызова</p><code>
+              <pre>+btn({text: "Текст", href: "#"})</pre></code>
+            <a class="btn btn--red" href="#" target="_blank" rel="nofollow noopener noreferrer" aria-label="Просто ссылка">Текст</a>
+            <p>Пример вызова</p><code>
+              <pre>+btn({text: "Я красная ссылка", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red</pre></code>
+            <button class="btn" type="button" disabled>Текст</button>
+            <p>Пример вызова</p><code>
+              <pre>+btn({text: "Текст"})(disabled)</pre></code>
+          </section>
+          <section id="form-elements">
+            <h2>Form elements</h2>
+            <div data-form-validate data-callback="base">
+              <form method="post">
+                <h2 class="subtitle">Инпуты</h2>
+                <p>Input <b>data-validate-type="text", data-limitation="name", data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-required</b>.</p>
+                <div class="custom-input" data-validate-type="text" data-limitation="name" data-message-base="Поле обязательно к заполнению" data-message-extra="Проверьте корректность заполнения поля" data-required>
+                  <label><span class="custom-input__label">Введите ваше имя</span>
+                    <input type="text" name="user-name-1">
+                  </label>
+                </div>
+                <hr>
+                <p>Input <b>data-validate-type="matrix", data-matrix-limitation="digit", data-matrix="____ ______", data-message-base="Поле обязательно к заполнению", data-required</b>.</p>
+                <div class="custom-input" data-validate-type="matrix" data-matrix-limitation="digit" data-matrix="____ ______" data-message-base="Поле обязательно к заполнению" data-required>
+                  <label><span class="custom-input__label">Введите номер паспорта</span>
+                    <input type="text" name="user-passport">
+                  </label>
+                </div>
+                <hr>
+                <p>Input <b>data-validate-type="email", data-message-base="Поле обязательно к заполнению", data-required</b>.</p>
+                <div class="custom-input" data-validate-type="email" data-message-base="Поле обязательно к заполнению" data-required>
+                  <label><span class="custom-input__label">Введите ваш email</span>
+                    <input type="email" name="user-phone">
+                  </label>
+                </div>
+                <hr>
+                <p>Input <b>data-validate-type="phone", data-on-input-validate, data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-message-success="Поле заполнено верно", data-required</b>.</p>
+                <div class="custom-input" data-validate-type="phone" data-on-input-validate data-message-base="Поле обязательно к заполнению" data-message-extra="Проверьте корректность заполнения поля" data-message-success="Поле заполнено верно" data-required>
+                  <label><span class="custom-input__label">Введите ваш телефон</span>
+                    <input type="tel" name="user-phone">
+                  </label>
+                </div>
+                <p>Input <b>data-validate-type="custom-example", data-message-base="Поле обязательно к заполнению", data-message-success="Поле заполнено верно", data-required</b>.</p>
+                <div class="custom-input" data-validate-type="custom-example" data-on-input-validate data-required>
+                  <label><span class="custom-input__label">Введите 10 символов</span>
+                    <input type="text" name="user-field" minlength="10">
+                  </label>
+                </div>
+                <hr>
+                <p>Textarea <b>data-validate-type="text"</b>.</p>
+                <div class="custom-textarea" data-validate-type="text">
+                  <label><span class="custom-textarea__label">Расскажите о себе</span>
+                    <textarea name="user-info"></textarea>
+                  </label>
+                </div>
+                <hr>
+                <h2 class="subtitle">Чекбоксы</h2>
+                <p>Чекбокс <b>data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению"</b>.</p>
+                <div>
+                  <div class="custom-toggle custom-toggle--checkbox" data-validate-type="checkbox" data-message-base="Поле обязательно к заполнению">
+                    <label>
+                      <input type="checkbox" value="user-agreement-1" name="user-agreement"><span class="custom-toggle__icon"></span><span class="custom-toggle__label">Чекбокс</span>
+                    </label>
+                  </div>
+                </div>
+                <hr>
+                <p>Селект простой с выбранной опцией.</p>
+                <div class="custom-select" data-select data-validate-type="select" data-name="some-name" data-id="id-example-1" data-message-base="Поле обязательно к заполнению">
+                  <button class="custom-select__button" type="button" aria-label="Выберите одну из опций"><span class="custom-select__text"></span><span class="custom-select__icon"></span></button>
+                  <ul class="custom-select__list" role="listbox">
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-1" aria-selected="true" role="option">Тема 1</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-2" aria-selected="false" role="option">Тема 2</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-3" aria-selected="false" role="option">Тема 3</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-4" aria-selected="false" role="option">Тема 4</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-5" aria-selected="false" role="option">Тема 5</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-6" aria-selected="false" role="option">Тема 6</li>
+                  </ul>
+                </div>
+                <p>Селект простой без выбранной опции.</p>
+                <div class="custom-select" data-select data-validate-type="select" data-name="some-name" data-id="id-example-2" data-message-base="Поле обязательно к заполнению">
+                  <button class="custom-select__button" type="button" aria-label="Выберите одну из опций"><span class="custom-select__text"></span><span class="custom-select__icon"></span></button>
+                  <ul class="custom-select__list" role="listbox">
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-1" aria-selected="false" role="option">Тема 1</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-2" aria-selected="false" role="option">Тема 2</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-3" aria-selected="false" role="option">Тема 3</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-4" aria-selected="false" role="option">Тема 4</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-5" aria-selected="false" role="option">Тема 5</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-6" aria-selected="false" role="option">Тема 6</li>
+                  </ul>
+                </div>
+                <hr>
+                <button class="btn" type="reset">Сбросить форму</button>
+                <button class="btn" type="submit">Отправить форму</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </main>
+      <script>const MoveTo = (() => {
+  /**
+  * Defaults
+  * @type {object}
+  */
+  const defaults = {
+    tolerance: 0,
+    duration: 800,
+    easing: 'easeOutQuart',
+    container: window,
+    callback() {},
+  };
+
+  /**
+  * easeOutQuart Easing Function
+  * @param  {number} t - current time
+  * @param  {number} b - start value
+  * @param  {number} c - change in value
+  * @param  {number} d - duration
+  * @return {number} - calculated value
+  */
+  function easeOutQuart(t, b, c, d) {
+    t /= d;
+    t--;
+    return -c * (t * t * t * t - 1) + b;
+  }
+
+  /**
+  * Merge two object
+  *
+  * @param  {object} obj1
+  * @param  {object} obj2
+  * @return {object} merged object
+  */
+  function mergeObject(obj1, obj2) {
+    const obj3 = {};
+    Object.keys(obj1).forEach((propertyName) => {
+      obj3[propertyName] = obj1[propertyName];
+    });
+
+    Object.keys(obj2).forEach((propertyName) => {
+      obj3[propertyName] = obj2[propertyName];
+    });
+    return obj3;
+  }
+
+  /**
+  * Converts camel case to kebab case
+  * @param  {string} val the value to be converted
+  * @return {string} the converted value
+  */
+  function kebabCase(val) {
+    return val.replace(/([A-Z])/g, function ($1) {
+      return '-' + $1.toLowerCase();
+    });
+  }
+
+  /**
+  * Count a number of item scrolled top
+  * @param  {Window|HTMLElement} container
+  * @return {number}
+  */
+  function countScrollTop(container) {
+    if (container instanceof HTMLElement) {
+      return container.scrollTop;
+    }
+    return container.pageYOffset;
+  }
+
+  /**
+  * MoveTo Constructor
+  * @param {object} options Options
+  * @param {object} easeFunctions Custom ease functions
+  */
+  // eslint-disable-next-line no-shadow
+  function MoveTo(options = {}, easeFunctions = {}) {
+    this.options = mergeObject(defaults, options);
+    this.easeFunctions = mergeObject({easeOutQuart}, easeFunctions);
+  }
+
+  /**
+  * Register a dom element as trigger
+  * @param  {HTMLElement} dom Dom trigger element
+  * @param  {function} callback Callback function
+  * @return {function|void} unregister function
+  */
+  MoveTo.prototype.registerTrigger = function (dom, callback) {
+    if (!dom) {
+      return;
+    }
+
+    const href = dom.getAttribute('href') || dom.getAttribute('data-target');
+    // The element to be scrolled
+    const target = (href && href !== '#')
+      ? document.getElementById(href.substring(1))
+      : document.body;
+    const options = mergeObject(this.options, _getOptionsFromTriggerDom(dom, this.options));
+
+    if (typeof callback === 'function') {
+      options.callback = callback;
+    }
+
+    const listener = (e) => {
+      e.preventDefault();
+      this.move(target, options);
+    };
+
+    dom.addEventListener('click', listener, false);
+
+    // eslint-disable-next-line consistent-return
+    return () => dom.removeEventListener('click', listener, false);
+  };
+
+  /**
+  * Move
+  * Scrolls to given element by using easeOutQuart function
+  * @param  {HTMLElement|number} target Target element to be scrolled or target position
+  * @param  {object} options Custom options
+  */
+  MoveTo.prototype.move = function (target, options = {}) {
+    if (target !== 0 && !target) {
+      return;
+    }
+
+    options = mergeObject(this.options, options);
+
+    let distance = typeof target === 'number' ? target : target.getBoundingClientRect().top;
+    const from = countScrollTop(options.container);
+    let startTime = null;
+    let lastYOffset;
+    distance -= options.tolerance;
+
+    // rAF loop
+    /* eslint-disable-next-line */
+    const loop = (currentTime) => {
+      const currentYOffset = countScrollTop(this.options.container);
+
+      if (!startTime) {
+        // To starts time from 1, we subtracted 1 from current time
+        // If time starts from 1 The first loop will not do anything,
+        // because easing value will be zero
+        startTime = currentTime - 1;
+      }
+
+      const timeElapsed = currentTime - startTime;
+
+      if (lastYOffset) {
+        if (
+          (distance > 0 && lastYOffset > currentYOffset) ||
+          (distance < 0 && lastYOffset < currentYOffset)
+        ) {
+          return options.callback(target);
+        }
+      }
+      lastYOffset = currentYOffset;
+
+      const val = this.easeFunctions[options.easing](timeElapsed, from, distance, options.duration);
+
+      options.container.scroll(0, val);
+
+      if (timeElapsed < options.duration) {
+        window.requestAnimationFrame(loop);
+      } else {
+        options.container.scroll(0, distance + from);
+        options.callback(target);
+      }
+    };
+
+    window.requestAnimationFrame(loop);
+  };
+
+  /**
+  * Adds custom ease function
+  * @param {string}   name Ease function name
+  * @param {function} fn   Ease function
+  */
+  MoveTo.prototype.addEaseFunction = function (name, fn) {
+    this.easeFunctions[name] = fn;
+  };
+
+  /**
+  * Returns options which created from trigger dom element
+  * @param  {HTMLElement} dom Trigger dom element
+  * @param  {object} options The instance's options
+  * @return {object} The options which created from trigger dom element
+  */
+  function _getOptionsFromTriggerDom(dom, options) {
+    const domOptions = {};
+
+    Object.keys(options).forEach((key) => {
+      const value = dom.getAttribute(`data-mt-${kebabCase(key)}`);
+      if (value) {
+        domOptions[key] = isNaN(value) ? value : parseInt(value, 10);
+      }
+    });
+    return domOptions;
+  }
+
+  return MoveTo;
+})();
+window.MoveTo = MoveTo;
+
+class NavigationChanger {
+  constructor() {
+    this._scrollDuration = 1000;
+    this._currentIndex = 0;
+    this._newCurrentIndex = null;
+    this._blockShift = 50;
+    this._linkElements = document.querySelectorAll('[data-navigation-link]');
+
+    this._moveTo = new window.MoveTo({
+      duration: this._scrollDuration,
+      easing: 'easeOutQuart',
+    });
+
+    this._documentScrollHandler = this._documentScrollHandler.bind(this);
+  }
+
+  init() {
+    if (!this._linkElements.length) {
+      return;
+    }
+    this._initMoveTo();
+    this._changeLinksActiveState();
+    document.addEventListener('scroll', this._documentScrollHandler);
+  }
+
+  _documentScrollHandler() {
+    this._changeLinksActiveState();
+  }
+
+  _changeLinksActiveState() {
+    this._linkElements.forEach((link, index) => {
+      const currentBlockElement = document.querySelector(`${link.getAttribute('href')}`);
+      if (!currentBlockElement) {
+        // eslint-disable-next-line no-console
+        console.error('Блока на который ссылается ссылка не существует! Проверьте соответствие href ссылок с id блоков');
+        return;
+      }
+      if (currentBlockElement.getBoundingClientRect().bottom > this._blockShift && currentBlockElement.getBoundingClientRect().top <= this._blockShift) {
+        link.classList.add('is-active');
+      } else {
+        link.classList.remove('is-active');
+      }
+
+      if (document.body.getBoundingClientRect().bottom - window.innerHeight < this._blockShift && currentBlockElement.getBoundingClientRect().top > this._blockShift) {
+        this._linkElements[index - 1].classList.remove('is-active');
+        link.classList.add('is-active');
+      }
+    });
+  }
+
+  _removeLinkAnimation() {
+    this._linkElements.forEach((link, index) => {
+      if (index !== this._currentIndex && index !== this._newCurrentIndex) {
+        link.classList.add('is-inactive');
+      }
+    });
+  }
+
+  _addLinkAnimation() {
+    this._linkElements.forEach((link) => link.classList.remove('is-inactive'));
+    this._currentIndex = this._newCurrentIndex;
+  }
+
+  _initMoveTo() {
+    this._linkElements.forEach((link, index) => {
+      link.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        const target = document.querySelector(`${link.getAttribute('href')}`);
+        if (!target) {
+          // eslint-disable-next-line no-console
+          console.error('Блока на который ссылается ссылка не существует! Проверьте соответствие href ссылок с id блоков');
+          return;
+        }
+        this._newCurrentIndex = index;
+        this._moveTo.move(target);
+        this._removeLinkAnimation();
+        setTimeout(() => {
+          this._addLinkAnimation();
+        }, this._scrollDuration);
+      });
+    });
+  }
+}
+
+const navigationChanger = new NavigationChanger();
+
+navigationChanger.init();
+
+      </script>
+    </div>
+    <div class="modal modal--preload modal--feedback" data-modal="feedback">
+      <div class="modal__wrapper">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+          <p class="modal__description">Обычная модалка</p>
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="15" height="15" aria-hidden="true">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal--preload modal--success modal--no-scale modal--fit-content" data-modal="success">
+      <div class="modal__wrapper">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content">
+          <p class="modal__description">Размер этой модалки зависит от ширины контента,<br>отключена анимация-скейл</p>
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="15" height="15" aria-hidden="true">
+              <use xlink:href="#icon-close"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>
