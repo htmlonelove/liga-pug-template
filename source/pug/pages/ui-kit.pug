@@ -185,6 +185,19 @@ block main
             p Input #[b data-validate-type="custom-example", data-message-base="Поле обязательно к заполнению", data-message-success="Поле заполнено верно", data-required].
             +custom-input({inputLabel: "Введите 10 символов", inputName: "user-field", inputMinLength: "10"})(data-validate-type="custom-example", data-on-input-validate, data-required)
             hr
+            p Input #[b data-validate-type="custom-upload", data-required].
+            .input-upload.input-upload--file(data-upload="file", data-validate-type="custom-upload", data-required)
+              label
+                input(type="file", name="upload-file")
+                span.btn Загрузить файл
+            hr
+            .input-upload.input-upload--images-drop(data-upload="img-drop", data-validate-type="custom-upload", data-required)
+              .input-upload__drop-zone(data-drop-zone)
+                span.input-upload__drop-zone-text Перетащите сюда файлы
+              label(data-drop-zone)
+                input(type="file", name="upload-file")
+                span.btn Загрузить файл
+            hr
             p Textarea #[b data-validate-type="text"].
             +custom-textarea({
               inputLabel: "Расскажите о себе",

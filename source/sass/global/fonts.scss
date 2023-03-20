@@ -5,8 +5,7 @@
 
 //   font-display: swap;
 //   src:
-//     url("../fonts/rouble.woff2") format("woff2"),
-//     url("../fonts/rouble.woff") format("woff");
+//     url("../fonts/rouble.woff2") format("woff2");
 // }
 
 @font-face {
@@ -15,7 +14,5 @@
   font-family: "";
 
   font-display: swap;
-  src:
-    url("../fonts/.woff2") format("woff2"),
-    url("../fonts/.woff") format("woff");
+  src: url("../fonts/.woff2") format("woff2");
 }

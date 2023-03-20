@@ -1,3 +1,9 @@
 {
-  "extends": "./stylelintconfig.cjs"
+  "extends": "stylelint-config-htmlacademy",
+
+  "rules": {
+    "declaration-no-important": true,
+    "indentation": [2, {"ignore": ["inside-parens"]}],
+    "max-nesting-depth": [4, {"ignoreAtRules": ["media", "include"]}]
+  }
 }
