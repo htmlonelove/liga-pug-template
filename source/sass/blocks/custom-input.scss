@@ -4,10 +4,10 @@
 
   display: flex;
   width: 530px;
-  padding: 14px 0 28px;
+  padding: size(14px) 0 28px 0;
 
   @media screen and (max-width: 767px) {
-    padding: 4px 0 48px;
+    padding: 4px 0 48px 0;
     width: 100%;
   }
 
