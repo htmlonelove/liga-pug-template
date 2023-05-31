@@ -1,0 +1,199 @@
+.uikit {
+  padding: 50px 0;
+  scroll-behavior: smooth;
+
+  @include vp-1023 {
+    padding: 50px 0 100px;
+  }
+
+  &__header-link {
+    display: inline-flex;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 10px 0;
+
+    &--class {
+      font-family: monospace, monospace;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 36px;
+    margin: 30px 0 30px;
+    // color: $color-accent-main;
+
+    @include vp-767 {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    line-height: 26px;
+    position: relative;
+    margin: 0;
+    padding: 5px 0;
+    // color: $color-accent-second;
+  }
+
+  section > h2 {
+    margin: 0 0 15px 0;
+    padding: 50px 0 0 0;
+
+    @include vp-767 {
+      padding: 30px 0 0;
+    }
+  }
+
+  &__component {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+
+    @include vp-767 {
+      padding: 20px 0;
+    }
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 1px;
+      height: calc(100% - 40px);
+      content: "";
+      transform: translateY(-50%);
+      background-color: $color-accent-main;
+
+      @include vp-767 {
+        left: -10px;
+      }
+    }
+
+    pre {
+      width: 100%;
+      margin: 15px 0 0 0;
+    }
+  }
+
+  &__sections {
+    position: fixed;
+    z-index: 5000;
+    right: 0;
+    top: 0;
+    overflow-y: scroll;
+    width: min-content;
+    max-width: 30%;
+    max-height: calc(100vh - 50px);
+    padding: 15px;
+    counter-reset: sections;
+    color: $color-default-white;
+    border-radius: 0 0 10px 10px;
+    background-color: $color-accent-main;
+
+    @include vp-1023 {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      cursor: pointer;
+      transition: opacity $trans-default;
+      color: inherit;
+
+      @include vp-1023 {
+        justify-content: center;
+      }
+
+      @include hover-focus {
+        opacity: 0.6;
+      }
+
+      &::after {
+        display: inline-block;
+        flex-shrink: 0;
+        width: 10px;
+        height: 10px;
+        margin: -5px 0 0 20px;
+        content: "";
+        transform: rotate(45deg);
+        border: 1px solid $color-default-white;
+        border-top: none;
+        border-left: none;
+      }
+    }
+
+    div {
+      display: grid;
+      padding: 0;
+      transition: grid-template-rows $trans-default, padding $trans-default;
+      grid-template-columns: 1fr;
+      grid-template-rows: 0fr;
+    }
+
+    input:checked + div {
+      padding: 10px 0 0 0;
+      grid-template-rows: 1fr;
+    }
+
+    ul {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      &::before {
+        font-size: 14px;
+        line-height: 18px;
+        margin: 0 5px 0 0;
+        content: counter(sections) ". ";
+        counter-increment: sections;
+      }
+    }
+
+    a {
+      font-size: 14px;
+      line-height: 18px;
+      position: relative;
+      color: inherit;
+
+      &::before {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        content: "";
+        transition: opacity $trans-default;
+        opacity: 0;
+        background-color: $color-default-black;
+      }
+
+      @include hover-focus {
+        &::before {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

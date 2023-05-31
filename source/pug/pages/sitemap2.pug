@@ -1,0 +1,70 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "Список страниц"
+
+block main
+  style.
+    .container {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    a {
+      color: rgb(10, 10, 175);
+    }
+
+    li {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 7px;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      ol {
+        padding-left: 20px;
+      }
+
+      ol li {
+        margin-bottom: 15px;
+      }
+    }
+
+  -
+    const pages = [
+      {
+        name: "UI-kit — ui-kit.html",
+        src: "ui-kit.html"
+      },
+      {
+        name: "Главная — index.html",
+        src: "index.html"
+      },
+    ]
+
+  main
+    .container
+      img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+      h1 Список страниц
+      ol
+        each page in pages
+          li
+            a(href= page.src)= page.name

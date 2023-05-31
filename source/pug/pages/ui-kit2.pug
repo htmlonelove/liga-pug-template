@@ -1,0 +1,251 @@
+extends ../components/base/layout
+
+block variables
+  - const title = "UI-kit"
+
+block main
+  style.
+    main {
+      margin-top: 100px;
+    }
+
+    main > .container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
+    .components-backwards {
+      color: #ffffff;
+      display: inline-block;
+    }
+
+    .components-backwards span:first-child {
+      position: relative;
+      top: -3px;
+
+      display: inline-block;
+      margin-right: 15px;
+
+      font-size: 16px;
+      line-height: 24px;
+      vertical-align: top;
+
+      transform: scale(2);
+    }
+
+    .components-backwards span:last-child {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .components-backwards + h1 {
+      margin-bottom: 0;
+    }
+
+    .container > section {
+      padding: 70px 0 0 0;
+    }
+
+    section > h2 {
+      margin: 0 0 20px 0;
+      padding: 20px 0;
+      position: relative;
+      color: #ffffff;
+    }
+
+    section > h2::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      background-color: #2c39f2;
+      z-index: -1;
+    }
+
+    .header-ui {
+      background-color: #2c39f2;
+      padding: 20px 0;
+      position: fixed;
+      width: 100vw;
+      z-index: 99;
+      box-shadow: 0 0 3px 1px #000000;
+    }
+
+    .header-ui__nav {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 20px 80px;
+    }
+
+    .header-ui__inner-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 30px;
+    }
+
+    .header-ui__inner-link {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .header-ui__inner-link:hover,
+    .header-ui__inner-link.is-active {
+      color: #ff1553;
+    }
+
+    .header-ui__inner-link.is-inactive {
+      color: #ffffff;
+      pointer-events: none;
+    }
+
+    .btn {
+      margin: 10px 0;
+    }
+
+    .wrapper {
+      overflow: hidden;
+    }
+
+  header.header-ui
+    nav.header-ui__nav.container
+      a.components-backwards(href="sitemap.html")
+        span &larr;
+        span вернуться на разводящую
+      ul.header-ui__inner-list
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#modals", data-navigation-link) Modals
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#buttons", data-navigation-link) Buttons
+        li.header-ui__inner-item
+          a.header-ui__inner-link(href="#form-elements", data-navigation-link) Form elements
+
+  main
+    .container
+      h1 UI-kit
+      //- все модалки проекта добавляем сюда, для удобства тестирования
+      section(id="modals")
+        h2 Modals
+        p
+          +btn({text: "modal-feedback"})(data-open-modal="feedback")
+        p
+          +btn({text: "modal-success"})(data-open-modal="success")
+
+      section(id="buttons")
+        h2 Buttons
+        +btn({text: "Текст", href: "#"})
+        p Пример вызова
+        code
+          pre +btn({text: "Текст", href: "#"})
+        +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+        p Пример вызова
+        code
+          pre +btn({text: "Я красная ссылка", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+        +btn({text: "Текст"})(disabled)
+        p Пример вызова
+        code
+          pre +btn({text: "Текст"})(disabled)
+
+      section(id="form-elements")
+        h2 Form elements
+        div(data-form-validate, data-callback="base")
+          form(method="post")
+            h2.subtitle Инпуты
+            p Input #[b data-validate-type="text", data-limitation="name", data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-required].
+            +custom-input({
+              inputLabel: "Введите ваше имя",
+              inputName: "user-name-1",
+            })(data-validate-type="text", data-limitation="name", data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-required)
+            hr
+            p Input #[b data-validate-type="matrix", data-matrix-limitation="digit", data-matrix="____ ______", data-message-base="Поле обязательно к заполнению", data-required].
+            +custom-input({
+              inputType: "text",
+              inputLabel: "Введите номер паспорта",
+              inputName: "user-passport",
+            })(data-validate-type="matrix", data-matrix-limitation="digit", data-matrix="____ ______", data-message-base="Поле обязательно к заполнению", data-required)
+            hr
+            p Input #[b data-validate-type="email", data-message-base="Поле обязательно к заполнению", data-required].
+            +custom-input({
+              inputType: "email",
+              inputLabel: "Введите ваш email",
+              inputName: "user-phone",
+            })(data-validate-type="email", data-message-base="Поле обязательно к заполнению", data-required)
+            hr
+            p Input #[b data-validate-type="phone", data-on-input-validate, data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-message-success="Поле заполнено верно", data-required].
+            +custom-input({
+              inputType: "tel",
+              inputLabel: "Введите ваш телефон",
+              inputName: "user-phone"
+              })(data-validate-type="phone", data-on-input-validate, data-message-base="Поле обязательно к заполнению", data-message-extra="Проверьте корректность заполнения поля", data-message-success="Поле заполнено верно", data-required)
+            p Input #[b data-validate-type="custom-example", data-message-base="Поле обязательно к заполнению", data-message-success="Поле заполнено верно", data-required].
+            +custom-input({inputLabel: "Введите 10 символов", inputName: "user-field", inputMinLength: "10"})(data-validate-type="custom-example", data-on-input-validate, data-required)
+            hr
+            p Input #[b data-validate-type="custom-upload", data-required].
+            .input-upload.input-upload--file(data-upload="file", data-validate-type="custom-upload", data-required)
+              label
+                input(type="file", name="upload-file")
+                span.btn Загрузить файл
+            hr
+            .input-upload.input-upload--images-drop(data-upload="img-drop", data-validate-type="custom-upload", data-required)
+              .input-upload__drop-zone(data-drop-zone)
+                span.input-upload__drop-zone-text Перетащите сюда файлы
+              label(data-drop-zone)
+                input(type="file", name="upload-file")
+                span.btn Загрузить файл
+            hr
+            p Textarea #[b data-validate-type="text"].
+            +custom-textarea({
+              inputLabel: "Расскажите о себе",
+              inputName: "user-info"
+            })(data-validate-type="text")
+            hr
+            h2.subtitle Чекбоксы
+            p Чекбокс #[b data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению"].
+            div
+              +custom-toggle({
+                inputLabel: "Чекбокс",
+                inputName: "user-agreement",
+                inputValue: "user-agreement-1",
+                inputChecked: false
+              })(data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению").custom-toggle--checkbox
+            hr
+            p Селект простой с выбранной опцией.
+            +custom-select({
+              optionsList: [
+                {text: "Тема 1", value: "id-1", isActive: true},
+                {text: "Тема 2", value: "id-2"},
+                {text: "Тема 3", value: "id-3"},
+                {text: "Тема 4", value: "id-4"},
+                {text: "Тема 5", value: "id-5"},
+                {text: "Тема 6", value: "id-6"}
+              ]
+            })("data-select", data-validate-type="select", data-name="some-name", data-id="id-example-1", data-message-base="Поле обязательно к заполнению").custom-select
+            p Селект простой без выбранной опции.
+            +custom-select({
+              optionsList: [
+                {text: "Тема 1", value: "id-1"},
+                {text: "Тема 2", value: "id-2"},
+                {text: "Тема 3", value: "id-3"},
+                {text: "Тема 4", value: "id-4"},
+                {text: "Тема 5", value: "id-5"},
+                {text: "Тема 6", value: "id-6"}
+              ]
+            })("data-select", data-validate-type="select", data-name="some-name", data-id="id-example-2", data-message-base="Поле обязательно к заполнению").custom-select
+            hr
+
+            +btn({text: "Сбросить форму", type: "reset"})
+            +btn({text: "Отправить форму", type: "submit"})
+
+  script
+    include ../../js/inline/ui-kit.js
+
+block modals
+  +modal("modal--feedback")(data-modal="feedback")
+    +modal-feedback()
+  +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
+    +modal-success()
