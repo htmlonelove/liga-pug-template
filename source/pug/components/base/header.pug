@@ -31,6 +31,6 @@ mixin header(headerMods, currentUrl)
               - const activeState = currentUrl === link.href
               li.main-nav__item
                 if(activeState)
-                  span.main-nav__link.is-active=link.text
+                  span.main-nav__link.is-active= link.text
                 else
-                  a.main-nav__link(href=link.href)=link.text
+                  a.main-nav__link(href=link.href)= link.text

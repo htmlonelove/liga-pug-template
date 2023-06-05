@@ -142,7 +142,7 @@ block main
         p Пример вызова
         code
           pre +btn({text: "Текст", href: "#"})
-        +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+        +btn({text: "Текст", href: "#", isExternal: true}).btn--red(aria-label="Просто ссылка")
         p Пример вызова
         code
           pre +btn({text: "Я красная ссылка", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
@@ -212,7 +212,7 @@ block main
                 inputName: "user-agreement",
                 inputValue: "user-agreement-1",
                 inputChecked: false
-              })(data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению").custom-toggle--checkbox
+              }).custom-toggle--checkbox(data-validate-type="checkbox", data-message-base="Поле обязательно к заполнению")
             hr
             p Селект простой с выбранной опцией.
             +custom-select({
@@ -224,7 +224,7 @@ block main
                 {text: "Тема 5", value: "id-5"},
                 {text: "Тема 6", value: "id-6"}
               ]
-            })("data-select", data-validate-type="select", data-name="some-name", data-id="id-example-1", data-message-base="Поле обязательно к заполнению").custom-select
+            }).custom-select(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-1", data-message-base="Поле обязательно к заполнению")
             p Селект простой без выбранной опции.
             +custom-select({
               optionsList: [
@@ -235,7 +235,7 @@ block main
                 {text: "Тема 5", value: "id-5"},
                 {text: "Тема 6", value: "id-6"}
               ]
-            })("data-select", data-validate-type="select", data-name="some-name", data-id="id-example-2", data-message-base="Поле обязательно к заполнению").custom-select
+            }).custom-select(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-2", data-message-base="Поле обязательно к заполнению")
             hr
 
             +btn({text: "Сбросить форму", type: "reset"})

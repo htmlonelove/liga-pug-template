@@ -16,9 +16,7 @@
   visibility: hidden;
   opacity: 0;
 
-  transition: opacity $trans-modal,
-    transform $trans-modal,
-    visibility $trans-modal;
+  transition: opacity $trans-modal, transform $trans-modal, visibility $trans-modal;
 
   pointer-events: none;
 
@@ -76,13 +74,40 @@
     right: 22px;
     z-index: 1;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
     padding: 0;
 
-    background: $color-transparent;
+    background: $color-neon-blue;
     border: none;
     cursor: pointer;
+
+    transition: background-color $trans-default;
+
+    @include hover-focus {
+      background: $color-default-white;
+
+      &::before {
+        background-color: $color-neon-blue;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+
+      width: 20px;
+      height: 20px;
+
+      background-color: $color-default-white;
+
+      transition: background-color $trans-default;
+
+      mask: url("../img/stack.svg#icon-close");
+    }
   }
 
   &--responsive {
