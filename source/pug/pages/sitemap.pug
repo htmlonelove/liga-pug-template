@@ -4,6 +4,9 @@ block variables
   - const title = "Список страниц"
 
 block main
+  style
+    include ../../sass/inline/sitemap.css
+
   -
     const pages = [
       {
@@ -13,20 +16,6 @@ block main
       {
         name: "Главная — index.html",
         src: "index.html"
-      },
-      {
-        name: "Примеры вложенных страниц",
-        id: "index-list",
-        innerList: [
-          {
-            name: "Главная страница — index.html",
-            src: "index.html"
-          },
-          {
-            name: "Поиск — search.html",
-            src: "search.html"
-          }
-        ]
       },
     ]
 

@@ -4,6 +4,10 @@ block variables
   - const title = "UI-kit"
 
 block main
+  style
+    include ../../sass/inline/uikit.css
+    include ../../sass/inline/prism.css
+
   main
     .uikit
       //----------------------- Разделы с компонентами
@@ -19,7 +23,6 @@ block main
               a(href="#buttons") Кнопки
             li
               a(href="#forms") Элементы форм
-
 
       //----------------------------------------------
       .container
@@ -156,6 +159,7 @@ block main
                   inputValue: "user-agreement-1",
                   inputChecked: false
                 }).custom-toggle--checkbox
+
 
   script
     include ../../js/inline/ui-kit.js
