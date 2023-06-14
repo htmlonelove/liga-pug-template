@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-  if: ${{ github.event.label.name == 'build' }}
+    if: ${{ github.event.label.name == 'build' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
