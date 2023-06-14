@@ -4,49 +4,8 @@ block variables
   - const title = "Список страниц"
 
 block main
-  style.
-    .container {
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-
-    h1 {
-      font-size: 24px;
-      line-height: 28px;
-    }
-
-    a {
-      color: rgb(10, 10, 175);
-    }
-
-    li {
-      font-size: 18px;
-      line-height: 22px;
-      margin-bottom: 7px;
-    }
-
-    img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      display: block;
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
-
-      ol {
-        padding-left: 20px;
-      }
-
-      ol li {
-        margin-bottom: 15px;
-      }
-    }
+  style
+    include ../../sass/inline/sitemap.css
 
   -
     const pages = [
@@ -61,10 +20,21 @@ block main
     ]
 
   main
-    .container
-      img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
-      h1 Список страниц
-      ol
-        each page in pages
-          li
-            a(href= page.src)= page.name
+    .sitemap
+      .container
+        img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+        h1 Список страниц
+        ol
+          each page in pages
+            li
+              if page.id
+                label(for=page.id)
+                  span!=page.name
+                input.visually-hidden(type="checkbox", checked=true, id=page.id)
+                div
+                  ul
+                    each item in page.innerList
+                      li
+                        a(href= item.src)= item.name
+              else
+                a(href= page.src)= page.name

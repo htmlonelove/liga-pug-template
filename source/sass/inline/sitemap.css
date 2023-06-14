@@ -1,0 +1,113 @@
+.sitemap {
+  color: #212121;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.sitemap h1 {
+  color: #2c39f2;
+  font-size: 22px;
+  line-height: 30px;
+}
+.sitemap ol, .sitemap ul {
+  counter-reset: page;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sitemap ul {
+  counter-reset: inner-page;
+  overflow: hidden;
+}
+.sitemap li {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.sitemap li:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+.sitemap li::before {
+  content: counter(page) ". ";
+  counter-increment: page;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 5px 0 0;
+}
+.sitemap div {
+  width: 100%;
+}
+.sitemap input + div {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0fr;
+  padding: 0 0 0 20px;
+  transition: grid-template-rows 0.3s ease, padding 0.3s ease;
+}
+.sitemap input:checked + div {
+  grid-template-rows: 1fr;
+  padding: 10px 0 0 20px;
+}
+.sitemap ul > li {
+  overflow: hidden;
+}
+.sitemap ul > li::before {
+  content: counter(inner-page) ". ";
+  counter-increment: inner-page;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 5px 0 0;
+}
+.sitemap a {
+  color: inherit;
+  display: flex;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+}
+.sitemap a::before {
+  background-color: #2c39f2;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s ease;
+  width: 100%;
+}
+@media (hover: hover) {
+  .sitemap a:hover:not(.focus-visible)::before {
+    opacity: 1;
+  }
+}
+.sitemap a.focus-visible:focus::before {
+  opacity: 1;
+}
+.sitemap label {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  line-height: 24px;
+  transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .sitemap label:hover:not(.focus-visible) {
+    opacity: 0.6;
+  }
+}
+.sitemap label.focus-visible:focus {
+  opacity: 0.6;
+}
+.sitemap label::after {
+  border: 1px solid #2c39f2;
+  border-left: none;
+  border-top: none;
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  height: 10px;
+  margin: -5px 0 0 20px;
+  transform: rotate(45deg);
+  width: 10px;
+}
