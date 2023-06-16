@@ -62,7 +62,7 @@
   export default compileStyles;
 ```
 
-В gulpfile.js оставдены только базовые таски.
+В gulpfile.js оставлены только базовые таски.
 
 ```js
   const server = browserSync.create();

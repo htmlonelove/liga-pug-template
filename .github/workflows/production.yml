@@ -1,4 +1,4 @@
-name: Build
+name: Production
 
 on: workflow_dispatch
 
@@ -16,9 +16,17 @@ jobs:
         run: npm i
       - name: Build
         run: npm run build
-      - name: Deploy 🚀
+      - name: Deploy build
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: build
+          branch: production
           folder: build
+          target-folder: build
           clean: true
+      - name: Deploy source
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: production
+          folder: .
+          target-folder: source
+          clean: false
