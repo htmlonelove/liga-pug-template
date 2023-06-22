@@ -53,11 +53,10 @@
     "gulp-svgstore": "9.0.0",
     "gulp-webp": "4.0.1",
     "imagemin-pngquant": "9.0.2",
-    "postcss-scss": "^4.0.6",
+    "postcss-scss": "4.0.6",
     "sass": "1.53.0",
-    "stylelint": "^14.16.1",
-    "webpack": "4.42.0",
-    "webpack-stream": "5.2.1",
+    "stylelint": "14.16.1",
+    "webpack-stream": "7.0.0",
     "stylelint-config-htmlacademy": "1.1.4"
   },
   "engines": {
