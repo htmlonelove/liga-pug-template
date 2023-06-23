@@ -22,14 +22,14 @@ block main
   main
     .sitemap
       .container
-        img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+        img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
         h1 Список страниц
         ol
           each page in pages
             li
               if page.id
                 label(for=page.id)
-                  span!=page.name
+                  span!= page.name
                 input.visually-hidden(type="checkbox", checked=true, id=page.id)
                 div
                   ul

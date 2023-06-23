@@ -27,7 +27,7 @@ block main
       //----------------------------------------------
       .container
         a.uikit__header-link(href="sitemap.html")
-          img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+          img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
         h1 Компоненты, используемые на проекте
 
         section
@@ -70,7 +70,7 @@ block main
                 +btn({text: "Текст", href: "#"})
           .uikit__component
             p.uikit__text.uikit__text--class .btn \ .btn--red \ link
-            +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+            +btn({text: "Текст", href: "#", isExternal: true}).btn--red(aria-label="Просто ссылка")
             pre
               |
               code(class="language-pug").
