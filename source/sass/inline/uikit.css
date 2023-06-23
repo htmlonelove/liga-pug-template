@@ -1,0 +1,189 @@
+.uikit {
+  padding: 50px 0;
+  scroll-behavior: smooth;
+}
+@media (max-width: 1023px) {
+  .uikit {
+    padding: 50px 0 100px;
+  }
+}
+.uikit__header-link {
+  display: inline-flex;
+}
+.uikit__text {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 0 10px 0;
+}
+.uikit__text--class {
+  font-family: monospace, monospace;
+  font-size: 16px;
+  line-height: 22px;
+}
+.uikit h1 {
+  font-size: 30px;
+  line-height: 36px;
+  margin: 30px 0 30px;
+}
+@media (max-width: 767px) {
+  .uikit h1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+.uikit h2 {
+  font-size: 20px;
+  line-height: 26px;
+  position: relative;
+  margin: 0;
+  padding: 5px 0;
+}
+.uikit section > h2 {
+  margin: 0 0 15px 0;
+  padding: 50px 0 0 0;
+}
+@media (max-width: 767px) {
+  .uikit section > h2 {
+    padding: 30px 0 0;
+  }
+}
+.uikit__component {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+}
+@media (max-width: 767px) {
+  .uikit__component {
+    padding: 20px 0;
+  }
+}
+.uikit__component::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: calc(100% - 40px);
+  content: "";
+  transform: translateY(-50%);
+  background-color: #2c39f2;
+}
+@media (max-width: 767px) {
+  .uikit__component::before {
+    left: -10px;
+  }
+}
+.uikit__component pre {
+  width: 100%;
+  margin: 15px 0 0 0;
+}
+.uikit__sections {
+  position: fixed;
+  z-index: 5000;
+  right: 0;
+  top: 0;
+  overflow-y: scroll;
+  width: min-content;
+  max-width: 30%;
+  max-height: calc(100vh - 50px);
+  padding: 15px;
+  counter-reset: sections;
+  color: #fff;
+  border-radius: 0 0 10px 10px;
+  background-color: #2c39f2;
+}
+@media (max-width: 1023px) {
+  .uikit__sections {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+.uikit__sections::-webkit-scrollbar {
+  display: none;
+}
+.uikit__sections label {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  color: inherit;
+}
+@media (max-width: 1023px) {
+  .uikit__sections label {
+    justify-content: center;
+  }
+}
+@media (hover: hover) {
+  .uikit__sections label:hover:not(.focus-visible) {
+    opacity: 0.6;
+  }
+}
+.uikit__sections label.focus-visible:focus {
+  opacity: 0.6;
+}
+.uikit__sections label::after {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 20px;
+  content: "";
+  transform: rotate(45deg);
+  border: 1px solid #fff;
+  border-top: none;
+  border-left: none;
+}
+.uikit__sections div {
+  display: grid;
+  padding: 0;
+  transition: grid-template-rows 0.3s ease, padding 0.3s ease;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0fr;
+}
+.uikit__sections input:checked + div {
+  padding: 10px 0 0 0;
+  grid-template-rows: 1fr;
+}
+.uikit__sections ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.uikit__sections li::before {
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0 5px 0 0;
+  content: counter(sections) ". ";
+  counter-increment: sections;
+}
+.uikit__sections a {
+  font-size: 14px;
+  line-height: 18px;
+  position: relative;
+  color: inherit;
+}
+.uikit__sections a::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: "";
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  background-color: #000;
+}
+@media (hover: hover) {
+  .uikit__sections a:hover:not(.focus-visible)::before {
+    opacity: 0.8;
+  }
+}
+.uikit__sections a.focus-visible:focus::before {
+  opacity: 0.8;
+}

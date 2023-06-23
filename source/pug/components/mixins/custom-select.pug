@@ -5,13 +5,13 @@ mixin custom-select(options = {})
 
   div&attributes(attributes)
     if selectLabel
-      span.custom-select__label=selectLabel
+      span.custom-select__label= selectLabel
     if selectPlaceholder
-      span.custom-select__placeholder=selectPlaceholder
+      span.custom-select__placeholder= selectPlaceholder
     button.custom-select__button(type="button", aria-label=buttonAriaLabel)
       span.custom-select__text
       span.custom-select__icon
     ul.custom-select__list(role="listbox")
       each item in options.optionsList
         - const ariaSelected = item.isActive ? "true" : "false"
-        li.custom-select__item(class=itemClass, tabindex="0", data-select-value=item.value, aria-selected=ariaSelected, role="option")=item.text
+        li.custom-select__item(class=itemClass, tabindex="0", data-select-value=item.value, aria-selected=ariaSelected, role="option")= item.text

@@ -10169,6 +10169,8 @@ const swiper = () => {
     ];
     Swiper.use(modules);
 
+    global.Swiper = Swiper;
+
     return Swiper;
   });
   //# sourceMappingURL=swiper-bundle.js.map

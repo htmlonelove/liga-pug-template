@@ -10,5 +10,5 @@ mixin custom-textarea(options = {})
   .custom-textarea&attributes(attributes)
     label
       if inputLabel
-        span.custom-textarea__label!=inputLabel
+        span.custom-textarea__label!= inputLabel
       textarea(id=inputId, name=inputName, value=inputValue, minlength=inputMinLength, maxlength=inputMaxLength, placeholder=inputPlaceholder)

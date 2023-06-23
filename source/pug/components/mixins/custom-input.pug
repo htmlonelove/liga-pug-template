@@ -12,5 +12,5 @@ mixin custom-input(options = {})
   .custom-input&attributes(attributes)
     label
       if inputLabel
-        span.custom-input__label!=inputLabel
+        span.custom-input__label!= inputLabel
       input(type=inputType, id=inputId, name=inputName, value=inputValue, minlength=inputMinLength, maxlength=inputMaxLength, placeholder=inputPlaceholder, accept=inputAccept)
