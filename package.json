@@ -10,10 +10,10 @@
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --customSyntax postcss-scss",
     "test": "npm run editorconfig & npm run stylelint & eslint source/js/ & pug-lint source/pug/",
-    "build": "gulp build",
-    "dev": "gulp dev",
-    "start": "gulp start",
-    "nomin": "gulp nomin",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "dev": "cross-env NODE_ENV=production gulp dev",
+    "start": "cross-env NODE_ENV=development gulp start",
+    "nomin": "cross-env NODE_ENV=development gulp nomin",
     "imagemin": "gulp imagemin",
     "webp": "gulp webp",
     "avif": "gulp avif"
@@ -66,8 +66,5 @@
   },
   "engines": {
     "node": ">=16.15.1"
-  },
-  "dependencies": {
-    "pug-lint": "2.7.0"
   }
 }
