@@ -30,9 +30,6 @@ module.exports = {
         options: {
           presets: ['@babel/preset-env'],
         },
-        resolve: {
-          fullySpecified: false,
-        }
       }
     ],
   },
@@ -41,7 +38,4 @@ module.exports = {
     new DuplicatePackageCheckerPlugin(),
     new CircularDependencyPlugin()
   ],
-  resolve: {
-    extensions: ['.js']
-  },
 };
