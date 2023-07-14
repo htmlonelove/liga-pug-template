@@ -54,7 +54,6 @@
     "gulp-svgstore": "9.0.0",
     "gulp-webp": "4.0.1",
     "gulp-avif": "1.1.1",
-    "gulp-stacksvg": "2.0.2",
     "gulp-svgmin": "4.1.0",
     "pug-lint": "2.7.0",
     "imagemin-pngquant": "9.0.2",
