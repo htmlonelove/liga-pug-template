@@ -17,7 +17,7 @@ const sprite = () =>
 
 const optimizeSvg = () =>
   gulp
-      .src('build/img/**/*.svg')
+      .src(['build/img/**/*.svg', '!build/img/sprite.svg'])
       .pipe(svgo())
       .pipe(gulp.dest('build/img'));
 
