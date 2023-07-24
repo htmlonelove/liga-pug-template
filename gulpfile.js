@@ -20,7 +20,7 @@ const syncServer = () => {
     server: 'build/',
     index: 'sitemap.html',
     notify: false,
-    open: false,
+    open: true,
     cors: true,
     ui: false,
   });
