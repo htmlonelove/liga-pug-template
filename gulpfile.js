@@ -4,7 +4,7 @@ import {deleteAsync} from 'del';
 import {compileStyles, compileMinStyles} from './gulp/compileStyles.mjs';
 import {copy, copyImages, copySvg} from './gulp/copyAssets.mjs';
 import compileScripts from './gulp/compileScripts.mjs';
-import {optimizeSvg, sprite, createWebp, createAvif, optimizePng, optimizeJpg} from './gulp/optimizeImages.mjs';
+import {optimizeSvg, sprite, spriteGradient, createWebp, createAvif, optimizePng, optimizeJpg} from './gulp/optimizeImages.mjs';
 import pug from './gulp/compilePug.mjs';
 
 const server = browserSync.create();
@@ -20,7 +20,7 @@ const syncServer = () => {
     server: 'build/',
     index: 'sitemap.html',
     notify: false,
-    open: true,
+    open: false,
     cors: true,
     ui: false,
   });
@@ -29,7 +29,7 @@ const syncServer = () => {
   gulp.watch('source/sass/**/*.{scss,sass}', streamStyles);
   gulp.watch('source/js/**/*.{js,json}', gulp.series(compileScripts, refresh));
   gulp.watch('source/data/**/*.{js,json}', gulp.series(copy, refresh));
-  gulp.watch('source/img/**/*.svg', gulp.series(copySvg, sprite, pug, refresh));
+  gulp.watch('source/img/**/*.svg', gulp.series(copySvg, sprite, spriteGradient, pug, refresh));
   gulp.watch('source/img/**/*.{png,jpg,webp}', gulp.series(copyImages, pug, refresh));
 
   gulp.watch('source/favicon/**', gulp.series(copy, refresh));
@@ -38,9 +38,9 @@ const syncServer = () => {
   gulp.watch('source/*.php', gulp.series(copy, refresh));
 };
 
-const build = gulp.series(clean, copy, sprite, gulp.parallel(compileMinStyles, compileScripts, optimizePng, optimizeJpg, optimizeSvg), pug);
-const dev = gulp.series(clean, copy, sprite, gulp.parallel(compileMinStyles, compileScripts, pug, optimizePng, optimizeJpg, optimizeSvg), syncServer);
-const start = gulp.series(clean, copy, sprite, gulp.parallel(compileStyles, compileScripts, pug), syncServer);
-const nomin = gulp.series(clean, copy, sprite, gulp.parallel(compileStyles, compileScripts, pug, optimizePng, optimizeJpg, optimizeSvg));
+const build = gulp.series(clean, copy, sprite, spriteGradient, gulp.parallel(compileMinStyles, compileScripts, optimizePng, optimizeJpg, optimizeSvg), pug);
+const dev = gulp.series(clean, copy, sprite, spriteGradient, gulp.parallel(compileMinStyles, compileScripts, pug, optimizePng, optimizeJpg, optimizeSvg), syncServer);
+const start = gulp.series(clean, copy, sprite, spriteGradient, gulp.parallel(compileStyles, compileScripts, pug), syncServer);
+const nomin = gulp.series(clean, copy, sprite, spriteGradient, gulp.parallel(compileStyles, compileScripts, pug, optimizePng, optimizeJpg, optimizeSvg));
 
 export {createWebp as webp, createAvif as avif, build, start, dev, nomin};
