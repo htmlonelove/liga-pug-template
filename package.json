@@ -3,7 +3,7 @@
   "type": "module",
   "browserslist": [
     "last 3 versions",
-    "IE 11",
+    "not ie <= 11",
     "Firefox ESR"
   ],
   "scripts": {
