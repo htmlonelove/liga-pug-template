@@ -5,18 +5,19 @@ import avif from 'gulp-avif';
 import pngQuant from 'imagemin-pngquant';
 import mozJpeg from 'imagemin-mozjpeg';
 import svgo from 'gulp-svgmin';
-import {stacksvg} from 'gulp-stacksvg';
+import svgstore from 'gulp-svgstore';
+import rename from 'gulp-rename';
 
-const stack = () =>
+const sprite = () =>
   gulp
-      .src('source/img/stack/*.svg')
-      .pipe(svgo())
-      .pipe(stacksvg({output: 'stack'}))
-      .pipe(gulp.dest('build/img'));
+    .src('source/img/sprite/*.svg')
+        .pipe(svgstore({inlineSvg: true}))
+        .pipe(rename('sprite.svg'))
+        .pipe(gulp.dest('build/img'));
 
 const optimizeSvg = () =>
   gulp
-      .src('build/img/**/*.svg')
+      .src(['build/img/**/*.svg', '!build/img/sprite.svg'])
       .pipe(svgo())
       .pipe(gulp.dest('build/img'));
 
@@ -66,4 +67,4 @@ const createAvif = () => {
       .pipe(gulp.dest(`source/img/${root}`));
 };
 
-export {stack, createWebp, createAvif, optimizeSvg, optimizePng, optimizeJpg};
+export {sprite, createWebp, createAvif, optimizeSvg, optimizePng, optimizeJpg};

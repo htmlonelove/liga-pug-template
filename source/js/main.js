@@ -1,4 +1,4 @@
-import {iosVhFix} from './utils/ios-vh-fix';
+import {mobileVhFix} from './utils/mobile-vh-fix.js';
 import {initModals} from './modules/modals/init-modals';
 import {Form} from './modules/form-validate/form';
 import {CustomSelect} from './modules/select/custom-select';
@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Utils
   // ---------------------------------
 
-  iosVhFix();
+  mobileVhFix();
 
   // Modules
   // ---------------------------------
