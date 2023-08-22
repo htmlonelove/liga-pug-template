@@ -16,7 +16,8 @@
     "nomin": "cross-env NODE_ENV=development gulp nomin",
     "imagemin": "gulp imagemin",
     "webp": "gulp webp",
-    "avif": "gulp avif"
+    "avif": "gulp avif",
+    "optimize": "gulp optimize"
   },
   "editorconfig-cli": [
     "*.json",
