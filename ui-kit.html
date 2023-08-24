@@ -330,6 +330,28 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
 
 </code></pre>
               </div>
+              <div class="uikit__component">
+                <p class="uikit__text">Базовый селект c placeholder</p>
+                <p class="uikit__text uikit__text--class">+custom-select \ default</p>
+                <div class="custom-select" data-select data-validate-type="select" data-name="some-name" data-id="id-example-1"><span class="custom-select__placeholder">Выберите одну из опций</span>
+                  <button class="custom-select__button" type="button" aria-label="Выберите одну из опций"><span class="custom-select__text"></span><span class="custom-select__icon"></span></button>
+                  <ul class="custom-select__list" role="listbox">
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-1" aria-selected="false" role="option">Тема 1</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-2" aria-selected="false" role="option">Тема 2</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-3" aria-selected="false" role="option">Тема 3</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-4" aria-selected="false" role="option">Тема 4</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-5" aria-selected="false" role="option">Тема 5</li>
+                    <li class="custom-select__item" tabindex="0" data-select-value="id-6" aria-selected="false" role="option">Тема 6</li>
+                  </ul>
+                </div>
+                <pre><code class="language-pug">+custom-select({
+  placeholder: "Выберите одну из опций",
+  error: "Выберите тему обращения",
+  optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]
+})(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-1").custom-select
+
+</code></pre>
+              </div>
             </section>
           </div>
         </div>
@@ -350,7 +372,11 @@ Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.l
         <div class="modal__overlay" data-close-modal></div>
         <div class="modal__content">
           <p class="modal__description">Обычная модалка</p>
-          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal></button>
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="15" height="15" aria-hidden="true">
+              <use xlink:href="img/sprite.svg#icon-close"></use>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
@@ -359,7 +385,11 @@ Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.l
         <div class="modal__overlay" data-close-modal></div>
         <div class="modal__content">
           <p class="modal__description">Размер этой модалки зависит от ширины контента,<br>отключена анимация-скейл</p>
-          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal></button>
+          <button class="modal__close-btn" type="button" aria-label="Закрыть попап" data-close-modal>
+            <svg width="15" height="15" aria-hidden="true">
+              <use xlink:href="img/sprite.svg#icon-close"></use>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
