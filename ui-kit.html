@@ -33,30 +33,30 @@
   font-size: 16px;
   line-height: 22px;
 }
-.uikit h1 {
+.uikit__h1 {
   font-size: 30px;
   line-height: 36px;
   margin: 30px 0 30px;
 }
 @media (max-width: 767px) {
-  .uikit h1 {
+  .uikit__h1 {
     font-size: 24px;
     line-height: 30px;
   }
 }
-.uikit h2 {
+.uikit__h2 {
   font-size: 20px;
   line-height: 26px;
   position: relative;
   margin: 0;
   padding: 5px 0;
 }
-.uikit section > h2 {
+.uikit__section > .uikit__h2 {
   margin: 0 0 15px 0;
   padding: 50px 0 0 0;
 }
 @media (max-width: 767px) {
-  .uikit section > h2 {
+  .uikit__section > .uikit__h2 {
     padding: 30px 0 0;
   }
 }
@@ -207,7 +207,7 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
       </style>
       <main>
         <div class="uikit">
-          <div class="uikit__sections">
+          <div class="uikit__sections" data-scroll-lock-fill-gap>
             <label for="section-burger"><span>Разделы&nbsp;компонентов</span></label>
             <input class="visually-hidden" type="checkbox" checked id="section-burger">
             <div>
@@ -219,9 +219,9 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
             </div>
           </div>
           <div class="container"><a class="uikit__header-link" href="sitemap.html"><img src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта"></a>
-            <h1>Компоненты, используемые на проекте</h1>
-            <section>
-              <h2>Название компонента или группы компонентов</h2>
+            <h1 class="uikit__h1">Компоненты, используемые на проекте</h1>
+            <section class="uikit__section">
+              <h2 class="uikit__h2">Название компонента или группы компонентов</h2>
               <p class="uikit__text">Информация о компоненте (подсказки \ предупреждение \ важная информация)</p>
               <div class="uikit__component">
                 <p class="uikit__text"> Класс компонента \ модификаторы</p>
@@ -229,8 +229,8 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
 </code></pre>
               </div>
             </section>
-            <section id="modals">
-              <h2>Модальные окна</h2>
+            <section class="uikit__section" id="modals">
+              <h2 class="uikit__h2">Модальные окна</h2>
               <div class="uikit__component">
                 <p class="uikit__text uikit__text--class">.modal \ .modal--feedback</p>
                 <button class="btn" type="button" data-open-modal="feedback">modal-feedback</button>
@@ -243,8 +243,8 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
 </code></pre>
               </div>
             </section>
-            <section id="buttons">
-              <h2>Кнопки</h2>
+            <section class="uikit__section" id="buttons">
+              <h2 class="uikit__h2">Кнопки</h2>
               <div class="uikit__component">
                 <p class="uikit__text uikit__text--class">.btn \ default \ button</p>
                 <button class="btn" type="button">Кнопка</button>
@@ -262,8 +262,8 @@ code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shad
 </code></pre>
               </div>
             </section>
-            <section id="forms">
-              <h2>Элементы форм</h2>
+            <section class="uikit__section" id="forms">
+              <h2 class="uikit__h2">Элементы форм</h2>
               <div class="uikit__component">
                 <p class="uikit__text uikit__text--class">.custom-input \ type="text"</p>
                 <div class="custom-input">

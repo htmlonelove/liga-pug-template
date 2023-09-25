@@ -808,7 +808,7 @@ button,
   display: -ms-flexbox;
   display: flex;
   width: 530px;
-  padding: size(14px) 0 28px 0;
+  padding: 14px 0 28px 0;
 }
 
 .custom-input label,
@@ -1059,8 +1059,8 @@ button,
   position: absolute;
   top: 50%;
   left: 10px;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-80%);
+  transform: translateY(-80%);
   -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
   transition: transform 0.3s ease, opacity 0.3s ease;
