@@ -28,10 +28,10 @@ block main
       .container
         a.uikit__header-link(href="sitemap.html")
           img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
-        h1 Компоненты, используемые на проекте
+        h1.uikit__h1 Компоненты, используемые на проекте
 
-        section
-          h2 Название компонента или группы компонентов
+        section.uikit__section
+          h2.uikit__h2 Название компонента или группы компонентов
           p.uikit__text Информация о компоненте (подсказки \ предупреждение \ важная информация)
           .uikit__component
             p.uikit__text  Класс компонента \ модификаторы
@@ -41,8 +41,8 @@ block main
                 p Пример кода
 
         //- Модальные окна
-        section(id="modals")
-          h2 Модальные окна
+        section.uikit__section(id="modals")
+          h2.uikit__h2 Модальные окна
           .uikit__component
             p.uikit__text.uikit__text--class .modal \ .modal--feedback
             +btn({text: "modal-feedback"})(data-open-modal="feedback")
@@ -59,8 +59,8 @@ block main
                 +btn({text: "modal-success"})(data-open-modal="success")
 
         //- Кнопки
-        section(id="buttons")
-          h2 Кнопки
+        section.uikit__section(id="buttons")
+          h2.uikit__h2 Кнопки
           .uikit__component
             p.uikit__text.uikit__text--class .btn \ default \ button
             +btn({text: "Кнопка"})
@@ -84,8 +84,8 @@ block main
                 +btn({text: "Текст"})(disabled)
 
         //- Элементы форм
-        section(id="forms")
-          h2 Элементы форм
+        section.uikit__section(id="forms")
+          h2.uikit__h2 Элементы форм
           .uikit__component
             p.uikit__text.uikit__text--class .custom-input \ type="text"
             +custom-input({
