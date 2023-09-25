@@ -1,0 +1,32 @@
+name: Production
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      # Build
+      - name: Install dependencies
+        run: npm i
+      - name: Build
+        run: npm run build
+      - name: Deploy build
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: production
+          folder: build
+          target-folder: build
+          clean: true
+      - name: Deploy source
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: production
+          folder: .
+          target-folder: source
+          clean: false

@@ -1,4 +1,5 @@
 build/*.js
+source/js/inline/*.js
 source/js/vendor/*.js
 gulpfile.js
 webpack.config.js

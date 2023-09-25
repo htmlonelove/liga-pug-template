@@ -27,7 +27,7 @@ block main
       //----------------------------------------------
       .container
         a.uikit__header-link(href="sitemap.html")
-          img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+          img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
         h1 Компоненты, используемые на проекте
 
         section
@@ -70,7 +70,7 @@ block main
                 +btn({text: "Текст", href: "#"})
           .uikit__component
             p.uikit__text.uikit__text--class .btn \ .btn--red \ link
-            +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
+            +btn({text: "Текст", href: "#", isExternal: true}).btn--red(aria-label="Просто ссылка")
             pre
               |
               code(class="language-pug").
@@ -159,6 +159,24 @@ block main
                   inputValue: "user-agreement-1",
                   inputChecked: false
                 }).custom-toggle--checkbox
+
+
+          .uikit__component
+            p.uikit__text Базовый селект c placeholder
+            p.uikit__text.uikit__text--class +custom-select \ default
+            +custom-select({
+              placeholder: "Выберите одну из опций",
+              error: "Выберите тему обращения",
+              optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]
+            })(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-1").custom-select
+            pre
+              |
+              code(class="language-pug").
+                +custom-select({
+                  placeholder: "Выберите одну из опций",
+                  error: "Выберите тему обращения",
+                  optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]
+                })(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-1").custom-select
 
 
   script
