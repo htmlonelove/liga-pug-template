@@ -11,7 +11,7 @@ block main
   main
     .uikit
       //----------------------- Разделы с компонентами
-      .uikit__sections
+      .uikit__sections(data-scroll-lock-fill-gap)
         label(for="section-burger")
           span Разделы&nbsp;компонентов
         input.visually-hidden(type="checkbox", checked, id="section-burger")

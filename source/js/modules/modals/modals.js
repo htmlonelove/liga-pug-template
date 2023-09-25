@@ -1,9 +1,9 @@
-import {ScrollLock} from '../../utils/scroll-lock';
+import scrollLock from '../../vendor/scroll-lock.min';
 import {FocusLock} from '../../utils/focus-lock';
 
 export class Modals {
   constructor(settings = {}) {
-    this._scrollLock = new ScrollLock();
+    this._scrollLock = scrollLock;
     this._focusLock = new FocusLock();
 
     this._modalOpenElements = document.querySelectorAll('[data-open-modal]');
@@ -156,6 +156,8 @@ export class Modals {
     this._openedModalElement = document.querySelector('.modal.is-active');
 
     if (this._openedModalElement) {
+      this._scrollLock.enablePageScroll(this._openedModalElement);
+      this._scrollLock.disablePageScroll(modal);
       this._enableScrolling = false;
       this.close(this._openedModalElement.dataset.modal);
     }
@@ -168,7 +170,7 @@ export class Modals {
     }
 
     if (!this._openedModalElement) {
-      this._scrollLock.disableScrolling();
+      this._scrollLock.disablePageScroll(modal);
     }
 
     if (this._openCallback) {
@@ -232,7 +234,7 @@ export class Modals {
 
     if (this._enableScrolling) {
       setTimeout(() => {
-        this._scrollLock.enableScrolling();
+        this._scrollLock.enablePageScroll(modal);
       }, this._eventTimeout);
     }
 
