@@ -3,7 +3,7 @@ mixin custom-select(options = {})
   - const selectPlaceholder = options.placeholder ? options.placeholder : false
   - const buttonAriaLabel = options.buttonAriaLabel ? options.buttonAriaLabel : "Выберите одну из опций"
 
-  div&attributes(attributes)
+  .custom-select&attributes(attributes)
     if selectLabel
       span.custom-select__label= selectLabel
     if selectPlaceholder
