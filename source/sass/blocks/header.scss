@@ -1,13 +1,13 @@
 .header {
   padding: 28px 0;
 
-  background-color: $color-neon-blue;
+  background-color: $color-default-light;
 
   .container {
     display: flex;
   }
 
   &__logo {
-    color: $color-default-white;
+    color: $color-logo;
   }
 }

@@ -27,7 +27,7 @@ block main
       //----------------------------------------------
       .container
         a.uikit__header-link(href="sitemap.html")
-          img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
+          img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
         h1.uikit__h1 Компоненты, используемые на проекте
 
         section.uikit__section
@@ -40,23 +40,6 @@ block main
               code(class="language-pug").
                 p Пример кода
 
-        //- Модальные окна
-        section.uikit__section(id="modals")
-          h2.uikit__h2 Модальные окна
-          .uikit__component
-            p.uikit__text.uikit__text--class .modal \ .modal--feedback
-            +btn({text: "modal-feedback"})(data-open-modal="feedback")
-            pre
-              |
-              code(class="language-pug").
-                +btn({text: "modal-feedback"})(data-open-modal="feedback")
-          .uikit__component
-            p.uikit__text.uikit__text--class .modal \ .modal--success
-            +btn({text: "modal-success"})(data-open-modal="success")
-            pre
-              |
-              code(class="language-pug").
-                +btn({text: "modal-success"})(data-open-modal="success")
 
         //- Кнопки
         section.uikit__section(id="buttons")
@@ -83,107 +66,6 @@ block main
               code(class="language-pug").
                 +btn({text: "Текст"})(disabled)
 
-        //- Элементы форм
-        section.uikit__section(id="forms")
-          h2.uikit__h2 Элементы форм
-          .uikit__component
-            p.uikit__text.uikit__text--class .custom-input \ type="text"
-            +custom-input({
-              inputLabel: "Введите ваше имя",
-              inputName: "user-name-1",
-            })
-            pre
-              |
-              code(class="language-pug").
-                +custom-input({
-                  inputLabel: "Введите ваше имя",
-                  inputName: "user-name-1",
-                })
-          .uikit__component
-            p.uikit__text.uikit__text--class .custom-input \ type="tel"
-            +custom-input({
-              inputType: "tel",
-              inputLabel: "Введите номер телефона",
-              inputName: "user-phone",
-            })
-            pre
-              |
-              code(class="language-pug").
-                +custom-input({
-                  inputType: "tel",
-                  inputLabel: "Введите номер телефона",
-                  inputName: "user-phone",
-                })
-          .uikit__component
-            p.uikit__text.uikit__text--class .custom-input \ type="email"
-            +custom-input({
-              inputType: "email",
-              inputLabel: "Введите вашу почту",
-              inputName: "user-mail",
-            })
-            pre
-              |
-              code(class="language-pug").
-                +custom-input({
-                  inputType: "email",
-                  inputLabel: "Введите вашу почту",
-                  inputName: "user-mail",
-                })
-          .uikit__component
-            p.uikit__text.uikit__text--class +custom-textarea \ default
-            +custom-textarea({
-              inputLabel: "Расскажите о себе",
-              inputName: "user-info"
-            })
-            pre
-              |
-              code(class="language-pug").
-                +custom-textarea({
-                  inputLabel: "Расскажите о себе",
-                  inputName: "user-info"
-                })
-          .uikit__component
-            p.uikit__text.uikit__text--class +custom-toggle \ default
-            +custom-toggle({
-              inputLabel: "Чекбокс",
-              inputName: "user-agreement",
-              inputValue: "user-agreement-1",
-              inputChecked: false
-            }).custom-toggle--checkbox
-            pre
-              |
-              code(class="language-pug").
-                +custom-toggle({
-                  inputLabel: "Чекбокс",
-                  inputName: "user-agreement",
-                  inputValue: "user-agreement-1",
-                  inputChecked: false
-                }).custom-toggle--checkbox
-
-
-          .uikit__component
-            p.uikit__text Базовый селект c placeholder
-            p.uikit__text.uikit__text--class +custom-select \ default
-            +custom-select({
-              placeholder: "Выберите одну из опций",
-              error: "Выберите тему обращения",
-              optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]
-            })(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-1")
-            pre
-              |
-              code(class="language-pug").
-                +custom-select({
-                  placeholder: "Выберите одну из опций",
-                  error: "Выберите тему обращения",
-                  optionsList: [{text: "Тема 1", value: "id-1"}, {text: "Тема 2", value: "id-2"}, {text: "Тема 3", value: "id-3"}, {text: "Тема 4", value: "id-4"}, {text: "Тема 5", value: "id-5"}, {text: "Тема 6", value: "id-6"}]
-                })(data-select, data-validate-type="select", data-name="some-name", data-id="id-example-1")
-
 
   script
     include ../../js/inline/ui-kit.js
-
-block modals
-  +modal("modal--feedback")(data-modal="feedback")
-    +modal-feedback()
-  +modal("modal--success modal--no-scale modal--fit-content")(data-modal="success")
-    +modal-success()

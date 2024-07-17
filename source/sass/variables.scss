@@ -3,59 +3,60 @@
 
 // Default
 
-$color-default-black:               #000000;
-$color-default-white:               #ffffff;
-$color-transparent:                 rgba(255, 255, 255, 0);
-$color-accent-main: #2c39f2;
-$color-accent-second: #212121;
+$color-default-dark: #000000;
+$color-default-light: #ffffff;
+$color-transparent: rgba(255, 255, 255, 0);
+$color-background-main: #fafafa;
+$color-background-footer: #222222;
+$color-links: #454545;
+$color-title: #181515;
+$color-text: #9e9e9e;
+$color-accent-main: #486dd8;
+$color-accent-second: #bababa;
+$color-basic: #ececec;
+$color-logo: #1d5cbb;
 
 // Project palette
 // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
 
-$color-neon-blue:                   #2c39f2;
-$color-torch-red:                   #ff1553;
+$color-carnation-pink: #ff9ebb;
+$color-macaroni-and-cheese: #ffb985;
+$color-maya-blue: #6cb7f2;
+$color-tickle-me-pink: #ff89ad;
+$color-your-pink: #ffccbd;
+$color-blue-maya: #82b4ff;
 
 // Gradient
 
-$black-to-right:                    linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 75%);
+$black-to-right: linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 0.75) 0%,
+  rgba(0, 0, 0, 0) 75%
+);
 
 // Typography
 // ---------------------------------
 
-// переменная используемая в html для подключения скейлинга
-$fz-default:                        16px;
-
-// у некоторых шрифтов в ios возникают проблемы с символом рубля
-// https://www.artlebedev.ru/kovodstvo/sections/159/#13
-$ff-rouble:                         "Rouble", "Arial", sans-serif;
-
-$ff-placeholder:                    "Placeholder", "Arial", sans-serif;
+$fz-default: 16px;
+$ff-inter: "Inter", "Arial", sans-serif;
 
 // Animation
 // ---------------------------------
 
-$tf-default:                        ease;
-$trans-default:                     0.3s $tf-default;
-
-// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
-$trans-modal:                       0.6s cubic-bezier(0.55, 0, 0.1, 1);
-
-$trans-600:                         0.6s $tf-default;
+$tf-default: ease;
+$trans-default: 0.3s $tf-default;
 
 // Viewports
 // ---------------------------------
 
-$vp-320:                            320px;
-$vp-375:                            375px;
-$vp-768:                            768px;
-$vp-1024:                           1024px;
-$vp-1280:                           1280px;
-$vp-1440:                           1440px;
-$vp-1920:                           1920px;
+$vp-320: 320px;
+$vp-768: 768px;
+$vp-1024: 1024px;
+$vp-1920: 1920px;
 
 // Retina
 // ---------------------------------
 
-
-$retina-dpi:                        144dpi;
-$retina-dppx:                       1.5dppx;
+$retina: 2dppx;
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
