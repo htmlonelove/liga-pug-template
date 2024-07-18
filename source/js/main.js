@@ -1,7 +1,7 @@
-import { mobileVhFix } from './utils/mobile-vh-fix.js';
-import { Form } from './modules/form-validate/form';
-import { CustomSelect } from './modules/select/custom-select';
-import { uploadFile, uploadImageDrop } from './modules/input-file/init-upload';
+import {mobileVhFix} from './utils/mobile-vh-fix.js';
+import {Form} from './modules/form-validate/form';
+import {CustomSelect} from './modules/select/custom-select';
+import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
 
 // ---------------------------------
 

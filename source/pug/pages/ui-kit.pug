@@ -27,7 +27,7 @@ block main
       //----------------------------------------------
       .container
         a.uikit__header-link(href="sitemap.html")
-          img(src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта")
+          img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
         h1.uikit__h1 Компоненты, используемые на проекте
 
         section.uikit__section
@@ -36,7 +36,6 @@ block main
           .uikit__component
             p.uikit__text  Класс компонента \ модификаторы
             pre
-              |
               code(class="language-pug").
                 p Пример кода
 
@@ -48,21 +47,18 @@ block main
             p.uikit__text.uikit__text--class .btn \ default \ button
             +btn({text: "Кнопка"})
             pre
-              |
               code(class="language-pug").
                 +btn({text: "Текст", href: "#"})
           .uikit__component
             p.uikit__text.uikit__text--class .btn \ .btn--red \ link
             +btn({text: "Текст", href: "#", isExternal: true}).btn--red(aria-label="Просто ссылка")
             pre
-              |
               code(class="language-pug").
                 +btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто ссылка").btn--red
           .uikit__component
             p.uikit__text.uikit__text--class .btn \ disabled \ button
             +btn({text: "Текст"})(disabled)
             pre
-              |
               code(class="language-pug").
                 +btn({text: "Текст"})(disabled)
 
