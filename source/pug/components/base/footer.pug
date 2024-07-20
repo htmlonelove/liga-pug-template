@@ -1,3 +1,4 @@
 mixin footer(footerMods)
   footer.footer(class=footerMods)
     .container
+    +logo({currentUrl: currentUrl, isFooter: true})

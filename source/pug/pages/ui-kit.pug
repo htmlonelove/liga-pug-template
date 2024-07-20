@@ -1,7 +1,7 @@
 extends ../components/base/layout
 
 block variables
-  - const title = "UI-kit"
+  - const title = "FindEdu(UI-kit) - список компонентов"
 
 block main
   style
@@ -27,7 +27,7 @@ block main
       //----------------------------------------------
       .container
         a.uikit__header-link(href="sitemap.html")
-          img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
+          img(src="img/content/logo.svg", width="300", alt="Логотип проекта")
         h1.uikit__h1 Компоненты, используемые на проекте
 
         section.uikit__section
@@ -61,6 +61,16 @@ block main
             pre
               code(class="language-pug").
                 +btn({text: "Текст"})(disabled)
+
+        //- Логотип
+        section.uikit__section(id="buttons")
+          h2.uikit__h2 Логотип
+          .uikit__component
+          p.uikit__text.uikit__text--class .btn \ default \ button
+            +btn({text: "Кнопка"})
+            pre
+              code(class="language-pug").
+                +btn({text: "Текст", href: "#"})
 
 
   script

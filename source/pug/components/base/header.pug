@@ -6,31 +6,108 @@ mixin header(headerMods, currentUrl)
         text: "Главная"
       },
       {
-        href: "#",
+        href: "courses.html",
         text: "Курсы"
       },
       {
-        href: "#",
+        href: "blog.html",
         text: "Блог"
-      },
+      }
     ]
 
-  header.header(class=headerMods)
+    const subMenu = {
+      Дизайн: [
+        {value: "3D анимация"},
+        {value: "3D MAX"},
+        {value: "3D-моделирование"},
+        {value: "Adobe After Effects"},
+        {value: "Adobe Illustrator"},
+        {value: "Adobe Photoshop"},
+        {value: "Отрисовка иллюстраций"}
+      ],
+      Программирование: [
+        {value: "Web-разработка"},
+        {value: "DevOps"},
+        {value: "JavaScript-разработка"},
+        {value: "ReactJS"},
+        {value: "Мобильная разработка"},
+        {value: "GIT"},
+        {value: "Системное администрирование"},
+        {value: "Верстка на HTML/CSS"},
+        {value: "Unity"}
+      ],
+      Аналитика: [
+        {value: "Data Science"},
+        {value: "Продуктовая аналитика"},
+        {value: "Web-аналитика"},
+        {value: "Системная аналитика"},
+        {value: "Бизнес-аналитика"},
+        {value: "Работа с Excel и Google таблицами"},
+        {value: "Нейронные сети"},
+        {value: "Машинное обучение"}
+      ],
+      Менеджмент: [
+        {value: "Product-менеджмент"},
+        {value: "Личностный рост"},
+        {value: "Управление разработкой и IT"},
+        {value: "AGile"},
+        {value: "Бренд-менеджмент"},
+        {value: "Запуск стартапов"},
+        {value: "Финансовая аналитика"},
+        {value: "Управление в SMM"},
+        {value: "IT-рекрутмент"}
+      ],
+      Маркетинг: [
+        {value: "Web-аналитика"},
+        {value: "SMM-продвижение"},
+        {value: "Интернет-маркетинг"},
+        {value: "PR-менеджмент"},
+        {value: "SEO-продвижение"},
+        {value: "Копирайтинг"},
+        {value: "Контент-маркетинг"},
+        {value: "SERM и репутация"},
+        {value: "Маркетинговая аналитика"}
+      ],
+      Финансы: [
+        {value: "Web-аналитика"},
+        {value: "SMM-продвижение"},
+        {value: "Интернет-маркетинг"},
+        {value: "PR-менеджмент"},
+        {value: "SEO-продвижение"},
+        {value: "Копирайтинг"},
+        {value: "Контент-маркетинг"},
+        {value: "SERM и репутация"},
+        {value: "Маркетинговая аналитика"}
+      ]
+    }
+
+  header.header(class=headerMods, data-header)
     .container
-      if(currentUrl === "index.html")
-        //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
-      else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
-      nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
-          ul.main-nav__list
-            each link in headerLinks
-              - const activeState = currentUrl === link.href
-              li.main-nav__item
-                if(activeState)
-                  span.main-nav__link.is-active= link.text
-                else
-                  a.main-nav__link(href=link.href)= link.text
+      h1.visually-hidden FindEdu - поможем выбрать профессию по душе
+      .header__nav
+        +logo({currentUrl: currentUrl})
+        nav.main-nav(id="nav", class=currentUrl === "index.html" ? "is-active" : "")
+          .main-nav__wrapper
+            ul.main-nav__list.list-reset
+              each link in headerLinks
+                - const activeState = currentUrl === link.href
+                li.main-nav__item(class=activeState ? "is-active" : "")
+                  if(activeState)
+                    span.main-nav__link.is-active= link.text
+                  else
+                    a.main-nav__link(href=link.href)= link.text
+          button.main-nav__toggle.button-reset(type="button", id="nav-toggle", aria-label="Переключатель отображения меню", aria-pressed="false", data-burger)
+
+      if currentUrl === "index.html"
+        ul.header__accordion-list.list-reset(data-accordion="parent")
+          each menu, title in subMenu
+            li.header__accordion-item(data-accordion="element")
+              .header__accordion-title(data-accordion="button")
+                p.header__headline= title
+                  span.header__triangle
+                    +icon("nav-triangle", 10, 10)
+              .header__accordion-content(data-accordion="content")
+                ul.header__submenu.list-reset
+                  each item in menu
+                    li.header__subitem
+                      +btn({text: item.value, href: "#"}).header__submenu-link

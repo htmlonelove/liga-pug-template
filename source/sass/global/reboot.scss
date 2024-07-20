@@ -15,7 +15,7 @@ html {
   font-style: normal;
   font-weight: 400;
   font-size: $fz-default;
-  line-height: size(23px);
+  line-height: 23px;
   font-family: $ff-inter;
   color: $color-default-dark;
 
@@ -31,6 +31,8 @@ body {
   width: 100%;
   height: 100%;
 
+  color: $color-default-dark;
+
   background-color: $color-background-main;
 }
 
@@ -44,6 +46,8 @@ video {
   display: block;
   max-width: 100%;
   height: auto;
+
+  object-fit: cover;
 }
 
 textarea {

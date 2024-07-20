@@ -1,7 +1,5 @@
-import {mobileVhFix} from './utils/mobile-vh-fix.js';
-import {Form} from './modules/form-validate/form';
-import {CustomSelect} from './modules/select/custom-select';
-import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
+import {initAccordions} from './modules/accordions/init-accordion';
+import {Burger} from './modules/header/burger';
 
 // ---------------------------------
 
@@ -10,22 +8,19 @@ window.addEventListener('DOMContentLoaded', () => {
   // Utils
   // ---------------------------------
 
-  mobileVhFix();
+  initAccordions();
 
   // Modules
   // ---------------------------------
 
   // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
   // в load следует добавить скрипты, не участвующие в работе первого экрана
+
   window.addEventListener('load', () => {
-    uploadFile();
-    uploadImageDrop();
-    const select = new CustomSelect();
-    select.init();
-    const form = new Form();
-    window.form = form;
-    form.init();
+    const burger = new Burger();
+    burger.init();
   });
+
 });
 
 // ---------------------------------

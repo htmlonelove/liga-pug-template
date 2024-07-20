@@ -3,6 +3,7 @@
 
   display: flex;
   flex-direction: column;
+  min-width: 320px;
   min-height: 100vh;
   /* stylelint-disable-next-line */
   min-height: calc(100 * var(--vh, 1vh));
@@ -42,6 +43,21 @@
 
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.button-reset {
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .scroll-lock-ios {
