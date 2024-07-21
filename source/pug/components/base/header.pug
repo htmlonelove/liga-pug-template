@@ -110,4 +110,4 @@ mixin header(headerMods, currentUrl)
                 ul.header__submenu.list-reset
                   each item in menu
                     li.header__subitem
-                      +btn({text: item.value, href: "#"}).header__submenu-link
+                      a.header__submenu-link(href="#")= item.value

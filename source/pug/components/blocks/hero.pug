@@ -1,10 +1,14 @@
 mixin hero()
   .hero
-    //- вставлять блоки во внешний контейнер неверно
-    //- все блоки содержат в себе container без доп класса tutorial__wrapper
     .container
-      p(style="margin-top: 40px;") Текст&nbsp;с&nbsp;мнемониками
-
-      p(style="margin-top: 40px;") Пример использования +img()
-      p(style="margin-bottom: 40px;")
-        +img("content", "placeholder", "png", 120, 120, "Пример")
+      .hero__wrapper
+        .hero__about
+          h2 FindEdu - все для
+            br
+            | выбора новой профессии в&nbsp;одном месте
+          p Изучение тем на&nbsp;вебинарах&nbsp;с преподавателями, личные консультации с&nbsp;наставником. После прохождения курса с&nbsp;наставником. После прохождения курса
+          +btn({text: "Сравнить курсы", hasIcon: true})
+        .hero__description
+          .hero__image
+            +img("content", "hero-man", "png", 578, 646, "")
+          +career-card.hero__career-card

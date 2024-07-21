@@ -1,0 +1,148 @@
+.career-card {
+  background-color: $color-card-background;
+  border: 0.74px solid $color-card-border;
+  border-radius: 19px;
+  width: 100%;
+  max-width: 488px;
+  min-height: 281px;
+  box-shadow: 0 3px 37px 0 rgba(0, 0, 0, 0.06);
+  padding: 28px 28px 14px 16px;
+  font-family: $ff-gilroy;
+}
+
+.career-card__wrapper {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  justify-content: space-between;
+  row-gap: 15px;
+  column-gap: 10px;
+}
+
+.career-card__content {
+  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-self: end;
+  align-items: flex-start;
+
+  li {
+    font-weight: 600;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.45);
+    width: 100%;
+    text-align: right;
+  }
+
+  li:first-child {
+    padding-top: 1px;
+    font-weight: 600;
+    font-size: 15px;
+    color: $color-default-dark;
+  }
+}
+
+.career-card__description {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  row-gap: 6px;
+  column-gap: 20px;
+  justify-content: start;
+  align-items: center;
+  padding-left: 3px;
+
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: $color-default-dark;
+  }
+
+  svg {
+    display: block;
+    width: 79px;
+    height: 14px;
+    margin-top: 4px;
+  }
+
+  p {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 138%;
+
+    color: $color-text-card;
+  }
+}
+
+.career-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.career-card__item {
+  position: relative;
+  padding-right: 10px;
+  height: 24px;
+
+  &--skillfactory svg,
+  &--netology svg {
+    box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.03);
+  }
+}
+
+.career-card__item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 42px;
+  width: calc(100% - 42px);
+
+  height: 17px;
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
+
+.career-card__item--skillbox::after {
+  width: 42%;
+  background: linear-gradient(
+    to right,
+    $color-free-speech-blue 58%,
+    $color-lavender 42%
+  );
+}
+
+.career-card__item--skillfactory::after {
+  width: 61%;
+  background: linear-gradient(
+    to right,
+    $color-fruit-salad 70%,
+    $color-tara 30%
+  );
+}
+
+.career-card__item--geekbrains::after {
+  max-width: 78%;
+  background: linear-gradient(
+    to right,
+    $color-background-footer 42%,
+    $color-whisper 42%
+  );
+}
+
+.career-card__item--netology::after {
+  width: 63%;
+  background: linear-gradient(to right, $color-cerise 75%, $color-pig-pink 24%);
+}
+
+.career-card__item--skypro::after {
+  width: 68%;
+  background: linear-gradient(
+    to right,
+    $color-malibu 45%,
+    $color-pattens-blue 45%
+  );
+}

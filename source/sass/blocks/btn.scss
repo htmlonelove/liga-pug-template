@@ -1,26 +1,74 @@
 .btn {
   display: inline-flex;
-  padding: 10px 20px;
-
-  color: $color-default-white;
-
-  background-color: $color-neon-blue;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 46px;
+  font-weight: 500;
+  font-size: 16px;
+  color: $color-background-main;
+  background-color: $color-accent-main;
+  line-height: 100%;
   border: none;
   cursor: pointer;
-
+  border-radius: 20px;
   transition: opacity $trans-default;
+  gap: 25px;
 
-  &--red {
-    background-color: $color-torch-red;
+  @include vp-767 {
+    padding: 8px 18px;
+
+    font-size: 14px;
+    border-radius: 12px;
+
+    gap: 13px;
+  }
+
+  &__text {
+    text-align: right;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: $color-icon;
+    border-radius: 50%;
+    z-index: 3;
+
+    @include vp-767 {
+      width: 29px;
+      height: 29px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    z-index: 5;
+    justify-content: end;
+
+    svg {
+      display: block;
+    }
   }
 
   &:disabled {
     opacity: 0.5;
-
     pointer-events: none;
   }
 
   @include hover-focus {
-    opacity: 0.8;
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
   }
 }

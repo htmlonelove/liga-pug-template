@@ -47,3 +47,33 @@
   src: url("../fonts/inter-ExtraBold.woff2") format("woff2"),
     url("../fonts/inter-ExtraBold.woff") format("woff");
 }
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Gilroy";
+
+  font-display: swap;
+  src: url("../fonts/gilroy-Regular.woff2") format("woff2"),
+    url("../fonts/gilroy-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 600;
+  font-family: "Gilroy";
+
+  font-display: swap;
+  src: url("../fonts/gilroy-Semibold.woff2") format("woff2"),
+    url("../fonts/gilroy-Semibold.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 700;
+  font-family: "Gilroy";
+
+  font-display: swap;
+  src: url("../fonts/gilroy-Bold.woff2") format("woff2"),
+    url("../fonts/gilroy-Bold.woff") format("woff");
+}
