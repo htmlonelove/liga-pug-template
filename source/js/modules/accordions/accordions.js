@@ -130,16 +130,51 @@ export class Accordions {
       this._clickedElement = element;
 
       if (this._isDesktop) {
-        this._setDynamicPosition({currentTarget: element});
+        this._setDynamicPosition({ currentTarget: element });
       }
     }
   }
 
   _handleKeyDown(event) {
+    const target = event.target;
+    const accordionElement = target.closest('[data-accordion="element"]');
+
     if (event.key === 'Escape' && this._clickedElement) {
       this.closeAccordion(this._clickedElement);
       this._clickedElement = null;
+    } else if (event.key === 'Enter' && accordionElement) {
+      event.preventDefault();
+      if (accordionElement.classList.contains('is-active')) {
+        this.closeAccordion(accordionElement);
+      } else {
+        this.openAccordion(accordionElement);
+        const firstListItem = accordionElement.querySelector('[data-accordion="content"] a, [data-accordion="content"] button');
+        if (firstListItem) {
+          firstListItem.focus();
+        }
+      }
+    } else if (event.key === 'Tab') {
+      if (accordionElement && accordionElement.classList.contains('is-active')) {
+        const content = accordionElement.querySelector('[data-accordion="content"]');
+        const focusableElements = content.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          accordionElement.querySelector('[data-accordion="button"]').focus();
+        }
+      }
     }
+  }
+
+  _setFocusableElements(element) {
+    const content = element.querySelector('[data-accordion="content"]');
+    const focusableElements = content.querySelectorAll('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    focusableElements.forEach((el) => el.setAttribute('tabindex', '0'));
   }
 
   _windowResizeHandler() {
@@ -156,7 +191,7 @@ export class Accordions {
 
     if (this._isDesktop) {
       document.querySelectorAll('[data-accordion="element"].is-active').forEach((element) => {
-        this._setDynamicPosition({currentTarget: element});
+        this._setDynamicPosition({ currentTarget: element });
       });
     } else if (wasDesktop) {
       document.querySelectorAll('[data-accordion="element"]').forEach((element) => {
@@ -217,7 +252,7 @@ export class Accordions {
         content.style.transition = null;
       });
 
-      this._setDynamicPosition({currentTarget: openElement});
+      this._setDynamicPosition({ currentTarget: openElement });
     });
   }
 
@@ -239,7 +274,7 @@ export class Accordions {
     this.updateAccordionsHeight();
 
     openElements.forEach((openElement) => {
-      this._setDynamicPosition({currentTarget: openElement});
+      this._setDynamicPosition({ currentTarget: openElement });
     });
   }
 
@@ -252,7 +287,7 @@ export class Accordions {
     contentElement.style.overflow = 'visible';
 
     if (this._isDesktop) {
-      this._setDynamicPosition({currentTarget: element});
+      this._setDynamicPosition({ currentTarget: element });
     }
 
     requestAnimationFrame(() => {
@@ -273,7 +308,7 @@ export class Accordions {
     }
 
     if (this._isDesktop) {
-      this._setDynamicPosition({currentTarget: element});
+      this._setDynamicPosition({ currentTarget: element });
     }
   }
 
@@ -295,6 +330,7 @@ export class Accordions {
     }
 
     this.openAccordionImmediate(element);
+    this._setFocusableElements(element);
 
     if (!transition) {
       contentElement.style.transition = 'none';
@@ -330,9 +366,9 @@ export class Accordions {
       }
 
       contentElement.addEventListener('transitionend', () => {
-        this._removeDynamicPosition({currentTarget: element});
+        this._removeDynamicPosition({ currentTarget: element });
         contentElement.style.display = ''; // Reset display style
-      }, {once: true});
+      }, { once: true });
     });
   }
 

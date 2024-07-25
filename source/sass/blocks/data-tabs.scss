@@ -1,0 +1,86 @@
+[data-tabs="parent"] {
+  overflow: hidden;
+
+  &.no-transition {
+    > [data-tabs="control"],
+    > [data-tabs="content"],
+    > [data-tabs="element"] {
+      transition: none;
+    }
+  }
+
+  &.no-transition-global {
+    [data-tabs="control"],
+    [data-tabs="content"],
+    [data-tabs="element"] {
+      transition: none;
+    }
+  }
+}
+
+[data-tabs="parent"] [data-tabs="content"] {
+  position: relative;
+}
+
+[data-tabs="element"] {
+  @media (min-width: 768px) {
+    position: absolute;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+  }
+}
+
+[data-tabs="element"].for-load {
+  position: static;
+  visibility: visible;
+  opacity: 1;
+
+  transition: none;
+}
+
+[data-tabs="element"].is-active {
+  z-index: 1;
+
+  visibility: visible;
+  opacity: 1;
+}
+
+[data-accordion-init] {
+  > [data-tabs="content"],
+  > [data-tabs="controls"] {
+    display: none;
+  }
+
+  [data-tabs="element"] {
+    z-index: 1;
+    visibility: visible;
+    position: static;
+    opacity: 1;
+  }
+}
+
+[data-tabs="accordion-wrapper"] {
+  display: block;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+[data-tabs="accordion-content"] {
+  overflow: hidden;
+}
+
+[data-tabs="accordion"] {
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+[data-tabs="accordion"].is-active {
+  > [data-tabs="accordion-wrapper"] {
+    max-height: none;
+  }
+}

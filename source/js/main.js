@@ -1,5 +1,9 @@
 import {initAccordions} from './modules/accordions/init-accordion';
 import {Burger} from './modules/header/burger';
+import {initTrendSlider} from './modules/init-trend-slider';
+import {applySlideOpacity} from './modules/apply-slider-opacity';
+import {initPromoSlider} from './modules/init-promo-slider';
+import {initTabs} from './modules/tabs/init-tabs';
 
 // ---------------------------------
 
@@ -8,17 +12,21 @@ window.addEventListener('DOMContentLoaded', () => {
   // Utils
   // ---------------------------------
 
-  initAccordions();
 
   // Modules
   // ---------------------------------
 
-  // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
-  // в load следует добавить скрипты, не участвующие в работе первого экрана
+  initAccordions();
+  initTrendSlider();
+  applySlideOpacity();
+  initPromoSlider();
 
+  // Load
+  // -
   window.addEventListener('load', () => {
     const burger = new Burger();
     burger.init();
+    initTabs();
   });
 
 });

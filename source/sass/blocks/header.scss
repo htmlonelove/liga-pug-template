@@ -6,9 +6,7 @@
   background-color: $color-default-light;
   border-radius: 55px 55px 0 0;
 
-  transition: transform 0.3s ease, background-color 0.3s ease;
-
-  .container {
+  &.container {
     padding: 0;
   }
 
@@ -35,6 +33,8 @@
       background-color: $color-transparent;
     }
   }
+
+  transition: transform $trans-default;
 }
 
 .header__nav {
@@ -79,10 +79,26 @@
   align-items: center;
   padding-bottom: 5px;
 
+  transition: opacity $trans-default;
+
   @include vp-1023 {
     width: 23px;
     height: 27px;
     padding-bottom: 0;
+  }
+
+  & a {
+    @include hover-focus {
+      opacity: 0.8;
+    }
+
+    @include focus {
+      opacity: 0.8;
+    }
+
+    @include active {
+      opacity: 0.6;
+    }
   }
 }
 
@@ -224,7 +240,7 @@
   width: 10px;
   height: 10px;
 
-  transition: transform 0.3s ease;
+  transition: transform $trans-default;
 }
 
 .header__triangle svg {
@@ -258,7 +274,8 @@
   background-color: $color-default-light;
   border-radius: 30px;
 
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition: max-height $trans-default, opacity $trans-default,
+    padding $trans-default;
 
   @include vp-1023 {
     position: static;
@@ -282,6 +299,7 @@
 .header__accordion-item.is-active {
   .header__triangle svg {
     transform: rotate(180deg);
+    transition: transform $trans-default, fill $trans-default;
 
     fill: $color-accent-main;
   }
@@ -332,9 +350,21 @@
 
   text-decoration: none;
 
-  transition: background-color 0.3s ease;
+  transition: color $trans-default, opacity $trans-default;
 
   @include vp-1023 {
     padding: 15px 0 0;
+  }
+
+  @include hover-focus {
+    color: $color-accent-main;
+  }
+
+  @include focus {
+    color: $color-accent-main;
+  }
+
+  @include active {
+    opacity: 0.8;
   }
 }

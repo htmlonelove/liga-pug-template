@@ -1,0 +1,10 @@
+mixin swiper-nav-button(options = {})
+  - const direction = options.direction || "next"
+  - const baseClass = options.baseClass || "swiper"
+  - const size = options.size || 50
+  - const iconName = direction === "prev" ? "prev" : "next"
+  - const ariaLabel = direction === "prev" ? "смотреть предыдущий слайд" : "смотреть следующий слайд"
+
+  button(
+    class=`${baseClass}__button ${baseClass}__button-${direction} swiper-button-${direction}`, type="button", aria-label=ariaLabel, style=`width: ${size}px; height: ${size}px;`)&attributes(attributes)
+    +icon(iconName, 7, 12)

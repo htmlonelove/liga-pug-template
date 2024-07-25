@@ -2,16 +2,33 @@
   position: relative;
   padding-top: 40px;
   padding-bottom: 54px;
-
-  @include vp-1023 {
-    background-image: url("../img/content/background-hero.png");
-    background-repeat: no-repeat;
-    background-position: center top 6px;
-    background-size: cover;
-  }
+  overflow: visible;
 
   @include vp-767 {
     padding-top: 55px;
+  }
+}
+
+.hero__background {
+  display: none;
+
+  @include vp-767 {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 565px;
+    z-index: -1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
   }
 }
 

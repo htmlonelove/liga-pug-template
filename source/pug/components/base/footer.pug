@@ -1,4 +1,44 @@
 mixin footer(footerMods)
+  -
+    const footerData = {
+      logo: {
+        name: "FindEdu",
+        year: "2022",
+        rights: "Все права защищены."
+      },
+      categories: {
+        title: "Категории",
+        items: ["Дизайн", "Программирование", "Маркетинг", "Менеджмент", "Аналитика"]
+      },
+      popularDirections: {
+        title: "Популярные направления",
+        items: ["Веб-разработка", "Java-разработка", "Python-разработка", "SMM-продвижение", "Графический дизайн", "Дизайн интерьеров"]
+      },
+      generalInfo: {
+        title: "Общая информация",
+        items: ["О проекте", "Политика конфиденциальности", "Пользовательское соглашение"]
+      }
+    }
+    const sections = ['categories', 'popularDirections', 'generalInfo']
+    const modifiers = ['categories', 'direction', 'info']
+
   footer.footer(class=footerMods)
     .container
-    +logo({currentUrl: currentUrl, isFooter: true})
+      .footer__wrapper
+        .footer__copyright
+          +logo({currentUrl: currentUrl, isFooter: true})
+          p
+            | © #{footerData.logo.name} #{footerData.logo.year}.
+            br
+            | #{footerData.logo.rights}
+
+        .footer__navigation
+          each sectionName, index in sections
+            - const section = footerData[sectionName]
+            - const sectionClass = `footer__nav-list--${modifiers[index]}`
+            .footer__nav-list(class=sectionClass)
+              h3= section.title
+              ul.list-reset
+                each item in section.items
+                  li
+                    a(href="#")= item

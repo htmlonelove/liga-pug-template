@@ -1,0 +1,102 @@
+-
+  const slidesData = [
+    {
+      title: "Дизайн",
+      colorClass: "design",
+      icon: { name: "design", width: 78, height: 74 },
+      items: [
+        ["Web-дизайн", "Дизайн интерьеров"],
+        ["3D-моделирование", "Motion-дизайн"],
+        ["Графический дизайн", "3D-анимация"],
+        ["UX/UI дизайн", "ArchiCAD"],
+        ["Геймдизайн", "Adobe After Effects"]
+      ],
+      href: "#"
+    },
+    {
+      title: "Программирование",
+      colorClass: "development",
+      icon: { name: "development", width: 72, height: 59 },
+      items: [
+        ["Web-разработка", "DevOps"],
+        ["JavaScript-разработка", "ReactJS"],
+        ["Мобильная разработка", "GIT"],
+        "Системное администрирование",
+        ["Вёрстка на HTML/CSS", "Unity"]
+      ],
+      href: "#"
+    },
+    {
+      title: "Менеджмент",
+      colorClass: "management",
+      icon: { name: "management", width: 61, height: 64 },
+      items: [
+        ["Product-менеджмент", "Личностный рост"],
+        ["Управление разработкой и IT", "AGILE"],
+        ["Бренд-менеджмент", "Запуск стартапов"],
+        ["Финансовая аналитика", "Бухгалтерия"],
+        ["Управление в SMM", "IT-рекрутмент"]
+      ],
+      href: "#"
+    },
+    {
+      title: "Аналитика",
+      colorClass: "analytics",
+      icon: { name: "analytics", width: 68, height: 65 },
+      items: [
+        ["Data Science", "Продуктовая аналитика"],
+        ["Web-аналитика", "Системная аналитика"],
+        ["Бизнес-аналитика", "Аналитика на R"],
+        "Работа с Excel и Google таблицами",
+        ["Машинное обучение", "Нейронные сети"]
+      ],
+      href: "#"
+    },
+    {
+      title: "Маркетинг",
+      colorClass: "marketing",
+      icon: { name: "marketing", width: 80, height: 68 },
+      items: [
+        ["Web-аналитика", "SMM-продвижение"],
+        ["Интернет-маркетинг", "PR-менеджмент"],
+        ["SEO-продвижение", "Копирайтинг"],
+        ["Контент-маркетинг", "SERM и репутация"],
+        ["Маркетинговая аналитика", "Google Ads"]
+      ],
+      href: "#"
+    },
+    {
+      title: "Финансы",
+      colorClass: "finance",
+      icon: { name: "finance", width: 62, height: 67 },
+      items: [
+        ["Web-аналитика", "SMM-продвижение"],
+        ["Интернет-маркетинг", "PR-менеджмент"],
+        ["SEO-продвижение", "Копирайтинг"],
+        ["Контент-маркетинг", "SERM и репутация"],
+        ["Маркетинговая аналитика", "Google Ads"]
+      ],
+      href: "#"
+    }
+  ]
+
+mixin slide-trend(title, icon, items, colorClass, href)
+  - const modifier = icon.name
+  .slide-trend(class=`slide-trend--${colorClass}`, data-href=href, tabindex="0")
+    .slide-trend__content(class=`slide-trend__content--${modifier}`)
+      +icon(icon.name, icon.width, icon.height).slide-trend__image
+      h3= title
+      .slide-trend__text
+        each item in items
+          if Array.isArray(item)
+            +ul(item[0], item[1])
+          else
+            ul.list-reset
+              li= item
+
+mixin ul(text, text2)
+  ul.list-reset
+    li= text
+    if text2
+      +icon("star", 16, 16).slide-trend__content-icon
+      li.slide-trend__icon= text2

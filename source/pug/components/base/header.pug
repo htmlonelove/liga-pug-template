@@ -6,11 +6,11 @@ mixin header(headerMods, currentUrl)
         text: "Главная"
       },
       {
-        href: "courses.html",
+        href: "#",
         text: "Курсы"
       },
       {
-        href: "blog.html",
+        href: "#",
         text: "Блог"
       }
     ]
@@ -102,11 +102,11 @@ mixin header(headerMods, currentUrl)
         ul.header__accordion-list.list-reset(data-accordion="parent")
           each menu, title in subMenu
             li.header__accordion-item(data-accordion="element")
-              .header__accordion-title(data-accordion="button")
+              .header__accordion-title(data-accordion="button", tabindex="0", role="button", aria-expanded="false", aria-controls="accordion-content-#{index}")
                 p.header__headline= title
                   span.header__triangle
                     +icon("nav-triangle", 10, 10)
-              .header__accordion-content(data-accordion="content")
+              .header__accordion-content(data-accordion="content", id="accordion-content-#{index}", aria-hidden="true")
                 ul.header__submenu.list-reset
                   each item in menu
                     li.header__subitem

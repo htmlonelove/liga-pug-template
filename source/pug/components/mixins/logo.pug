@@ -1,9 +1,9 @@
 mixin logo(options = {})
   - const isIndex = options.currentUrl === "index.html";
-  - const tag = isIndex ? "div" : "a";
-  - const href = !isIndex ? "index.html" : false;
-  - const ariaLabel = !isIndex ? "Переход на главную" : false;
   - const isFooter = options.isFooter || false;
+  - const tag = isFooter || !isIndex ? "a" : "div";
+  - const href = isFooter ? options.currentUrl : (!isIndex ? "index.html" : false);
+  - const ariaLabel = isFooter ? "Переход на текущую страницу" : (!isIndex ? "Переход на главную" : false);
   - const className = isFooter ? "footer__logo" : "header__logo";
 
   #{tag}(class=className, href=href, aria-label=ariaLabel)&attributes(attributes)

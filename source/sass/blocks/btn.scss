@@ -11,7 +11,7 @@
   border: none;
   cursor: pointer;
   border-radius: 20px;
-  transition: opacity $trans-default;
+  transition: opacity $trans-default, box-shadow $trans-default;
   gap: 25px;
 
   @include vp-767 {
@@ -43,11 +43,6 @@
     @include vp-767 {
       width: 29px;
       height: 29px;
-
-      svg {
-        width: 12px;
-        height: 12px;
-      }
     }
   }
 
@@ -55,20 +50,43 @@
     width: 18px;
     height: 18px;
     fill: currentColor;
+    color: $color-background-main;
     z-index: 5;
     justify-content: end;
 
-    svg {
-      display: block;
+    @include vp-767 {
+      width: 14px;
+      height: 14px;
     }
+  }
+
+  &__icon svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    @include vp-767 {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  @include hover-focus {
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+  }
+
+  @include focus {
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+    opacity: 0.8;
+  }
+
+  @include active {
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+    opacity: 0.8;
   }
 
   &:disabled {
     opacity: 0.5;
     pointer-events: none;
-  }
-
-  @include hover-focus {
-    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
   }
 }

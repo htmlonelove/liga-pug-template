@@ -38,10 +38,14 @@
 
   @include vp-767 {
     display: none;
+  }
+}
 
-    &.is-active {
-      display: block;
-    }
+.main-nav__item:nth-child(2) {
+  @include vp-767 {
+    display: block;
+
+    color: $color-links;
   }
 }
 
@@ -51,28 +55,30 @@
   text-align: center;
   color: $color-links;
 
-  transition: color 0.3s ease;
+  transition: color $trans-default, opacity $trans-default;
 
   @include vp-767 {
     font-weight: 600;
     font-size: 14px;
   }
 
-  &:hover,
-  &:focus {
+  @include hover-focus {
     color: $color-accent-main;
+  }
+
+  @include focus {
+    color: $color-accent-main;
+  }
+
+  @include active {
+    color: $color-accent-main;
+    opacity: 0.8;
   }
 }
 
 .main-nav__link.is-active {
   font-weight: 600;
   color: $color-accent-main;
-
-  @include vp-767 {
-    display: block;
-
-    color: $color-links;
-  }
 }
 
 .main-nav__toggle {

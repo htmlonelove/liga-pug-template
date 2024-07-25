@@ -12,6 +12,7 @@ $color-links: #454545;
 $color-title: #181515;
 $color-text: #9e9e9e;
 $color-text-card: #6f6e6e;
+$color-text-slide: #6b6b6b;
 $color-accent-main: #486dd8;
 $color-accent-second: #bababa;
 $color-basic: #ececec;
@@ -20,9 +21,22 @@ $color-border: #eaeaea;
 $color-icon: #678cf8;
 $color-card-background: #f8f7fc;
 $color-card-border: #e3e3e3;
+$color-button-border: #efefef;
+$color-subtitle: #302828;
+$color-text-promo: #252830;
+$color-article-promo: #747474;
+$color-text-active: #97b2fe;
+$color-tab-icon-border: #f0f0f0;
+$color-tab-icon-background: #f8f7fc;
+$color-tab-icon-active: #567ae4;
+$color-tab-icon: #655bd5;
+$color-card-border-promo: #eeeeee;
+$color-border-footer: #504f4f;
 
 // Project palette
 // для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+//background of the cards
 
 $color-carnation-pink: #ff9ebb;
 $color-macaroni-and-cheese: #ffb985;
@@ -30,6 +44,8 @@ $color-maya-blue: #6cb7f2;
 $color-tickle-me-pink: #ff89ad;
 $color-your-pink: #ffccbd;
 $color-blue-maya: #82b4ff;
+
+//the colors of the diagram from the hero block
 
 $color-free-speech-blue: #323be1;
 $color-lavender: #dfe1ff;
@@ -42,12 +58,6 @@ $color-malibu: #54bff9;
 $color-pattens-blue: #cdedff;
 
 // Gradient
-
-$black-to-right: linear-gradient(
-  90deg,
-  rgba(0, 0, 0, 0.75) 0%,
-  rgba(0, 0, 0, 0) 75%
-);
 
 // Typography
 // ---------------------------------
