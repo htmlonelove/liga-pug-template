@@ -1,8 +1,6 @@
 .header {
   position: relative;
-
   padding: 0 80px;
-
   background-color: $color-default-light;
   border-radius: 55px 55px 0 0;
 
@@ -12,26 +10,18 @@
 
   @include vp-1023 {
     padding: 0 40px;
-
     border-radius: 0 0 30px 30px;
+    background-color: $color-transparent;
 
     &.is-open {
-      .header__accordion-list {
-        display: none;
-      }
-
-      .main-nav__wrapper {
-        display: block;
-      }
+      background-color: $color-transparent;
+      height: 100vh;
+      overflow: hidden;
     }
   }
 
   @include vp-767 {
     padding: 0 20px;
-
-    &.is-open {
-      background-color: $color-transparent;
-    }
   }
 
   transition: transform $trans-default;
@@ -110,7 +100,6 @@
 
 .header__accordion-list {
   position: relative;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -126,15 +115,13 @@
     padding-top: 22px;
     padding-bottom: 48px;
     border-radius: 0 0 30px 30px;
+    display: none;
 
-    &:not(.is-open) {
-      .header__accordion-content {
-        display: none;
-      }
-
-      .header__triangle {
-        transform: rotate(0deg);
-      }
+    .header.is-open & {
+      display: block;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 }
@@ -274,8 +261,7 @@
   background-color: $color-default-light;
   border-radius: 30px;
 
-  transition: max-height $trans-default, opacity $trans-default,
-    padding $trans-default;
+  transition: max-height $trans-default, opacity $trans-default;
 
   @include vp-1023 {
     position: static;

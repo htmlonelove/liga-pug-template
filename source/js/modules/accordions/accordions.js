@@ -130,7 +130,7 @@ export class Accordions {
       this._clickedElement = element;
 
       if (this._isDesktop) {
-        this._setDynamicPosition({ currentTarget: element });
+        this._setDynamicPosition({currentTarget: element});
       }
     }
   }
@@ -191,7 +191,7 @@ export class Accordions {
 
     if (this._isDesktop) {
       document.querySelectorAll('[data-accordion="element"].is-active').forEach((element) => {
-        this._setDynamicPosition({ currentTarget: element });
+        this._setDynamicPosition({currentTarget: element});
       });
     } else if (wasDesktop) {
       document.querySelectorAll('[data-accordion="element"]').forEach((element) => {
@@ -252,7 +252,7 @@ export class Accordions {
         content.style.transition = null;
       });
 
-      this._setDynamicPosition({ currentTarget: openElement });
+      this._setDynamicPosition({currentTarget: openElement});
     });
   }
 
@@ -274,7 +274,7 @@ export class Accordions {
     this.updateAccordionsHeight();
 
     openElements.forEach((openElement) => {
-      this._setDynamicPosition({ currentTarget: openElement });
+      this._setDynamicPosition({currentTarget: openElement});
     });
   }
 
@@ -287,7 +287,7 @@ export class Accordions {
     contentElement.style.overflow = 'visible';
 
     if (this._isDesktop) {
-      this._setDynamicPosition({ currentTarget: element });
+      this._setDynamicPosition({currentTarget: element});
     }
 
     requestAnimationFrame(() => {
@@ -308,7 +308,7 @@ export class Accordions {
     }
 
     if (this._isDesktop) {
-      this._setDynamicPosition({ currentTarget: element });
+      this._setDynamicPosition({currentTarget: element});
     }
   }
 
@@ -366,9 +366,9 @@ export class Accordions {
       }
 
       contentElement.addEventListener('transitionend', () => {
-        this._removeDynamicPosition({ currentTarget: element });
+        this._removeDynamicPosition({currentTarget: element});
         contentElement.style.display = ''; // Reset display style
-      }, { once: true });
+      }, {once: true});
     });
   }
 

@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, A11y, Keyboard } from 'swiper/modules';
+import {Navigation, A11y, Keyboard} from 'swiper/modules';
 
 export function initPromoSlider() {
   let promoSlider;

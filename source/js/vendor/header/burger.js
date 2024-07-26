@@ -1,5 +1,5 @@
-import scrollLock from './../../vendor/scroll-lock';
-import {FocusLock} from './../../vendor/focus-lock';
+import scrollLock from './scroll-lock';
+import { FocusLock } from './focus-lock';
 
 export class Burger {
   constructor() {
@@ -8,12 +8,10 @@ export class Burger {
     this._scrollLock = scrollLock;
     this._focusLock = new FocusLock();
     this._isMenuOpen = false;
-    this._isFirstClick = true;
 
     this._onBurgerClick = this._onBurgerClick.bind(this);
     this._onDocumentKeydown = this._onDocumentKeydown.bind(this);
     this._onDocumentClick = this._onDocumentClick.bind(this);
-    this._onResize = this._onResize.bind(this);
   }
 
   init() {
@@ -22,8 +20,6 @@ export class Burger {
     }
 
     this._burger.addEventListener('click', this._onBurgerClick);
-    window.addEventListener('resize', this._onResize);
-    this._onResize();
   }
 
   _openMenu() {
@@ -51,12 +47,6 @@ export class Burger {
   }
 
   _onBurgerClick() {
-    if (this._isFirstClick) {
-      this._header.classList.remove('is-open');
-      this._isFirstClick = false;
-      return;
-    }
-
     if (this._isMenuOpen) {
       this._closeMenu();
     } else {
@@ -75,19 +65,4 @@ export class Burger {
       this._closeMenu();
     }
   }
-
-  _onResize() {
-    if (window.innerWidth <= 1023) {
-      this._header.classList.add('is-open');
-      this._isFirstClick = true;
-    } else {
-      this._header.classList.remove('is-open');
-      this._isFirstClick = false;
-    }
-  }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = new Burger();
-  burger.init();
-});

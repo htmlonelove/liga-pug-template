@@ -1,5 +1,4 @@
 import {initAccordions} from './modules/accordions/init-accordion';
-import {Burger} from './modules/header/burger';
 import {initTrendSlider} from './modules/init-trend-slider';
 import {applySlideOpacity} from './modules/apply-slider-opacity';
 import {initPromoSlider} from './modules/init-promo-slider';
@@ -24,8 +23,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // Load
   // -
   window.addEventListener('load', () => {
-    const burger = new Burger();
-    burger.init();
     initTabs();
   });
 
