@@ -1,0 +1,121 @@
+.slide-promo__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 30px;
+
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  height: auto;
+
+  &.swiper-slide-active {
+    @include vp-767 {
+      transform: scale(1.05);
+    }
+  }
+
+  @include vp-767 {
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+.slide-promo__content {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 425px;
+
+  @include vp-767 {
+    position: relative;
+    max-width: 100%;
+
+    box-shadow: 0 4px 20px 0 rgba(134, 134, 134, 0.06);
+    background: $color-card-background;
+
+    padding: 232px 24px 39px 21px;
+
+    border: 1px solid $color-card-border-promo;
+    border-radius: 34px;
+    overflow: visible;
+  }
+}
+
+.slide-promo__image {
+  margin-bottom: 71px;
+
+  @include vp-767 {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    height: 272px;
+    overflow: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+
+    @include vp-767 {
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      object-position: center top;
+    }
+  }
+}
+
+.slide-promo--user .slide-promo__image {
+  @include vp-767 {
+    top: -77px;
+  }
+}
+
+.slide-promo__content h5 {
+  margin: 0 0 19px;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 36px;
+  color: $color-accent-main;
+  text-shadow: $color-default-light 0 3px 3px;
+
+  padding-left: 23px;
+
+  @include vp-1023 {
+    padding-left: 0;
+    font-size: 24px;
+  }
+
+  @include vp-767 {
+    line-height: 22px;
+    font-size: 18px;
+    margin-bottom: 13px;
+  }
+}
+
+.slide-promo__content p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 162%;
+  color: $color-text-promo;
+  max-width: 350px;
+  text-align: start;
+
+  padding-left: 23px;
+
+  @include vp-1023 {
+    padding-left: 0;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

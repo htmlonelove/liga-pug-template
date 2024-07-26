@@ -1,0 +1,15 @@
+mixin trend()
+  section.trend
+    .trend__background
+      +img("content", "background-hero", "png", 1920, 1781, "")
+    .container
+      .trend__container
+        h2 Выбери направление
+        .trend__slider.swiper
+          .trend__wrapper.swiper-wrapper
+            each slideData, index in slidesData
+              .trend__slide.swiper-slide(class=index === 0 ? 'trend__slide-active' : '')
+                +slide-trend(slideData.title, slideData.icon, slideData.items, slideData.colorClass, slideData.href)
+          .trend__navigation
+            +swiper-nav-button({direction: "prev", baseClass: "trend"})
+            +swiper-nav-button({direction: "next", baseClass: "trend"})

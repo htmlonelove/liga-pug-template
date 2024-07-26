@@ -1,0 +1,160 @@
+.hero {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 54px;
+  overflow: visible;
+
+  @include vp-767 {
+    padding-top: 55px;
+  }
+}
+
+.hero__background {
+  display: none;
+
+  @include vp-767 {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 565px;
+    z-index: -1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+  }
+}
+
+.hero__wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56.25% 43.85%;
+
+  justify-content: space-between;
+  align-items: start;
+
+  @include vp-1023 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero__about {
+  h2 {
+    margin: 0;
+    margin-bottom: 31px;
+    margin-top: 125px;
+    font-weight: 800;
+    font-size: 50px;
+    color: $color-title;
+    line-height: 123%;
+
+    @include vp-1023 {
+      margin-top: 80px;
+    }
+
+    @include vp-767 {
+      font-size: 28px;
+      margin-top: 0;
+      line-height: 122%;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 47px;
+    font-weight: 500;
+    font-size: 16px;
+
+    line-height: 143%;
+    color: $color-text;
+    width: 463px;
+
+    @include vp-767 {
+      margin-bottom: 26px;
+      width: 90%;
+
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .btn {
+    min-height: 78px;
+    min-width: 306px;
+
+    @include vp-767 {
+      min-height: 45px;
+      min-width: 191px;
+    }
+  }
+}
+
+.hero__description {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 761px;
+
+  @include vp-1279 {
+    min-height: 700px;
+  }
+
+  @include vp-1023 {
+    align-items: center;
+  }
+
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.hero__image {
+  position: absolute;
+  top: -73px;
+  left: -53px;
+  width: 578px;
+  height: 646px;
+  z-index: -1;
+
+  @include vp-1279 {
+    width: 45vw;
+    height: auto;
+  }
+
+  @include vp-1023 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include vp-1023 {
+      object-fit: contain;
+      height: auto;
+    }
+  }
+}
+
+.hero__career-card {
+  width: auto;
+  z-index: 2;
+  margin-top: auto;
+}

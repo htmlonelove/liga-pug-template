@@ -1,5 +1,172 @@
 .footer {
-  padding: 40px 0;
+  padding: 80px 0;
+  min-height: 742px;
 
-  background-color: $color-neon-blue;
+  background-color: $color-background-footer;
+
+  color: $color-text-slide;
+
+  @include vp-1023 {
+    padding: 40px 0;
+    min-height: 529px;
+  }
+
+  @include vp-767 {
+    padding: 28px 0;
+    min-height: 529px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 100px;
+
+    @include vp-1023 {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 47px;
+
+    @include vp-1023 {
+      position: relative;
+      gap: 25px;
+      padding-bottom: 28px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 50%;
+        width: 100vw;
+        height: 0.7px;
+        background-color: $color-border-footer;
+
+        transform: translateX(-50vw);
+      }
+    }
+  }
+
+  &__logo {
+    transition: opacity $trans-default;
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+
+    @include focus {
+      opacity: 0.8;
+    }
+
+    @include active {
+      opacity: 0.6;
+    }
+  }
+
+  & p {
+    font-weight: 500;
+    margin: 0;
+    font-size: 20px;
+    padding-left: 7px;
+
+    line-height: 32px;
+
+    @include vp-1023 {
+      padding-left: 0;
+
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}
+
+.footer__navigation {
+  padding-top: 12px;
+
+  display: flex;
+  gap: 73px;
+
+  @include vp-1023 {
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  @include vp-767 {
+    flex-direction: column;
+  }
+
+  & h3 {
+    margin: 0;
+    margin-bottom: 53px;
+
+    font-weight: 500;
+    font-size: 20px;
+
+    line-height: 120%;
+
+    color: $color-background-main;
+
+    @include vp-1023 {
+      margin-bottom: 24px;
+    }
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include vp-1023 {
+      gap: 17px;
+    }
+  }
+
+  & a {
+    padding: 12px 20px 12px 0;
+    font-weight: 400;
+    font-size: 16px;
+
+    line-height: 160%;
+    color: $color-text-slide;
+
+    transition: opacity $trans-default, color $trans-default;
+
+    @include hover-focus {
+      color: $color-background-main;
+    }
+
+    @include focus {
+      color: $color-background-main;
+    }
+
+    @include active {
+      color: $color-background-main;
+      opacity: 0.8;
+    }
+  }
+}
+
+.footer__nav-list {
+  &--direction {
+    @include vp-767 {
+      display: none;
+    }
+  }
+
+  &--info {
+    margin-left: 71px;
+
+    @include vp-1279 {
+      margin-left: 0;
+    }
+
+    @include vp-767 {
+      display: none;
+    }
+  }
 }

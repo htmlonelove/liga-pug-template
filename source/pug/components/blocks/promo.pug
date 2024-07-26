@@ -1,0 +1,15 @@
+mixin promo()
+  section.promo
+    .container
+      .promo__container(data-tabs="parent", data-height="max")
+        h2.visually-hidden Агрегатор курсов по разным направлениям
+        h3.promo__title Агрегируем курсы по самым актуальным темам для новичков и&nbsp;практикующих специалистов.
+        .promo__slider.swiper
+          .promo__wrapper.swiper-wrapper(data-tabs="content")
+            each slide in promoSlides
+              .promo__swiper-slide.slide-promo.swiper-slide
+                +promo-slide(slide)
+          .promo__navigation
+            +swiper-nav-button({direction: "prev", baseClass: "promo"})
+            +swiper-nav-button({direction: "next", baseClass: "promo"})
+        +tabs()

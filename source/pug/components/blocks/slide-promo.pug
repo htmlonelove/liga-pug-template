@@ -1,0 +1,82 @@
+-
+  const promoSlides = [
+    {
+        image: {
+        folder: "content",
+        name: "1-promo",
+        ext: "png",
+        width: 424,
+        height: 383,
+        alt: "Довольный пользователь"
+      },
+      subtitle: "300+ довольных пользователей",
+      description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+      modifier: "user"
+    },
+    {
+        image: {
+        folder: "content",
+        name: "2-promo",
+        ext: "png",
+        width: 425,
+        height: 425,
+        alt: "Мультяшный пользователь-робот с ноутбуком"
+      },
+      subtitle: "1000+ образовательных курсов",
+      description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+      modifier: "course"
+    },
+    {
+        image: {
+        folder: "content",
+        name: "3-promo",
+        ext: "png",
+        width: 425,
+        height: 425,
+        alt: "Мультяшный пользователь с ноутбуком"
+      },
+      subtitle: "300+ довольных пользователей",
+      description: "Дополнительно в этом методе есть кнопка «Объединить по строкам». С помощью неё можно объединить ячейки выбранного диапазона построчно.",
+      modifier: "mentor"
+    }
+  ]
+
+-
+  const tabsPromo = [
+    {
+      title: "Довольные пользователи",
+      icon: "promo-icon-1",
+      iconSize: [27, 27],
+      description: "Изучение тем на вебинарах с преподавателями, наставником. После прохождения курса вы будете"
+    },
+    {
+      title: "Образовательные курсы",
+      icon: "promo-icon-2",
+      iconSize: [21, 21],
+      description: "Изучение тем на вебинарах с преподавателями, наставником. После прохождения курса вы будете"
+    },
+    {
+      title: "Менторы из больших компаний",
+      icon: "promo-icon-3",
+      iconSize: [15, 21],
+      description: "Изучение тем на вебинарах с преподавателями, наставником. После прохождения курса вы будете"
+    }
+  ]
+
+mixin promo-slide(slide)
+  .slide-promo__wrapper.swiper-slide(data-tabs="element", class=`slide-promo--${slide.modifier}`)
+    .slide-promo__content
+      .slide-promo__image
+        +img(slide.image.folder, slide.image.name, slide.image.ext, slide.image.width, slide.image.height, slide.image.alt)
+      h5= slide.subtitle
+      p= slide.description
+
+mixin tabs()
+  .promo__tabs
+    ul.promo__controls.list-reset(data-tabs="controls")
+      each tab, index in tabsPromo
+        li.promo__control(data-tabs="control", data-index=index, tabindex="0")
+          .promo__tabs-img
+            +icon(tab.icon, ...tab.iconSize).promo__tabs-icon
+          h4= tab.title
+          p= tab.description

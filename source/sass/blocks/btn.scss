@@ -1,26 +1,92 @@
 .btn {
   display: inline-flex;
-  padding: 10px 20px;
-
-  color: $color-default-white;
-
-  background-color: $color-neon-blue;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 46px;
+  font-weight: 500;
+  font-size: 16px;
+  color: $color-background-main;
+  background-color: $color-accent-main;
+  line-height: 100%;
   border: none;
   cursor: pointer;
+  border-radius: 20px;
+  transition: opacity $trans-default, box-shadow $trans-default;
+  gap: 25px;
 
-  transition: opacity $trans-default;
+  @include vp-767 {
+    padding: 8px 18px;
 
-  &--red {
-    background-color: $color-torch-red;
+    font-size: 14px;
+    border-radius: 12px;
+
+    gap: 13px;
+  }
+
+  &__text {
+    text-align: right;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    background-color: $color-icon;
+    border-radius: 50%;
+    z-index: 3;
+
+    @include vp-767 {
+      width: 29px;
+      height: 29px;
+    }
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    color: $color-background-main;
+    z-index: 5;
+    justify-content: end;
+
+    @include vp-767 {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &__icon svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+
+    @include vp-767 {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  @include hover-focus {
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+  }
+
+  @include focus {
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+    opacity: 0.8;
+  }
+
+  @include active {
+    box-shadow: 0 20px 40px -10px rgba(72, 109, 216, 0.6);
+    opacity: 0.8;
   }
 
   &:disabled {
     opacity: 0.5;
-
     pointer-events: none;
-  }
-
-  @include hover-focus {
-    opacity: 0.8;
   }
 }

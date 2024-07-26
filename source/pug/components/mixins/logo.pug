@@ -1,0 +1,12 @@
+mixin logo(options = {})
+  - const isIndex = options.currentUrl === "index.html";
+  - const isFooter = options.isFooter || false;
+  - const tag = isFooter || !isIndex ? "a" : "div";
+  - const href = isFooter ? options.currentUrl : (!isIndex ? "index.html" : false);
+  - const ariaLabel = isFooter ? "Переход на текущую страницу" : (!isIndex ? "Переход на главную" : false);
+  - const className = isFooter ? "footer__logo" : "header__logo";
+
+  #{tag}(class=className, href=href, aria-label=ariaLabel)&attributes(attributes)
+    picture
+      source(media="(max-width: 1023px)", srcset=`img/svg/logo-mobile${isFooter ? '-footer' : ''}.svg`, width=isFooter ? "83" : "23", height="27")
+      img(src=`img/svg/logo-desktop${isFooter ? '-footer' : ''}.svg`, alt="Логотип проекта", width=isFooter ? "125" : "118", height=isFooter ? "41" : "39")

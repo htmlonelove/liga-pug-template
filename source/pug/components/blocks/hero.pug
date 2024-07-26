@@ -1,0 +1,16 @@
+mixin hero()
+  section.hero
+    .hero__background
+      +img("content", "background-hero", "png", 1592, 944, "")
+    .container
+      .hero__wrapper
+        .hero__about
+          h2 FindEdu - все для
+            br
+            | выбора новой профессии в&nbsp;одном месте
+          p Изучение тем на&nbsp;вебинарах&nbsp;с преподавателями, личные консультации с&nbsp;наставником. После прохождения курса с&nbsp;наставником. После прохождения курса
+          +btn({text: "Сравнить курсы", hasIcon: true})
+        .hero__description
+          .hero__image
+            +img("content", "hero-man", "png", 578, 646, "")
+          +career-card.hero__career-card

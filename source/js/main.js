@@ -1,8 +1,8 @@
-import {mobileVhFix} from './utils/mobile-vh-fix.js';
-import {initModals} from './modules/modals/init-modals';
-import {Form} from './modules/form-validate/form';
-import {CustomSelect} from './modules/select/custom-select';
-import {uploadFile, uploadImageDrop} from './modules/input-file/init-upload';
+import {initAccordions} from './modules/accordions/init-accordion';
+import {initTrendSlider} from './modules/init-trend-slider';
+import {applySlideOpacity} from './modules/apply-slider-opacity';
+import {initPromoSlider} from './modules/init-promo-slider';
+import {initTabs} from './modules/tabs/init-tabs';
 
 // ---------------------------------
 
@@ -11,23 +11,21 @@ window.addEventListener('DOMContentLoaded', () => {
   // Utils
   // ---------------------------------
 
-  mobileVhFix();
 
   // Modules
   // ---------------------------------
 
-  // все скрипты должны быть в обработчике 'DOMContentLoaded', но не все в 'load'
-  // в load следует добавить скрипты, не участвующие в работе первого экрана
+  initAccordions();
+  initTrendSlider();
+  applySlideOpacity();
+  initPromoSlider();
+
+  // Load
+  // -
   window.addEventListener('load', () => {
-    initModals();
-    uploadFile();
-    uploadImageDrop();
-    const select = new CustomSelect();
-    select.init();
-    const form = new Form();
-    window.form = form;
-    form.init();
+    initTabs();
   });
+
 });
 
 // ---------------------------------

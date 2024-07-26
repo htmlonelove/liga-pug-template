@@ -1,0 +1,405 @@
+.slide-trend {
+  display: block;
+  border-radius: 56px;
+  background-color: $color-default-light;
+
+  transition: background-color 0.3s, color 0.3s;
+  outline: none;
+  cursor: pointer;
+
+  &:hover,
+  &:active,
+  &.is-focused,
+  &.swiper-slide-active {
+    .slide-trend__content {
+      color: $color-default-light;
+    }
+
+    .slide-trend__text {
+      color: $color-default-light;
+    }
+
+    .slide-trend__text svg {
+      fill: $color-default-light;
+    }
+  }
+
+  @mixin color-change($color) {
+    &:hover,
+    &:active,
+    &:focus,
+    &.is-focused,
+    &.swiper-slide-active {
+      background-color: $color;
+    }
+  }
+
+  &--design {
+    @include color-change($color-blue-maya);
+  }
+
+  &--development {
+    @include color-change($color-tickle-me-pink);
+  }
+
+  &--management {
+    @include color-change($color-your-pink);
+  }
+
+  &--analytics {
+    @include color-change($color-carnation-pink);
+  }
+
+  &--marketing {
+    @include color-change($color-macaroni-and-cheese);
+  }
+
+  &--finance {
+    @include color-change($color-maya-blue);
+  }
+
+  @include vp-767 {
+    border-radius: 35px;
+
+    .slide-trend__content {
+      color: $color-default-light;
+    }
+
+    .slide-trend__text {
+      color: $color-default-light;
+    }
+
+    .slide-trend__text svg {
+      fill: $color-default-light;
+    }
+
+    &--design {
+      background-color: $color-blue-maya;
+    }
+
+    &--development {
+      background-color: $color-tickle-me-pink;
+    }
+
+    &--management {
+      background-color: $color-your-pink;
+    }
+
+    &--analytics {
+      background-color: $color-carnation-pink;
+    }
+
+    &--marketing {
+      background-color: $color-macaroni-and-cheese;
+    }
+
+    &--finance {
+      background-color: $color-maya-blue;
+    }
+  }
+}
+
+.slide-trend__content {
+  padding: 72px 10px 89px 37px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 90px;
+  align-items: start;
+  overflow: hidden;
+
+  @include vp-1279 {
+    row-gap: 51px;
+  }
+
+  @include vp-767 {
+    padding: 39px 0 53px 20px;
+  }
+
+  &--design {
+    row-gap: 89px;
+
+    @include vp-1279 {
+      row-gap: 50px;
+    }
+
+    @include vp-767 {
+      row-gap: 42px;
+    }
+  }
+
+  &--development {
+    row-gap: 89px;
+    padding-left: 45px;
+
+    @include vp-1279 {
+      row-gap: 50px;
+    }
+
+    @include vp-767 {
+      row-gap: 42px;
+      padding-right: 0;
+      padding-left: 23px;
+    }
+  }
+
+  &--management {
+    row-gap: 89px;
+    padding-left: 26px;
+
+    @include vp-1279 {
+      row-gap: 50px;
+    }
+
+    @include vp-767 {
+      row-gap: 43px;
+      padding-right: 0;
+      padding-left: 23px;
+    }
+  }
+
+  &--analytics {
+    padding-top: 65px;
+
+    @include vp-767 {
+      padding-top: 39px;
+    }
+  }
+
+  &--marketing {
+    padding-top: 65px;
+    padding-left: 29px;
+
+    @include vp-767 {
+      padding-top: 39px;
+      padding-left: 23px;
+    }
+  }
+
+  &--finance {
+    padding-top: 65px;
+    padding-left: 29px;
+
+    @include vp-767 {
+      padding-top: 39px;
+      padding-left: 23px;
+    }
+  }
+}
+
+.slide-trend__image {
+  position: absolute;
+  left: 27px;
+  top: 52px;
+  display: block;
+
+  width: 78px;
+  height: 74px;
+
+  @include vp-1279 {
+    width: 53px;
+    height: 51px;
+  }
+
+  @include vp-767 {
+    left: 13px;
+    top: 35px;
+  }
+}
+
+.slide-trend__image svg {
+  display: block;
+
+  width: 78px;
+  height: 74px;
+
+  @include vp-1279 {
+    width: 53px;
+    height: 51px;
+  }
+
+  @include vp-767 {
+    width: 53px;
+    height: 51px;
+  }
+}
+
+.slide-trend__content--development .slide-trend__image {
+  left: 25px;
+  top: 59px;
+
+  @include vp-767 {
+    left: 13px;
+    top: 35px;
+  }
+}
+
+.slide-trend__content--management .slide-trend__image {
+  left: 30px;
+  top: 54px;
+
+  @include vp-767 {
+    left: 13px;
+    top: 35px;
+  }
+}
+
+.slide-trend__content--analytics .slide-trend__image {
+  left: 30px;
+  top: 48px;
+
+  @include vp-767 {
+    left: 13px;
+    top: 35px;
+  }
+}
+
+.slide-trend__content--marketing .slide-trend__image {
+  left: 23px;
+  top: 43px;
+
+  @include vp-767 {
+    left: 13px;
+    top: 35px;
+  }
+}
+
+.slide-trend__content--finance .slide-trend__image {
+  left: 29px;
+  top: 44px;
+
+  @include vp-767 {
+    left: 13px;
+    top: 35px;
+  }
+}
+
+.slide-trend__content h3 {
+  margin: 0;
+  padding-left: 83px;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 30px;
+
+  @include vp-1439 {
+    font-size: 23px;
+  }
+
+  @include vp-1279 {
+    font-size: 17px;
+    padding-left: 75px;
+  }
+
+  @include vp-767 {
+    padding-left: 50px;
+  }
+}
+
+.slide-trend__content--design h3 {
+  padding-left: 82px;
+
+  @include vp-767 {
+    padding-left: 50px;
+  }
+}
+
+.slide-trend__content--management h3 {
+  padding-left: 89px;
+
+  @include vp-767 {
+    padding-left: 50px;
+  }
+}
+
+.slide-trend__content--development h3 {
+  padding-left: 70px;
+
+  @include vp-1279 {
+    padding-left: 54px;
+  }
+
+  @include vp-767 {
+    padding-left: 50px;
+  }
+}
+
+.slide-trend__text {
+  color: $color-text-slide;
+}
+
+.slide-trend__text ul {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-top: auto;
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.slide-trend__text li {
+  margin: 0;
+  margin-bottom: 3px;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 160.3%;
+
+  @include vp-1439 {
+    font-size: 16px;
+  }
+
+  @include vp-1279 {
+    font-size: 14px;
+  }
+
+  @include vp-767 {
+    margin-bottom: 0;
+    line-height: 149%;
+  }
+}
+
+.slide-trend__text li:nth-child(3) {
+  @include vp-767 {
+    background: linear-gradient(
+      90deg,
+      $color-default-light 0%,
+      $color-transparent 100%
+    );
+
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+.slide-trend__content-icon {
+  margin: 0 15px 0 17px;
+  fill: $color-text-slide;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include vp-1439 {
+    margin: 0 10px 0 10px;
+  }
+
+  @include vp-767 {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px 0 4px;
+  }
+}
+
+.slide-trend__content-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}

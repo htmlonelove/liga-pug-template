@@ -1,7 +1,7 @@
 extends ../components/base/layout
 
 block variables
-  - const title = "Список страниц"
+  - const title = "FindEdu(sitemap) - список страниц"
 
 block main
   style
@@ -22,7 +22,7 @@ block main
   main
     .sitemap
       .container
-        img(src="https://via.placeholder.com/300x150", width="300", alt="Логотип проекта")
+        img(src="img/content/logo.svg", width="300", alt="Логотип проекта")
         h1 Список страниц
         ol
           each page in pages
@@ -35,6 +35,6 @@ block main
                   ul
                     each item in page.innerList
                       li
-                        a(href= item.src)= item.name
+                        a(href=item.src)= item.name
               else
-                a(href= page.src)= page.name
+                a(href=page.src)= page.name

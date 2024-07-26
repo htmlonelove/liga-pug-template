@@ -10,26 +10,41 @@ html(lang="ru")
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    meta(name="description", content="ProjectName — описание")
-    //- генерируйте favicon тут - https://realfavicongenerator.net/
-    //- в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"
-    //- используйте только для шрифта находящегося на первом экране
-    //- link(rel="preload", href="fonts/placeholder.woff2", as="font", crossorigin="anonymous")
-    //- При необходимости вы можете добавить разметку Open graf. - const Open graf = true
-    if (openGraf)
-      //- Обязательно измените содержание контента на тот что необходим!
-      //- Введите заголовок
-      meta(property="og:title", content="Лига решений")
-      //- Введите заголовок путь к картинке
-      meta(property="og:image", content="https://24fortest.ru/img/content/sharing.png")
-      //- Введите необходимый тип
-      meta(property="og:type", content="article")
-      //- Введите адрес сайта
-      meta(property="og:url", content="https://24fortest.ru/")
-      //- Введите описание
-      meta(property="og:description", content="Простые и понятные решения в помощь разработчикам от команды Лига А")
+    meta(name="description", content="FindEdu - выбор профессии")
 
-    link(rel="stylesheet", href="css/style.min.css")
+    link(rel="preload", href="fonts/inter-Regular.woff2", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/inter-Medium.woff2", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/inter-SemiBold.woff2", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/inter-Bold.woff2", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/inter-ExtraBold.woff2", as="font", crossorigin="anonymous")
+
+    link(rel="preload", href="fonts/gilroy-Regular.woff", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/gilroy-Regular.woff2", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/gilroy-Semibold.woff", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/gilroy-Semibold.woff2", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/gilroy-Bold.woff", as="font", crossorigin="anonymous")
+    link(rel="preload", href="fonts/gilroy-Bold.woff2", as="font", crossorigin="anonymous")
+
+    link(rel="icon", href="favicon.ico")
+    link(rel="apple-touch-icon", sizes="180x180", href="favicon/apple-touch-icon.png")
+    link(rel="icon", type="image/png", sizes="32x32", href="favicon/favicon-32x32.png")
+    link(rel="icon", type="image/png", sizes="16x16", href="favicon/favicon-16x16.png")
+    link(rel="mask-icon", href="favicon/safari-pinned-tab.svg", color="#5bbad5")
+    meta(name="msapplication-TileColor", content="#ffffff")
+    meta(name="theme-color", content="#ffffff")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style", content="black")
+    link(rel="manifest.json", href="site.webmanifest", crossorigin="use-credentials")
+
+  //- При необходимости вы можете добавить разметку Open graf. - const Open graf = true
+  if (openGraf)
+    meta(property="og:title", content="FindEdu: выбор профессии")
+    meta(property="og:image", content="img/content/sharing.png")
+    meta(property="og:type", content="website")
+    meta(property="og:url", content="#")
+    meta(property="og:description", content="FindEdu - все для выбора новой профессии в одном месте")
+
+  link(rel="stylesheet", href="css/style.min.css")
 
   body
     .wrapper(class=wrapperMods)

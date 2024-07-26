@@ -2,8 +2,9 @@
 // ---------------------------------
 
 @import "vendor/normalize";
-// Swiper 7.4.1
-// @import "vendor/swiper";
+
+// Swiper 8.4.7
+@import "vendor/swiper";
 
 // Global
 // ---------------------------------
@@ -19,15 +20,19 @@
 // Blocks
 // ---------------------------------
 
+@import "blocks/btn";
+@import "blocks/swiper-nav-button";
+@import "blocks/data-tabs";
+@import "blocks/data-accordion";
 @import "blocks/header";
 @import "blocks/main-nav";
+@import "blocks/hero";
+@import "blocks/career-card";
+@import "blocks/trend";
+@import "blocks/slide-trend";
+@import "blocks/promo";
+@import "blocks/slide-promo";
 @import "blocks/footer";
-@import "blocks/modal";
-@import "blocks/btn";
-@import "blocks/custom-input";
-@import "blocks/custom-toggle";
-@import "blocks/custom-select";
-@import "blocks/input-upload";
 
 // ---------------------------------
 
